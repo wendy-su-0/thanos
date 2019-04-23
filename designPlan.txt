@@ -1,0 +1,42 @@
+Classes
+- ThanosGameRunner
+- ThanosGame
+- Enemies
+- Defense
+- GameLevel
+- Menu
+- Projectile
+
+ThanosGameRunner
+  data
+  methods
+
+ThanosGame
+  data
+  methods
+
+Enemies
+  data
+  - 
+  methods
+  - consturctor
+  - boolean isHit()
+  - draw(Graphics g)
+  - move()
+  
+Defense
+  data
+  methods
+
+GameLevel
+  data
+  methods
+
+Menu
+  data
+  methods
+  
+Projectile
+  data
+  methods
+
