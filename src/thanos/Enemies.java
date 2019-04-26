@@ -1,13 +1,16 @@
 package thanos;
 
 import java.awt.Graphics;
+import java.awt.Image;
 
 public class Enemies extends GameObject {
 	
 	private int startX, startY, health, speed;
 	private boolean isDead = false;
+	private Image image;
 	
-	public Enemies(int x, int y, int h, int s) {
+	public Enemies(int x, int y, int h, int s, Image i) {
+		super(x, y, i);
 		startX = x;
 		startY = y;
 		health = h;
