@@ -2,10 +2,10 @@ package thanos;
 
 import java.awt.Graphics;
 
-public class Enemies {
+public class Enemies extends GameObject {
 	
 	private int startX, startY, health, speed;
-	private double sheit;
+	private boolean isDead = false;
 	
 	public Enemies(int x, int y, int h, int s) {
 		startX = x;
