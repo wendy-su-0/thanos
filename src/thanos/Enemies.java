@@ -5,6 +5,7 @@ import java.awt.Graphics;
 public class Enemies {
 	
 	private int startX, startY, health, speed;
+	private double shit;
 	
 	public Enemies(int x, int y, int h, int s) {
 		startX = x;
