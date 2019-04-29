@@ -5,7 +5,7 @@ import java.awt.Image;
 
 public class GameObject {
 	int locx, locy;
-	Image image;
+	private Image img;
 	int width, height;
 	
 	public GameObject(int x, int y, Image i) {
