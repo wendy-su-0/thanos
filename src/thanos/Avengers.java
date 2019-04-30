@@ -1,4 +1,7 @@
-package thanos;
+
+import kareltherobot.*;
+import kareltherobot.Robot;
+import thanos.GameObject;
 
 import java.awt.*;
 
@@ -14,9 +17,15 @@ public class Avengers extends GameObject{
 	private void draw(Graphics g) {
 		g.drawImage(img, x , y, 50, 50, null);
 	}
-	private int findX() {
-		return 
-		
+	private int findX(Robot r) {
+		return r.avenue();
+	}
+	private int findY(Robot r) {
+		return r.street();
+	}
+	private void setLoc(int X, int Y) {
+		x = X;
+		y = Y;
 	}
 
 }
