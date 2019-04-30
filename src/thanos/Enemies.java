@@ -3,8 +3,11 @@ package thanos;
 import java.awt.Graphics;
 import java.awt.Image;
 
+import javafx.scene.shape.Circle;
+
 public class Enemies extends GameObject {
 	
+	private Circle hitbox;
 	private int startX, startY, health, speed;
 	private int x,y;
 	private boolean isDead = false;
@@ -16,6 +19,8 @@ public class Enemies extends GameObject {
 		startY = y;
 		health = h;
 		speed = s;
+		hitbox.setCenterX(startX);
+		hitbox.setCenterY(startY);
 	}
 	
 	private boolean isHit() {
@@ -24,7 +29,7 @@ public class Enemies extends GameObject {
 	}
 	
 	public void draw(Graphics g) {
-		g.
+		g.drawImage(image, startX, startY, null);
 	}
 	
 	private void move() {
