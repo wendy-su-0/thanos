@@ -1,6 +1,7 @@
 package thanos;
 
 import java.awt.Graphics;
+import kareltherobot.*;
 import java.awt.Image;
 
 import javafx.scene.shape.Circle;
@@ -20,6 +21,7 @@ public class Enemies extends GameObject {
 		health = h;
 		speed = s;
 		hitbox.setCenterX(startX);
+		
 		hitbox.setCenterY(startY);
 	}
 	
