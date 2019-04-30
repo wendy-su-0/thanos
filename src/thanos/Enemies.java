@@ -19,6 +19,8 @@ public class Enemies extends GameObject {
 		startY = y;
 		health = h;
 		speed = s;
+		hitbox.setCenterX(startX);
+		hitbox.setCenterY(startY);
 	}
 	
 	private boolean isHit() {
