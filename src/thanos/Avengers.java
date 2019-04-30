@@ -3,6 +3,7 @@ package thanos;
 import java.awt.*;
 
 public class Avengers extends GameObject{
+	private int x, y;
 	private int v;
 	private Image img;
 
@@ -11,9 +12,10 @@ public class Avengers extends GameObject{
 		v = vel;
 	}
 	private void draw(Graphics g) {
-		g.
+		g.drawImage(img, x , y, 50, 50, null);
 	}
-	private int findX(Robot r) {
+	private int findX() {
+		return 
 		
 	}
 

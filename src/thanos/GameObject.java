@@ -13,7 +13,7 @@ public class GameObject {
 	}
 	
 	
-	public void draw(Graphics g) {
+	private void draw(Graphics g) {
 		
 	}
 }
