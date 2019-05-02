@@ -27,10 +27,10 @@ public class GameObject implements Directions{
 		return img;
 	}
 	
-	public GameObject(int x, int y, Image i) {
+	public GameObject(int x, int y, Image image) {
 		locx = x;
 		locy = y;
-		image = i;
+		img = image;
 	}
 	
 	
