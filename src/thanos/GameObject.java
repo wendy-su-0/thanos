@@ -70,8 +70,8 @@ public class GameObject implements Directions{
 		rect.translate(dx, dy);
 	}
 	
-	public Image returnImg (Image img) {
-		return img;
+	public Image returnImg (Image im) {
+		return im;
 	}
 
 	
