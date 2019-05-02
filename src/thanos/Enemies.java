@@ -17,7 +17,7 @@ public class Enemies extends GameObject {
 	private Image image;
 	Robot r;
 	
-	enum Direction {
+	enum Dir {
 		North, East, West, South;
 	}
 	
@@ -27,8 +27,8 @@ public class Enemies extends GameObject {
 		startY = y;
 		health = h;
 		speed = s;
-		
-		r = new Robot(startX, startY, start, 100);
+		direction = d;
+		r = new Robot(startX, startY, d, 100);
 	}
 	
 	private boolean isHit() {
@@ -45,8 +45,7 @@ public class Enemies extends GameObject {
 			r.move();
 		}
 		switch(direction) {
-		default:
-			break;
+		
 		
 		}
 	}
