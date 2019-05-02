@@ -1,9 +1,5 @@
-<<<<<<< Upstream, based on branch 'master' of https://github.com/wsu315/thanos
-
 package thanos;
-=======
-//package thanos;
->>>>>>> 78f8a16 sdklf
+
 
 import java.awt.Graphics;
 import java.awt.Image;
