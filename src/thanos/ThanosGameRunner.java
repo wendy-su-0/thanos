@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-package thanos;
 
-public class ThanosGameRunner {
-	
-}
-=======
+
 package thanos;
 import java.awt.*;
 import java.awt.Dimension;
@@ -174,4 +169,4 @@ public class ThanosGameRunner {
 	}
 
 }
->>>>>>> branch 'master' of https://github.com/wsu315/thanos.git
+
