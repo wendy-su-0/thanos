@@ -1,8 +1,15 @@
+<<<<<<< Upstream, based on branch 'master' of https://github.com/wsu315/thanos
 
 package thanos;
+=======
+//package thanos;
+>>>>>>> 78f8a16 sdklf
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.Rectangle;
+
+import kareltherobot.Directions;
 
 public class GameObject implements Directions{
 	
@@ -14,6 +21,7 @@ public class GameObject implements Directions{
 	int width, height;
 	private Rectangle rect;
 	
+	/*
 	protected  Image getImage(String fn) {
 		Image img = null;
 		fn = PATH_PREFIX+fn;
@@ -27,6 +35,7 @@ public class GameObject implements Directions{
 		}
 		return img;
 	}
+	*/
 	
 	public GameObject(int x, int y, Image image) {
 		locx = x;
@@ -57,17 +66,6 @@ public class GameObject implements Directions{
 		return this.rect.intersection(go.getRect());
 	}
 
-	public boolean mostlyOverlapping(GameObject go) {
-		Rectangle over = collisionRect(go);
-		if(over.isEmpty()) {
-			return false;
-		}
-		double thisArea = area(this.rect), 
-				goArea = area(go.rect),
-				overArea = area(over);
-		return overArea > Math.min(thisArea, goArea)*OVERLAP_THRESHOLD;
-	}
-	
 	public Rectangle getRect() {
 		return this.rect;
 	}
