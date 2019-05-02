@@ -3,7 +3,7 @@ package thanos;
 import java.awt.Graphics;
 import java.awt.Image;
 
-public class GameObject {
+public class GameObject implements Directions{
 	
 	private static final double HIT_THRESHOLD = .1;
 	public final static String PATH_PREFIX = "res/images/";
@@ -11,7 +11,7 @@ public class GameObject {
 	int locx, locy;
 	private Image img;
 	int width, height;
-	private Circle circle;
+	private Rectangle rect;
 	
 	protected  Image getImage(String fn) {
 		Image img = null;
