@@ -9,6 +9,7 @@ public class Avengers extends GameObject{
 	private int x, y;
 	private int v;
 	private Image img;
+	public Projectile p;
 
 	public Avengers(int x, int y, int vel, Image i) {
 		super(x, y, i);
