@@ -44,7 +44,7 @@ public class Projectile {
 		return overArea > Math.min(thisArea, goArea)*OVERLAP_THRESHOLD;
 	}
 	
-	public Rectangle getRect() {
+	public Rectangle etRect() {
 		return this.rect;
 	}
 	
