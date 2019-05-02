@@ -8,8 +8,11 @@ public class GameObject {
 	private Image img;
 	int width, height;
 	
+	
 	public GameObject(int x, int y, Image i) {
-		
+		locx = x;
+		locy = y;
+		image = i;
 	}
 	
 	

@@ -1,6 +1,7 @@
 package thanos;
 
 import java.awt.Graphics;
+import kareltherobot.*;
 import java.awt.Image;
 
 import javafx.scene.shape.Circle;
