@@ -17,7 +17,7 @@ public class Projectile {
 	
 	public void hit() {
 		//mostly overlapping
-		hitEnemy = !hitEnemy;
+		hitEnemy = hitEnemy;
 	}
 	
 
