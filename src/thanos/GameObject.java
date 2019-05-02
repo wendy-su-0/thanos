@@ -4,10 +4,28 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 public class GameObject {
+	
+	private static final double HIT_THRESHOLD = .1;
+	public final static String PATH_PREFIX = "res/images/";
+	
 	int locx, locy;
 	private Image img;
 	int width, height;
+	private Circle circle;
 	
+	protected  Image getImage(String fn) {
+		Image img = null;
+		fn = PATH_PREFIX+fn;
+		try {
+			
+			img = ImageIO.read(this.getClass().getResource(fn));
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return img;
+	}
 	
 	public GameObject(int x, int y, Image i) {
 		locx = x;
@@ -19,4 +37,47 @@ public class GameObject {
 	private void draw(Graphics g) {
 		
 	}
+	
+	public static double area(Rectangle rect) {
+		return rect.width*rect.height;
+	}
+	
+	public boolean hit(GameObject go) {
+		Rectangle over = collisionRect(go);
+		if(over.isEmpty())
+			return false;
+		double thisArea = area(rect), 
+				goArea = area(go.getRect()),
+				overArea = area(over);
+		return overArea > Math.min(thisArea, goArea)*HIT_THRESHOLD;
+	}
+	
+	public Rectangle collisionRect(GameObject go) {
+		return this.rect.intersection(go.getRect());
+	}
+
+	public boolean mostlyOverlapping(GameObject go) {
+		Rectangle over = collisionRect(go);
+		if(over.isEmpty()) {
+			return false;
+		}
+		double thisArea = area(this.rect), 
+				goArea = area(go.rect),
+				overArea = area(over);
+		return overArea > Math.min(thisArea, goArea)*OVERLAP_THRESHOLD;
+	}
+	
+	public Rectangle getRect() {
+		return this.rect;
+	}
+	
+	public void move(int dx, int dy) {
+		rect.translate(dx, dy);
+	}
+	
+	public Image returnImg (Image img) {
+		return img;
+	}
+
+	
 }
