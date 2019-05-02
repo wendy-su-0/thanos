@@ -1,4 +1,4 @@
-
+package thanos;
 import kareltherobot.*;
 import java.awt.*;
 import java.lang.*;
