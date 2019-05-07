@@ -17,18 +17,16 @@ public class Enemies extends GameObject {
 	private Image image;
 	Robot r;
 	
-	enum Dir {
-		North, East, West, South;
-	}
 	
-	public Enemies(int x, int y, int h, int s, Image i, Direction d) {
+	
+	public Enemies(int x, int y, int h, int s, Image i) {
 		super(x, y, i);
 		startX = x;
 		startY = y;
 		health = h;
 		speed = s;
-		direction = d;
-		r = new Robot(startX, startY, d, 100);
+		direction = East;
+		r = new Robot(startX, startY, direction, 100);
 	}
 	
 	private boolean isHit() {
@@ -41,13 +39,14 @@ public class Enemies extends GameObject {
 	}
 	
 	private void move() {
-		if(r.frontIsClear()) {
-			r.move();
+		r.turnLeft();
+		direction = r.direction();
+		if(direction != East) {
+			if(r.frontIsClear()) {
+				r.move();
+			}
 		}
-		switch(direction) {
 		
-		
-		}
 	}
 
 }
