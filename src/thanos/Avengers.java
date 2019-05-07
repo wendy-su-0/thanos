@@ -27,13 +27,16 @@ public class Avengers extends GameObject{
 	}
 
 	public Avengers(int x, int y, int vel, String str) {
-		super(x, y, i);
+		super(x, y, img);
 		v = vel;
 		img = this.getImage(str);
+		
 	}
 	public void draw(Graphics g) {
 		g.drawImage(img, x , y, 50, 50, null);
+		
 	}
+
 	private int findX(Robot r) {
 		return r.avenue();
 	}
@@ -44,7 +47,7 @@ public class Avengers extends GameObject{
 		x = X;
 		y = Y;
 	}
-	private void setVars(Robot r) {
+	public void setVars(Robot r) {
 		int xDis = this.findX(r)-this.x;
 		int yDis = this.findX(r)-this.y;
 		int Dis = Math.abs(xDis*xDis + yDis*yDis);

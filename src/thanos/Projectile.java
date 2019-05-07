@@ -11,8 +11,10 @@ public class Projectile {
 			
 	}
 	
-	public move() {
+	public move(Avengers a, Enemies e) {
+		a.setVars(e.r());
 		//dy.dx straight
+		
 	}
 	
 	public void hit() {
