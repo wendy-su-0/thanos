@@ -1,14 +1,19 @@
 package thanos;
 
+import java.awt.Image;
+import java.awt.Rectangle;
+
 public class Projectile {
-	
-	int startX, startY, finishX, finishY, strength;
+	public static final int Width = 20, Height = 20;
+	int startX, startY, finishX, finishY, strength, currentX, currentY;
 	boolean hitEnemy = false;
 	private Rectangle hitbox;
 	private Image image;
 	
+
+	
 	public Projectile() {
-			
+			hitbox = new Rectangle(currentX, currentY, Width, Height); 	 	
 	}
 	
 	public move(Avengers a, Enemies e) {
@@ -22,6 +27,9 @@ public class Projectile {
 		hitEnemy = !hitEnemy;
 	}
 	
+	public Rectangle getHitBox() {
+		return hitbox;
+	}
 
 	
 }
