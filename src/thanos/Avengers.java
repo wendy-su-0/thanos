@@ -15,7 +15,7 @@ public class Avengers extends GameObject{
 	private int x, y;
 	private int v;
 	private int vX, vY;
-	private Image img;
+	private static Image img;
 	public Projectile p;
 	
 	private Image getImage(String imgName) {
