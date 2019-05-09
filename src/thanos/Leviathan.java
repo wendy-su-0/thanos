@@ -9,4 +9,7 @@ public class Leviathan extends Enemies{
 		
 	}
 	
+	public void dead() {
+		
+	}
 }
