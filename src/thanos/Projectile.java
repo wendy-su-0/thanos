@@ -27,7 +27,7 @@ public class Projectile extends GameObject {
 		return hitbox;
 	}
 	
-	public int getStrength() {
+	public int getStrengt() {
 		return strength;
 	}
 	
