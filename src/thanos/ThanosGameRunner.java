@@ -53,7 +53,7 @@ public class ThanosGameRunner {
 	}
 
 	private void start() {
-		JFrame frame = new JFrame("AngryMom");
+		JFrame frame = new JFrame("ThanosGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		panel = new JPanel() {
 			@Override
