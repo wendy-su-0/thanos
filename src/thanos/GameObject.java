@@ -40,8 +40,8 @@ public class GameObject implements Directions{
 	}
 	
 	
-	private void draw(Graphics g) {
-		
+	public void draw(Graphics g) {
+		g.drawImage(img,locx, locy, 100,100, null);
 	}
 	
 	public static double area(Rectangle rect) {

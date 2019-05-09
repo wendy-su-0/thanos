@@ -1,5 +1,7 @@
 package thanos;
 import kareltherobot.*;
+import kareltherobot.Robot;
+
 import java.awt.*;
 import java.lang.*;
 import thanos.GameObject;
