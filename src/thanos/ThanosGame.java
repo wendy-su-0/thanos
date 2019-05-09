@@ -6,8 +6,10 @@ import java.util.*;
 public class ThanosGame {
 	public List<GameObject> gos;
 	Avengers avenger;
+	Avengers avenger2;
 	public ThanosGame() {
 		 avenger = new Avengers(2,2,2,"");
+		 avenger2 = new Avengers(2,2,2,"");
 		 gos.add(avenger);
 	}
 	
