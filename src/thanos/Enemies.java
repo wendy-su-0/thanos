@@ -16,7 +16,7 @@ public class Enemies extends GameObject {
 	private boolean isDead = false;
 	private Image image;
 	Robot r;
-	Projectile p = new Projectile();
+	
 
 
 
@@ -30,12 +30,20 @@ public class Enemies extends GameObject {
 		r = new Robot(startX, startY, direction, 100);
 	}
 
-	private boolean isHit() {
+	private void isHit(Projectile p) {
 		if(p.getHitBox().contains(hitbox)) {
-			return true;
+			health -= p.getStrengt();
 		}
-		return false;
+		if(health<=0) {
+			destroy();
+		}
 	}
+	
+	private void destroy() {
+		image = null;
+		
+	}
+
 	public void draw(Graphics g) {
 		g.drawImage(image, startX, startY, null);
 	}

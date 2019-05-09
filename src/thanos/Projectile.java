@@ -3,24 +3,20 @@ package thanos;
 import java.awt.Image;
 import java.awt.Rectangle;
 
-public class Projectile {
+public class Projectile extends GameObject {
+	
 	public static final int Width = 20, Height = 20;
 	int startX, startY, finishX, finishY, strength, currentX, currentY;
 	boolean hitEnemy = false;
 	private Rectangle hitbox;
 	private Image image;
 	
-
-	
-	public Projectile() {
-			hitbox = new Rectangle(currentX, currentY, Width, Height); 	 	
+	public Projectile(int x, int y, Image image) {
+		super(x, y, image);
+		startX = x;
+		startY = y;
 	}
 	
-	public move(Avengers a, Enemies e) {
-		a.setVars(e.r());
-		//dy.dx straight
-		
-	}
 	
 	public void hit() {
 		//mostly overlapping
@@ -30,6 +26,9 @@ public class Projectile {
 	public Rectangle getHitBox() {
 		return hitbox;
 	}
-
+	
+	public int getStrengt() {
+		return strength;
+	}
 	
 }
