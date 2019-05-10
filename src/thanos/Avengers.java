@@ -21,7 +21,7 @@ public class Avengers extends GameObject{
 	public Projectile p;
 	private Circle range;
 
-	private Image getImage(String imgName) {
+	protected Image getImage(String imgName) {
 		try {
 			img = ImageIO.read(this.getClass().getResource(imgName));
 
