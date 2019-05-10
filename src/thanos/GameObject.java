@@ -4,6 +4,9 @@ package thanos;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 
 import kareltherobot.Directions;
 
@@ -12,12 +15,23 @@ public class GameObject implements Directions{
 	private static final double HIT_THRESHOLD = .1;
 	public final static String PATH_PREFIX = "res/images/";
 	
-	int locx, locy;
+	int locX, locY;
 	private Image img;
 	int width, height;
 	private Rectangle rect;
 	
-	/*
+	public GameObject(int x, int y, Image image) {
+		locX = x;
+		locY = y;
+		img = image;
+	}
+	
+	public GameObject(int x, int y, String str) {
+		locX = x;
+		locY= y;
+		img = getImage(str);
+	}
+	
 	protected  Image getImage(String fn) {
 		Image img = null;
 		fn = PATH_PREFIX+fn;
@@ -30,13 +44,6 @@ public class GameObject implements Directions{
 			e.printStackTrace();
 		}
 		return img;
-	}
-	*/
-	
-	public GameObject(int x, int y, Image image) {
-		locx = x;
-		locy = y;
-		img = image;
 	}
 	
 	
