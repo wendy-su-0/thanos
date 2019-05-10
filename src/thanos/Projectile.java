@@ -18,7 +18,7 @@ public class Projectile extends GameObject {
 	}
 	
 	
-	public void hit() {
+	public void hitsEnemy() {
 		//mostly overlapping
 		hitEnemy = !hitEnemy;
 	}
