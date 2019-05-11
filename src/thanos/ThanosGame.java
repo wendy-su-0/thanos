@@ -4,12 +4,17 @@ import java.awt.Graphics;
 import java.util.*;
 
 public class ThanosGame {
-	public List<GameObject> gos;
-	Avengers avenger;
-	Avengers avenger2;
+	public List<GameObject> gos = new ArrayList<>();
+	public IronMan im1;
+	public CaptainAmerica ca1;
 	public ThanosGame() {
-		
+
+		im1 = new IronMan(500,500);
+		ca1 = new CaptainAmerica(400,200);
+		gos.add(im1);
+		gos.add(ca1);
 	}
+	
 	
 	public void draw(Graphics g) {
 		for(GameObject o: gos) {

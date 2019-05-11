@@ -166,6 +166,7 @@ public class ThanosGameRunner {
 	}
 	protected void drawGame(Graphics g) {
 		g.drawLine(130, 500, r, c);
+		game.draw(g);
 		//game.draw(g);
 	}
 

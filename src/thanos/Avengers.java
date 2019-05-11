@@ -45,7 +45,7 @@ public class Avengers extends GameObject{
 	}
 	
 	public void draw(Graphics g) {
-		g.drawImage(img, x , y, 50, 50, null);
+		g.drawImage(img, locX , locY, 100, 100, null);
 
 	}
 
@@ -58,8 +58,8 @@ public class Avengers extends GameObject{
 	}
 
 	private void setLoc(int X, int Y) {
-		x = X;
-		y = Y;
+		locX = X;
+		locY = Y;
 	}
 	/*
 	 * 
@@ -75,8 +75,8 @@ public class Avengers extends GameObject{
 	*/
 
 	public void setVars(Robot r) {
-		int xDis = this.findX(r)-this.x;
-		int yDis = this.findX(r)-this.y;
+		int xDis = this.findX(r)-this.locX;
+		int yDis = this.findX(r)-this.locY;
 		int Dis = Math.abs(xDis*xDis + yDis*yDis);
 		vX = v*xDis/Dis;
 		vY = v*yDis/Dis;
