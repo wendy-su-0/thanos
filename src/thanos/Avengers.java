@@ -31,17 +31,14 @@ public class Avengers extends GameObject{
 		return img;
 	}
 
-	public Avengers(int x, int y, int vel, String str) {
+	public Avengers(int x, int y, int vel, int r, String str) {
 		super(x, y, img);
 		v = vel;
 		img = this.getImage(str);
-	}
-	
-	public Avengers(int x, int y, int vel, String str, Circle circ) {
-		super(x, y, img);
-		v = vel;
-		img = this.getImage(str);
-		range = circ;
+		range = new Circle();
+		range.setCenterX(x);
+		range.setCenterY(y);
+		range.setRadius(r);
 	}
 	
 	public void draw(Graphics g) {
