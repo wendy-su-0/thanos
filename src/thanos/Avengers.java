@@ -48,14 +48,26 @@ public class Avengers extends GameObject{
 		g.drawImage(img, locX , locY, 100, 100, null);
 
 	}
-
-	private int findX(Robot r) {
-		return r.avenue();
+	
+	//not done
+	private boolean isInCirc(Enemies e) {
+		//if enemy xyloc is in circle return true
+		return false;
+	}
+	
+	//not done
+	private void shoot(Enemies e) {
+		//
+		Projectile p = new Projectile(x,y,null);
+	}
+	
+	//the process the avenger every time each time elapsed = speed;
+	public void process() {
+		//for each enemies in enemy list check isInCirc;
+		//if (isInCirc) shoot;
+		
 	}
 
-	private int findY(Robot r) {
-		return r.street();
-	}
 
 	private void setLoc(int X, int Y) {
 		locX = X;
@@ -74,12 +86,12 @@ public class Avengers extends GameObject{
 	}
 	*/
 
-	public void setVars(Robot r) {
-		int xDis = this.findX(r)-this.locX;
-		int yDis = this.findX(r)-this.locY;
-		int Dis = Math.abs(xDis*xDis + yDis*yDis);
-		vX = v*xDis/Dis;
-		vY = v*yDis/Dis;
+	public void setVelocityXY(Enemies e) {
+		int xDis = e.getX()-this.locX;
+		int yDis = e.getY()-this.locY;
+		int dis = Math.abs(xDis*xDis + yDis*yDis);
+		vX = v*xDis/dis;
+		vY = v*yDis/dis;
 
 	}
 
