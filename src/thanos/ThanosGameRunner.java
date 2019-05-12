@@ -22,6 +22,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import kareltherobot.*;
+
 
 public class ThanosGameRunner {
 	private JPanel panel;
@@ -56,6 +58,9 @@ public class ThanosGameRunner {
 	private void start() {
 		JFrame frame = new JFrame("ThanosGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		World.setVisible(true);
+		
 		panel = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
@@ -64,6 +69,7 @@ public class ThanosGameRunner {
 			}
 		};
 		// random color to the background
+		panel.setVisible(false);
 		panel.setBackground(new Color(255, 182, 193));
 		panel.addMouseListener(new MouseAdapter() {
 			@Override
@@ -169,5 +175,6 @@ public class ThanosGameRunner {
 		game.draw(g);
 		//game.draw(g);
 	}
+	
 
 }
