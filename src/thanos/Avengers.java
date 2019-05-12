@@ -58,19 +58,18 @@ public class Avengers extends GameObject{
 	private void shoot(Enemies e) {
 		//return int?
 		Projectile p = new Projectile(x,y,null);
+		p.finishX = e.getX();
+		p.finishY = e.getY();
 	}
 	
 	//the process the avenger every time each time elapsed = speed;
 	public void process(ThanosGame g) {
-		//for each enemies in enemy list check isInCirc;
-		
 		for (int i = 0; i < g.enemies.size() ; i++) {
 			if(this.isInCirc(g.enemies.get(i))) {
 				shoot(g.enemies.get(i));
 				break;
 			}
 		}
-		//if (isInCirc) shoot;
 		
 	}
 
