@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import javafx.scene.shape.Circle;
 import kareltherobot.Directions;
 
 public class GameObject implements Directions{
@@ -68,6 +69,7 @@ public class GameObject implements Directions{
 	public Rectangle collisionRect(GameObject go) {
 		return this.rect.intersection(go.getRect());
 	}
+	
 
 	public Rectangle getRect() {
 		return this.rect;
