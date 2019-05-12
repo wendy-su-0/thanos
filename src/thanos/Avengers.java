@@ -49,6 +49,8 @@ public class Avengers extends GameObject{
 	//not done
 	private boolean isInCirc(Enemies e) {
 		//if enemy xyloc is in circle return true
+		if (range.contains(e.getX(), e.getY()))
+			return true;
 		return false;
 	}
 	
@@ -59,8 +61,15 @@ public class Avengers extends GameObject{
 	}
 	
 	//the process the avenger every time each time elapsed = speed;
-	public void process() {
+	public void process(ThanosGame g) {
 		//for each enemies in enemy list check isInCirc;
+		
+		for (int i = 0; i < g.enemies.size() ; i++) {
+			if(this.isInCirc(g.enemies.get(i))) {
+				shoot(g.enemies.get(i));
+				break;
+			}
+		}
 		//if (isInCirc) shoot;
 		
 	}
