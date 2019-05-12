@@ -54,7 +54,7 @@ public class Avengers extends GameObject{
 	
 	//not done
 	private void shoot(Enemies e) {
-		//
+		//return int?
 		Projectile p = new Projectile(x,y,null);
 	}
 	
