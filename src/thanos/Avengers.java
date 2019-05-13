@@ -4,6 +4,8 @@ import kareltherobot.Robot;
 
 import java.awt.*;
 import java.lang.*;
+import java.util.ArrayList;
+
 import thanos.GameObject;
 import thanos.Projectile;
 import java.awt.*;
@@ -16,10 +18,11 @@ import javafx.scene.shape.Circle;
 public class Avengers extends GameObject{
 	private int x, y;
 	private int v;
+	private int refresh;
 	private int vX, vY;
 	private static Image img;
-	public Projectile p;
 	private Circle range;
+	private ArrayList<Projectile> firedProjectiles = new ArrayList<Projectile>();
 
 	protected Image getImage(String imgName) {
 		try {
@@ -41,6 +44,18 @@ public class Avengers extends GameObject{
 		range.setRadius(r);
 	}
 	
+	public Avengers(int x, int y, int vel, int r, int ref, String str) {
+		super(x, y, img);
+		v = vel;
+		refresh = ref;
+		img = this.getImage(str);
+		range = new Circle();
+		range.setCenterX(x);
+		range.setCenterY(y);
+		range.setRadius(r);
+	}
+	
+	
 	public void draw(Graphics g) {
 		g.drawImage(img, locX , locY, 100, 100, null);
 
@@ -60,10 +75,14 @@ public class Avengers extends GameObject{
 		Projectile p = new Projectile(x,y,null);
 		p.finishX = e.getX();
 		p.finishY = e.getY();
+		firedProjectiles.add(p);
+		p.launch();
 	}
 	
 	//the process the avenger every time each time elapsed = speed;
 	public void process(ThanosGame g) {
+		//mod timer % refresh
+		//the mod goes outside the process. i think it goes int the game runner?
 		for (int i = 0; i < g.enemies.size() ; i++) {
 			if(this.isInCirc(g.enemies.get(i))) {
 				shoot(g.enemies.get(i));
