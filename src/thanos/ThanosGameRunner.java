@@ -2,18 +2,16 @@
 package thanos;
 
 
-
 import java.awt.*;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import kareltherobot.*;
@@ -26,6 +24,9 @@ public class ThanosGameRunner {
 	private int ticks;
 	private int r;
 	private int c;
+	private Image img = getImage();
+
+
 	
 	// Notice this intuitive method for finding the screen size 
 	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -45,9 +46,22 @@ public class ThanosGameRunner {
 		});
 	}
 
+	private Image getImage(
+			) {
+		try {
+			
+			img = ImageIO.read(this.getClass().getResource("avenger.jpg"));
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return img;
+		
+	}
+
 	public static void main(String[] args) {
 		ThanosGameRunner s = new ThanosGameRunner();
-		s.getInfo();
 	}
 
 	private void start() {
@@ -57,17 +71,18 @@ public class ThanosGameRunner {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
+				g.drawImage(img, 0, 0, frame.getWidth(), frame.getHeight(), null);
 				drawGame(g);
 			}
 		};
 		// random color to the background
 		
 		
-		panel.setBackground(new Color(255, 182, 193));
+		//panel.setBackground(new Color(255, 182, 193));
 		panel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent me) {
-				clickedAt(me);
+				clickedAt(me);				
 				frame.repaint();
 			}
 		});
@@ -164,20 +179,11 @@ public class ThanosGameRunner {
 		panel.repaint();
 	}
 	protected void drawGame(Graphics g) {
-		g.drawLine(130, 500, r, c);
+		//g.drawLine(130, 500, r, c);
 		game.draw(g);
 		//game.draw(g);
 	}
 	
-	private void getInfo() {
-		
-		String wrldName = "test.wld";
-
-		JFileChooser jfc = new JFileChooser();
-		World.readWorld(wrldName);
-		World.setVisible(true);
-
-	}
 	
 
 }
