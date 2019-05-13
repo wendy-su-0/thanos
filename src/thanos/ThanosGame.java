@@ -20,6 +20,15 @@ public class ThanosGame {
 		return enemies;
 	}
 	
+	private void checkDead() {
+		for (int i = 0; i < enemies.size(); i++) {
+			if(enemies.get(i)==null){
+				enemies.remove(i);
+				i--;
+			}
+		}
+	}
+	
 	
 	public void draw(Graphics g) {
 		for(GameObject o: gos) {
