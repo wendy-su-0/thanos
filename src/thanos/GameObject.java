@@ -69,7 +69,6 @@ public class GameObject implements Directions{
 	public Rectangle collisionRect(GameObject go) {
 		return this.rect.intersection(go.getRect());
 	}
-	
 
 	public Rectangle getRect() {
 		return this.rect;
