@@ -6,16 +6,22 @@ import java.awt.Rectangle;
 public class Projectile extends GameObject {
 	
 	public static final int Width = 20, Height = 20;
-	int startX, startY, finishX, finishY, strength, currentX, currentY;
+	int startX, startY, finishX, finishY, strength, currentX, currentY, speed;
 	boolean hitEnemy = false;
 	private Rectangle hitbox;
 	private Image image;
 	
-	public Projectile(int x, int y, Image image) {
+	public Projectile(int x, int y, int s, Image image) {
 		super(x, y, image);
+		speed = s;
 		startX = x;
+		currentX = x;
+		currentY = y;
 		startY = y;
 	}
+	
+	//move triangels hypontenuse movement x-x y-y 
+	//one velocity
 	
 	
 	public void hitsEnemy() {
@@ -29,6 +35,23 @@ public class Projectile extends GameObject {
 	
 	public int getStrengt() {
 		return strength;
+	}
+
+
+	public void launch() {
+		// TODO Auto-generated method stub
+		int totalX = this.finishX - this.startX;
+		int totalY = this.finishY - this.startY;
+		int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
+		int time = dist/speed;
+		//this should actually be dependent on ticks
+		int xPerT = totalX/time;
+		int yPerT = totalY/time;
+		//linked to timer
+		//this code shouldn't be here
+		while (time > 0) {
+			//move xPerT and yPerT
+		}
 	}
 	
 }
