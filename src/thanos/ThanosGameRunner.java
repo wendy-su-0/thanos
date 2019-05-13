@@ -22,7 +22,7 @@ public class ThanosGameRunner {
 	private ThanosGame game = new ThanosGame();
 	private Timer timer;
 	private int ticks;
-	private int r1;
+	private int r;
 	private int c;
 	private Image img = getImage();
 
@@ -121,7 +121,7 @@ public class ThanosGameRunner {
 	}
 	
 	protected void clickedAt(MouseEvent me) {
-		r1 = me.getX();
+		r = me.getX();
 		c = me.getY();
 		System.out.print(me);
 		panel.repaint();
