@@ -52,7 +52,7 @@ public class Enemies extends GameObject {
 	private void destroy() {
 		image = null;
 	}
-
+	
 	public void draw(Graphics g) {
 		g.drawImage(image, currentX, currentY, null);
 	}
