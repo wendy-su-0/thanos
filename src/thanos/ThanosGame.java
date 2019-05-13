@@ -16,7 +16,7 @@ public class ThanosGame {
 		gos.add(ca1);
 	}
 	
-	public List<GameObject> returnEnemies(){
+	public List<Enemies> returnEnemies(){
 		return enemies;
 	}
 	
