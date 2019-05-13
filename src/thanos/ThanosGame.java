@@ -6,6 +6,7 @@ import java.util.*;
 public class ThanosGame {
 	public List<GameObject> gos = new ArrayList<>();
 	public List<Enemies> enemies = new ArrayList<>();
+	public List<Avengers> avengers = new ArrayList<>();
 	public IronMan im1;
 	public CaptainAmerica ca1;
 	public ThanosGame() {
