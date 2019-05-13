@@ -15,12 +15,6 @@ import java.awt.event.MouseEvent;
 import java.util.Map;
 
 import javax.swing.*;
-import javax.swing.Action;
-import javax.swing.ActionMap;
-import javax.swing.InputMap;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.KeyStroke;
 
 import kareltherobot.*;
 
@@ -52,7 +46,8 @@ public class ThanosGameRunner {
 	}
 
 	public static void main(String[] args) {
-		new ThanosGameRunner();
+		ThanosGameRunner s = new ThanosGameRunner();
+		s.getInfo();
 	}
 
 	private void start() {
@@ -67,14 +62,6 @@ public class ThanosGameRunner {
 		};
 		// random color to the background
 		
-		// testing purposes
-		panel.setVisible(false);
-		World.setVisible(true);
-		
-		
-		
-		
-		//
 		
 		panel.setBackground(new Color(255, 182, 193));
 		panel.addMouseListener(new MouseAdapter() {
@@ -180,6 +167,19 @@ public class ThanosGameRunner {
 		g.drawLine(130, 500, r, c);
 		game.draw(g);
 		//game.draw(g);
+	}
+	
+	private void getInfo() {
+		
+		String wrldName = "test.wld";
+
+		JFileChooser jfc = new JFileChooser();
+		//			jfc.setVisible(true);
+		//			jfc.showOpenDialog(null);
+
+		World.readWorld(wrldName);
+		World.setVisible(true);
+
 	}
 	
 
