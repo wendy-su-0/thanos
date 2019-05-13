@@ -174,9 +174,6 @@ public class ThanosGameRunner {
 		String wrldName = "test.wld";
 
 		JFileChooser jfc = new JFileChooser();
-		//			jfc.setVisible(true);
-		//			jfc.showOpenDialog(null);
-
 		World.readWorld(wrldName);
 		World.setVisible(true);
 
