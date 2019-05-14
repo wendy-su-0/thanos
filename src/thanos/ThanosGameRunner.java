@@ -193,7 +193,9 @@ public class ThanosGameRunner {
 		}
 		for(GameObject l : game.avengers) {
 			//l.firedProjectiles;
-			//l.move(1,0);
+			/*
+			 *l.move(1,0);
+			 */
 		}
 	}
 	
