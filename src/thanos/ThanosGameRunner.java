@@ -137,6 +137,12 @@ public class ThanosGameRunner {
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
 		}
+		
+		for(Avengers a : game.avengers) {
+			if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
+				a.process(game);
+			}
+		}
 	}
 
 	private void mapKeyStrokesToActions(JPanel panel) {
@@ -185,17 +191,17 @@ public class ThanosGameRunner {
 		l.draw(g);
 		//game.draw(g);
 	}
-	
+
 	private void move() {
 		// TODO Auto-generated method stub
-		for(GameObject a : game.enemies) {
-			//a.move(-1, 0);
+		for(Enemies e : game.enemies) {
+			e.move(0, 0);
 		}
-		for(GameObject l : game.avengers) {
+		for(Avengers a : game.avengers) {
 			//l.firedProjectiles;
-			/*
-			 *l.move(1,0);
-			 */
+			for(Projectile p : a.getFired()) {
+				(p).move(0, 0) ;
+			}
 		}
 	}
 	
