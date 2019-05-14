@@ -26,10 +26,6 @@ public class GameLevel {
 	}
 	
 	public void draw(Graphics g) {
-		for(int r = 0; r< bricks.length; r++) {
-			for(int c = 0; c < bricks[0].length; c++) {
-				bricks[r][c].draw(g);
-			}
-		}
+		
 	}
 }
