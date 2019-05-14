@@ -4,9 +4,9 @@ import java.awt.*	;
 import java.util.ArrayList;
 
 public class GameLevel {
-	public int worldHeight = 20;
-	public int worldWidth = 20;
-	public int brickSize = 64;
+	public int worldHeight = 12;
+	public int worldWidth = 8;
+	public int brickSize = 80;
 	
 	private Brick[][] bricks;
 	
