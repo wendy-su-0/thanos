@@ -25,9 +25,7 @@ public class GameLevel {
 			}
 		}
 		
-		for(int i = 0; i < 2; i++) {
-			bricks[0][i] = new Grass(0*brickSize, i*brickSize, this.brickSize, this.brickSize, "grass.jpg");
-		}
+		
 		
 	}
 	
