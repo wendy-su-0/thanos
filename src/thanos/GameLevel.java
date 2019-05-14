@@ -17,13 +17,9 @@ public class GameLevel {
 	}
 	
 	public void build() {
-		bricks = new Brick [worldHeight][worldWidth];
+		
 				
-		for(int r = 0; r< bricks.length; r++) {
-			for(int c = 0; c < bricks[0].length; c++) {
-				bricks[r][c] = new Brick(r*brickSize, c * brickSize, this.brickSize, this.brickSize, "yellowbrick.jpg");
-			}
-		}
+		
 		
 		
 		
