@@ -186,6 +186,17 @@ public class ThanosGameRunner {
 		//game.draw(g);
 	}
 	
+	private void move() {
+		// TODO Auto-generated method stub
+		for(GameObject a : game.enemies) {
+			//a.move(-1, 0);
+		}
+		for(GameObject l : game.avengers) {
+			//l.firedProjectiles;
+			//l.move(1,0);
+		}
+	}
+	
 	
 
 }
