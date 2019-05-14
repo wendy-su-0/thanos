@@ -22,7 +22,7 @@ public class Avengers extends GameObject{
 	private int vX, vY;
 	private static Image img;
 	private Circle range;
-	public ArrayList<Projectile> firedProjectiles = new ArrayList<Projectile>();
+	private ArrayList<Projectile> firedProjectiles = new ArrayList<Projectile>();
 
 	protected Image getImage(String imgName) {
 		try {
@@ -117,6 +117,10 @@ public class Avengers extends GameObject{
 		vX = v*xDis/dis;
 		vY = v*yDis/dis;
 
+	}
+	
+	public ArrayList<Projectile> getFired(){
+		return this.firedProjectiles;
 	}
 
 }
