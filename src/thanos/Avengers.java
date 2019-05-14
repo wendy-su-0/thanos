@@ -55,6 +55,10 @@ public class Avengers extends GameObject{
 		range.setRadius(r);
 	}
 	
+	public int getV() {
+		return v;
+	}
+	
 	
 	public void draw(Graphics g) {
 		g.drawImage(img, locX , locY, 100, 100, null);
