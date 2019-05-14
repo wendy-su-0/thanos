@@ -20,7 +20,7 @@ public class Avengers extends GameObject{
 	private int v;
 	private int refresh;
 	private int vX, vY;
-	private static Image img;
+	private Image img;
 	private Circle range;
 	private ArrayList<Projectile> firedProjectiles = new ArrayList<Projectile>();
 
@@ -35,9 +35,8 @@ public class Avengers extends GameObject{
 	}
 
 	public Avengers(int x, int y, int vel, int r, String str) {
-		super(x, y, img);
+		super(x, y, str);
 		v = vel;
-		img = this.getImage(str);
 		range = new Circle();
 		range.setCenterX(x);
 		range.setCenterY(y);
@@ -45,10 +44,9 @@ public class Avengers extends GameObject{
 	}
 	
 	public Avengers(int x, int y, int vel, int r, int ref, String str) {
-		super(x, y, img);
+		super(x, y, str);
 		v = vel;
 		refresh = ref;
-		img = this.getImage(str);
 		range = new Circle();
 		range.setCenterX(x);
 		range.setCenterY(y);

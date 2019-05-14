@@ -9,12 +9,18 @@ public class ThanosGame {
 	public List<Avengers> avengers = new ArrayList<>();
 	public IronMan im1;
 	public CaptainAmerica ca1;
+	public Thor t1;
+	public SpiderMan sm1;
 	public ThanosGame() {
 
-		im1 = new IronMan(500,500);
-		ca1 = new CaptainAmerica(400,200);
+		im1 = new IronMan(1500,500);
+		ca1 = new CaptainAmerica(1400,200);
+		t1 = new Thor(1500, 400);
+		sm1 = new SpiderMan(100,400);
 		gos.add(im1);
 		gos.add(ca1);
+		gos.add(t1);
+		gos.add(sm1);
 	}
 	
 	public List<Enemies> returnEnemies(){
