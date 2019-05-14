@@ -8,18 +8,22 @@ import javax.swing.ImageIcon;
 
 public class Brick extends Rectangle{
 	int xLoc, yLoc;
-	Image image;
+	private static Image image;
+	public final static String PATH_PREFIX = "res/images/";
 	
-	
-	
-	public Brick(int x, int y, int width, int height) {
-		setBounds(x,y,width,height);
+	protected Image getImage(String imgName) {
 		try {
-			image = ImageIO.read(this.getClass().getResource("yellowbrick.jpg"));
+			image = ImageIO.read(this.getClass().getResource(imgName));
+
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return image;
+	}
+	
+	public Brick(int x, int y, int width, int height, String str) {
+		setBounds(x,y,width,height);
+		image = this.getImage(str);
 	}
 	
 	
