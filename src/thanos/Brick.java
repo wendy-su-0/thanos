@@ -14,12 +14,17 @@ public class Brick extends Rectangle{
 	
 	public Brick(int x, int y, int width, int height) {
 		setBounds(x,y,width,height);
-		image = new ImageIcon("res/images/yellowbrick.jpg").getImage();
+		try {
+			image = ImageIO.read(this.getClass().getResource("yellowbrick.jpg"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
 
 	public void draw(Graphics g) {
-		g.drawRect(x, y, width, height);
+		g.drawImage(image, x, y, width, height, null);
 	}
 }
