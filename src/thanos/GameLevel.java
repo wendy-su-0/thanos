@@ -1,12 +1,14 @@
 package thanos;
 
 import java.awt.*	;
+import java.io.File;
 import java.util.ArrayList;
 
 public class GameLevel {
 	public int worldHeight = 12;
 	public int worldWidth = 8;
 	public int brickSize = 80;
+	public File worldselector;
 	
 	private Brick[][] bricks;
 	
@@ -19,9 +21,14 @@ public class GameLevel {
 				
 		for(int r = 0; r< bricks.length; r++) {
 			for(int c = 0; c < bricks[0].length; c++) {
-				bricks[r][c] = new Brick(r*brickSize, c * brickSize, this.brickSize, this.brickSize);
+				bricks[r][c] = new Brick(r*brickSize, c * brickSize, this.brickSize, this.brickSize, "yellowbrick.jpg");
 			}
 		}
+		
+		for(int i = 0; i < 2; i++) {
+			bricks[0][i] = new Grass(0*brickSize, i*brickSize, this.brickSize, this.brickSize, "grass.jpg");
+		}
+		
 	}
 	
 	public void draw(Graphics g) {
