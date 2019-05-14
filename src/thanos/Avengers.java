@@ -55,6 +55,10 @@ public class Avengers extends GameObject{
 		range.setRadius(r);
 	}
 	
+	public int getV() {
+		return v;
+	}
+	
 	
 	public void draw(Graphics g) {
 		g.drawImage(img, locX , locY, 100, 100, null);
@@ -72,7 +76,7 @@ public class Avengers extends GameObject{
 	//not done
 	private void shoot(Enemies e) {
 		//return int?
-		Projectile p = new Projectile(x,y,null);
+		Projectile p = new Projectile(x,y,refresh, null);
 		p.finishX = e.getX();
 		p.finishY = e.getY();
 		firedProjectiles.add(p);
@@ -117,6 +121,10 @@ public class Avengers extends GameObject{
 		vX = v*xDis/dis;
 		vY = v*yDis/dis;
 
+	}
+	
+	public ArrayList<Projectile> getFired(){
+		return this.firedProjectiles;
 	}
 
 }
