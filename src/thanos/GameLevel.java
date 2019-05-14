@@ -1,20 +1,33 @@
 package thanos;
 
+import java.awt.*	;
 import java.util.ArrayList;
 
 public class GameLevel {
-	public int worldHeight = 30;
-	public int worldWidth = 30;
+	public int worldHeight = 20;
+	public int worldWidth = 20;
 	public int brickSize = 64;
 	
 	private Brick[][] bricks;
 	
+	public GameLevel() {
+		build();
+	}
+	
 	public void build() {
 		bricks = new Brick [worldHeight][worldWidth];
 				
-		for(int r = 0; r< this.worldHeight; r++) {
-			for(int c = 0; c < this.worldWidth; c++) {
-				bricks[r][c] = new Brick(r*worldHeight, c * this.worldWidth, this.brickSize, this.brickSize, r, c);
+		for(int r = 0; r< bricks.length; r++) {
+			for(int c = 0; c < bricks[0].length; c++) {
+				bricks[r][c] = new Brick(r*brickSize, c * brickSize, this.brickSize, this.brickSize);
+			}
+		}
+	}
+	
+	public void draw(Graphics g) {
+		for(int r = 0; r< bricks.length; r++) {
+			for(int c = 0; c < bricks[0].length; c++) {
+				bricks[r][c].draw(g);
 			}
 		}
 	}

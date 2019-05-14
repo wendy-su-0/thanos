@@ -25,6 +25,7 @@ public class ThanosGameRunner {
 	private int r;
 	private int c;
 	private Image img = getImage();
+	GameLevel l = new GameLevel();
 
 
 	
@@ -181,6 +182,7 @@ public class ThanosGameRunner {
 	protected void drawGame(Graphics g) {
 		//g.drawLine(130, 500, r, c);
 		game.draw(g);
+		l.draw(g);
 		//game.draw(g);
 	}
 	
