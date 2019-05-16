@@ -26,12 +26,13 @@ public class ThanosGameRunner {
 	private int c;
 	private Image img = getImage();
 	GameLevel l = new GameLevel();
+	Enemies s = new Enemies(GameLevel.st.x, GameLevel.st.y, "thanos.jpg");
 
 
 	
 	// Notice this intuitive method for finding the screen size 
 	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	public static final int WIDTH = (int) (screenSize.getWidth()*3/4),HEIGHT=(int) (screenSize.getHeight()*3/4);
+	public static final int WIDTH = 640,HEIGHT=480;
 	private static final int REFRESH_RATE = 10;
 
 	public ThanosGameRunner() {
@@ -73,6 +74,7 @@ public class ThanosGameRunner {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(img, 0, 0, frame.getWidth(), frame.getHeight(), null);
+			
 				drawGame(g);
 			}
 		};
@@ -109,14 +111,11 @@ public class ThanosGameRunner {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				updateGame();
-				move();
+				s.move();
 				panel.repaint();
 			}
 
-			private void move() {
-				//game.slipper.move(2, 0);
-				
-			}
+			
 		});
 		timer.start();
 	}
@@ -134,6 +133,7 @@ public class ThanosGameRunner {
 		ticks++;// keeps track of the number of times the timer has gone off
 		
 		int hurts = 1000/REFRESH_RATE;
+		
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
 		}
@@ -189,6 +189,7 @@ public class ThanosGameRunner {
 		//g.drawLine(130, 500, r, c);
 		game.draw(g);
 		l.draw(g);
+		s.draw(g);
 		//game.draw(g);
 	}
 

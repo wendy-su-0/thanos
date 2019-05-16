@@ -33,15 +33,11 @@ public class GameObject implements Directions{
 		img = getImage(str);
 	}
 	
-	protected  Image getImage(String fn) {
-		Image img = null;
-		fn = PATH_PREFIX+fn;
+	protected Image getImage(String imgName) {
 		try {
-			
-			img = ImageIO.read(this.getClass().getResource(fn));
+			img = ImageIO.read(this.getClass().getResource(imgName));
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return img;
