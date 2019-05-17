@@ -88,40 +88,65 @@ public class Enemies extends GameObject {
 		int count = 0;
 		if(count ==0) {
 			double slope = -((GameLevel.junc1.getY()-GameLevel.st.getY())/(GameLevel.junc1.getX()-GameLevel.st.getX()));
-			
+
 			currentX = startX;
 			currentY = slope*currentX;
 			currentX++;
-			if(currentY == GameLevel.junc1.getY() && currentX == GameLevel.junc1.getX()) {
-				count++;
+			if(currentY == GameLevel.junc1.getY()) {
+				if(currentX<GameLevel.junc1.getX()) {
+					currentX++;
+				}
+				if(currentX>GameLevel.junc1.getX()) {
+					currentX--;
+				}
+				if(currentX==GameLevel.junc1.getX()) {
+					count++;
+				}
 			}
 		}
 		if(count == 1) {
 			double slope = -((GameLevel.junc2.getY()-GameLevel.junc1.getY())/(GameLevel.junc2.getX()-GameLevel.junc1.getX()));
-			
+
 			currentY = slope*currentX;
 			currentX--;
-			if(currentY == GameLevel.junc2.getY() && currentX == GameLevel.junc2.getX()) {
-				count++;
+			if(currentY == GameLevel.junc2.getY()) {
+				if(currentX<GameLevel.junc2.getX()) {
+					currentX++;
+				}
+				if(currentX>GameLevel.junc2.getX()) {
+					currentX--;
+				}
+				if(currentX==GameLevel.junc2.getX()) {
+					count++;
+				}
 			}
 		}
 		if(count == 2) {
 			double slope = -((GameLevel.junc3.getY()-GameLevel.junc2.getY())/(GameLevel.junc3.getX()-GameLevel.junc2.getX()));
-			
+
 			currentY = slope*currentX;
 			currentX--;
-			if(currentY == GameLevel.junc3.getY() && currentX == GameLevel.junc3.getX()) {
-				count++;
+			if(currentY == GameLevel.junc3.getY()) {
+				if(currentX<GameLevel.junc3.getX()) {
+					currentX++;
+				}
+				if(currentX>GameLevel.junc3.getX()) {
+					currentX--;
+				}
+				if(currentX==GameLevel.junc3.getX()) {
+					count++;
+				}
 			}
-		}
-		if(count == 3) {
-			currentX++;
-			if(currentX == GameLevel.end.getX()) {
-				count++;
+			if(count == 3) {
+				currentX++;
+				if(currentX == GameLevel.end.getX()) {
+					count++;
+				}
 			}
 		}
 	}
-
 }
+
+
 
 

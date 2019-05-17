@@ -10,7 +10,7 @@ public class GameLevel {
 	public int brickSize = 80;
 	public File worldselector;
 	public static Point st, junc1, junc2, junc3, end;
-	private double xscale = 3600/640, yscale = 3000/480;
+	
 	private Brick[] brick;
 
 	public GameLevel() {
@@ -18,14 +18,17 @@ public class GameLevel {
 	}
 
 	public void build() {
-		st = new Point((int) (2959/xscale) ,(int) (564/yscale));
-		junc1 = new Point((int) (2336/xscale),(int) (719/yscale));
-		junc2 = new Point((int) (2149/xscale),(int) (2211/yscale));
-		junc3 = new Point((int) (737/xscale),(int) (1399/yscale));
-		end = new Point((int) (3261/xscale),(int) (1399/yscale));
+		st = new Point(298,1080);
+		junc1 = new Point(1250,255);
+		junc2 = new Point(1150,780);
+		junc3 = new Point(400,490);
+		end = new Point(1745,490);
 	}
 	
 	public void draw(Graphics g) {
-		g.drawLine(st.x, st.y, junc1.x, junc1.y);
+		g.drawLine(298, 1080, 1250,255 );
+		g.drawLine(1250, 255, 1150, 780);
+		g.drawLine(1150, 780, 400, 490);
+		g.drawLine(400, 490, 1745, 490);
 	}
 }
