@@ -30,6 +30,8 @@ public class Enemies extends GameObject {
 		super(x, y, str);
 		startX = (int) GameLevel.st.getX();
 		startY = (int) GameLevel.st.getY();
+		currentX = startX;
+		currentY = startY;
 		health = x;
 		speed = y;
 		image = getImage(str);
@@ -37,9 +39,10 @@ public class Enemies extends GameObject {
 	//when workng with the enemey class we need to be very clear is we are
 	//working with a ave/st x/y or a x/y in pixels
 
-	public Enemies(int x, int y, int h, int s, Image i) {
+	public Enemies(int x, int y, int h, int s, String str) {
 		// TODO Auto-generated constructor stub
-		super(x,y,i);
+		super(x,y, str);
+		image = getImage(str);
 		health = h;
 		speed = s;
 	}
@@ -69,8 +72,10 @@ public class Enemies extends GameObject {
 	}
 
 	public void draw(Graphics g) {
-		//g.drawImage(image, currentX, (int) currentY, null);
-		g.drawLine(564, 2959, 2336, 719);
+		startX =  (int) GameLevel.st.getX();
+		System.out.println(currentY);
+		g.drawImage(image, currentX, (int) currentY, null);
+		
 	}
 
 	private void updateX() {

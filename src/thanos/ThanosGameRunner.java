@@ -26,7 +26,7 @@ public class ThanosGameRunner {
 	private int c;
 	private Image img = getImage();
 	GameLevel l = new GameLevel();
-	Enemies s = new Enemies(GameLevel.st.x, GameLevel.st.y, "thanos.jpg");
+	Enemies s = new Enemies((int) (GameLevel.st.getX()),(int) (GameLevel.st.getY()), 10, 10, "thanos.jpg");
 
 
 	
@@ -133,7 +133,8 @@ public class ThanosGameRunner {
 		ticks++;// keeps track of the number of times the timer has gone off
 		
 		int hurts = 1000/REFRESH_RATE;
-	
+		
+		s.move();
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
 		}
