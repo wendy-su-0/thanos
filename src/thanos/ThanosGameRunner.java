@@ -111,7 +111,7 @@ public class ThanosGameRunner {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				updateGame();
-				s.move();
+				
 				panel.repaint();
 			}
 
@@ -134,7 +134,7 @@ public class ThanosGameRunner {
 		
 		int hurts = 1000/REFRESH_RATE;
 		
-		s.move();
+		
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
 		}
