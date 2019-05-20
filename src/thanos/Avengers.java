@@ -76,7 +76,7 @@ public class Avengers extends GameObject{
 		//return int?
 		Projectile p = new Projectile(x,y,refresh, null);
 		p.finishX = e.getX();
-		p.finishY = e.getY();
+		p.finishY = (int) e.getY();
 		firedProjectiles.add(p);
 		p.launch();
 	}
@@ -114,7 +114,7 @@ public class Avengers extends GameObject{
 
 	public void setVelocityXY(Enemies e) {
 		int xDis = e.getX()-this.locX;
-		int yDis = e.getY()-this.locY;
+		int yDis = (int) (e.getY()-this.locY);
 		int dis = Math.abs(xDis*xDis + yDis*yDis);
 		vX = v*xDis/dis;
 		vY = v*yDis/dis;

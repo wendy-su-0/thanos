@@ -37,6 +37,13 @@ public class Enemies extends GameObject {
 	//when workng with the enemey class we need to be very clear is we are
 	//working with a ave/st x/y or a x/y in pixels
 
+	public Enemies(int x, int y, int h, int s, Image i) {
+		// TODO Auto-generated constructor stub
+		super(x,y,i);
+		health = h;
+		speed = s;
+	}
+
 	protected Image getImage(String imgName) {
 		Image img = null;
 		try {
