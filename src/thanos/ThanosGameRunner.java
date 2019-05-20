@@ -125,6 +125,8 @@ public class ThanosGameRunner {
 		c = me.getY();
 		System.out.print(me);
 		panel.repaint();
+		
+		
 	}
 	
 	
