@@ -42,6 +42,10 @@ public class Enemies extends GameObject {
 	public Enemies(int x, int y, int h, int s, String str) {
 		// TODO Auto-generated constructor stub
 		super(x,y, str);
+		startX = (int) GameLevel.st.getX();
+		startY = (int) GameLevel.st.getY();
+		currentX = startX;
+		currentY = (int) GameLevel.st.getY();
 		image = getImage(str);
 		health = h;
 		speed = s;
@@ -72,8 +76,8 @@ public class Enemies extends GameObject {
 	}
 
 	public void draw(Graphics g) {
-		startX =  (int) GameLevel.st.getX();
-		System.out.println(currentY);
+		
+		System.out.println((int) (currentY));
 		g.drawImage(image, currentX, (int) currentY, null);
 		
 	}
