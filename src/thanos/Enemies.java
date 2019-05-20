@@ -19,23 +19,14 @@ public class Enemies extends GameObject {
 	private int startX, startY, health, speed;
 	private Direction direction;
 	private int currentX;
-	private double currentY;
+	private int currentY;
 	private boolean isDead = false;
 	private Image image;
 	Robot r;
 
 	//the initial x and y are pixels. they are then converted to st/ave coordinates 
 	//and passed into the robot constructor
-	public Enemies(int x, int y, String str) {
-		super(x, y, str);
-		startX = (int) GameLevel.st.getX();
-		startY = (int) GameLevel.st.getY();
-		currentX = startX;
-		currentY = startY;
-		health = x;
-		speed = y;
-		image = getImage(str);
-	}
+	
 	//when workng with the enemey class we need to be very clear is we are
 	//working with a ave/st x/y or a x/y in pixels
 
@@ -45,7 +36,8 @@ public class Enemies extends GameObject {
 		startX = (int) GameLevel.st.getX();
 		startY = (int) GameLevel.st.getY();
 		currentX = startX;
-		currentY = (int) GameLevel.st.getY();
+		currentY = startY;
+		System.out.println(currentY);
 		image = getImage(str);
 		health = h;
 		speed = s;
@@ -77,8 +69,8 @@ public class Enemies extends GameObject {
 
 	public void draw(Graphics g) {
 		
-		System.out.println((int) (currentY));
-		g.drawImage(image, currentX, (int) currentY, null);
+		System.out.println(currentY);
+		g.drawImage(image, currentX,  currentY, null);
 		
 	}
 
@@ -96,7 +88,7 @@ public class Enemies extends GameObject {
 		return currentX;
 	}
 
-	public double getY() {
+	public int getY() {
 		return currentY;
 	}
 
@@ -105,8 +97,7 @@ public class Enemies extends GameObject {
 		if(count ==0) {
 			double slope = -((GameLevel.junc1.getY()-GameLevel.st.getY())/(GameLevel.junc1.getX()-GameLevel.st.getX()));
 
-			currentX = startX;
-			currentY = slope*currentX;
+			currentY = (int) (slope*currentX);
 			currentX++;
 			if(currentY == GameLevel.junc1.getY()) {
 				if(currentX<GameLevel.junc1.getX()) {
@@ -123,7 +114,7 @@ public class Enemies extends GameObject {
 		if(count == 1) {
 			double slope = -((GameLevel.junc2.getY()-GameLevel.junc1.getY())/(GameLevel.junc2.getX()-GameLevel.junc1.getX()));
 
-			currentY = slope*currentX;
+			currentY = (int) (slope*currentX);
 			currentX--;
 			if(currentY == GameLevel.junc2.getY()) {
 				if(currentX<GameLevel.junc2.getX()) {
@@ -140,7 +131,7 @@ public class Enemies extends GameObject {
 		if(count == 2) {
 			double slope = -((GameLevel.junc3.getY()-GameLevel.junc2.getY())/(GameLevel.junc3.getX()-GameLevel.junc2.getX()));
 
-			currentY = slope*currentX;
+			currentY = (int) (slope*currentX);
 			currentX--;
 			if(currentY == GameLevel.junc3.getY()) {
 				if(currentX<GameLevel.junc3.getX()) {

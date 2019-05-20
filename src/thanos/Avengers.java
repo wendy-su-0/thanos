@@ -114,7 +114,7 @@ public class Avengers extends GameObject{
 
 	public void setVelocityXY(Enemies e) {
 		int xDis = e.getX()-this.locX;
-		int yDis = (int) (e.getY()-this.locY);
+		int yDis = e.getY()-this.locY;
 		int dis = Math.abs(xDis*xDis + yDis*yDis);
 		vX = v*xDis/dis;
 		vY = v*yDis/dis;
