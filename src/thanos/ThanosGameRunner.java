@@ -144,9 +144,11 @@ public class ThanosGameRunner {
 				a.process(game);
 
 				for(Enemies e : game.enemies){
-					if(a.isInCirc(e))
-					a.shoot(e);
-					a.shooting();
+					if(a.isInCirc(e)) {
+						e.add(a);
+						if(e.getTicks() == 1000)
+							e = null;
+					}
 				}
 			}
 		}
