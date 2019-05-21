@@ -72,9 +72,11 @@ public class Avengers extends GameObject{
 	}
 	
 	//not done
-	private void shoot(Enemies e) {
-		//return int?
-		Projectile p = new Projectile(x,y,refresh, null);
+	public Projectile makeProjectile() {
+		return new Projectile(x,y, refresh, null);
+	}
+	void shoot(Enemies e) {
+		Projectile p = this.makeProjectile();
 		p.finishX = e.getX();
 		p.finishY = (int) e.getY();
 		firedProjectiles.add(p);

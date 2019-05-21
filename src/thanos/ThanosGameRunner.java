@@ -144,7 +144,11 @@ public class ThanosGameRunner {
 		for(Avengers a : game.avengers) {
 			if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
 				a.process(game);
+				for(Enemies e : game.enemies){
+				a.shoot(e);
+				}
 			}
+		
 		}
 	}
 
