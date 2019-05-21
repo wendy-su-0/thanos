@@ -22,6 +22,7 @@ public class Enemies extends GameObject {
 	private int currentY;
 	private boolean isDead = false;
 	private Image image;
+	private int ticks;
 	Robot r;
 
 	//the initial x and y are pixels. they are then converted to st/ave coordinates 
@@ -143,6 +144,12 @@ public class Enemies extends GameObject {
 			currentX += xPerT;
 			currentY += yPerT;
 		}
+	}
+	public void add(Avengers a) {
+		ticks += a.getV();
+	}
+	public int getTicks() {
+		return ticks;
 	}
 }
 

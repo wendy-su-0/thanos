@@ -146,7 +146,15 @@ public class ThanosGameRunner {
 			if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
 				a.process(game);
 				for(Enemies e : game.enemies){
+<<<<<<< HEAD
 				a.shoot(e);
+=======
+					if(a.isInCirc(e)) {
+						e.add(a);
+						if(e.getTicks() == 1000)
+							e = null;
+					}
+>>>>>>> branch 'master' of https://github.com/wsu315/thanos.git
 				}
 			}
 		
