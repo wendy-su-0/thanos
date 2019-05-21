@@ -91,10 +91,11 @@ public class ThanosGameRunner {
 			}
 		});
 		// so that the frame isn't minimized
-	
+		panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
 		
 		// so that the frame is placed a little way from top and left side
-		panel.setSize(WIDTH, HEIGHT);
+		frame.setLocation(WIDTH/2, HEIGHT/2);
+		frame.setSize(WIDTH, HEIGHT);
 		// map the keystrokes that the panel detects to the game
 		mapKeyStrokesToActions(panel);
 
@@ -111,6 +112,7 @@ public class ThanosGameRunner {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				updateGame();
+				
 				panel.repaint();
 			}
 
@@ -124,6 +126,8 @@ public class ThanosGameRunner {
 		c = me.getY();
 		System.out.print(me);
 		panel.repaint();
+		
+		
 	}
 	
 	
@@ -136,19 +140,16 @@ public class ThanosGameRunner {
 		
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
-		
 		}
 		
 		for(Avengers a : game.avengers) {
 			if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
 				a.process(game);
-
 				for(Enemies e : game.enemies){
-					if(a.isInCirc(e))
-					a.shoot(e);
-					a.shooting();
+				a.shoot(e);
 				}
 			}
+		
 		}
 	}
 
@@ -172,7 +173,7 @@ public class ThanosGameRunner {
 		map.put("up", new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				hit("u");
+				hit("up");
 			}
 
 			
