@@ -174,7 +174,7 @@ public class ThanosGameRunner {
 		map.put("up", new AbstractAction() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				hit("up");
+				hit("u");
 			}
 
 			
