@@ -32,8 +32,8 @@ public class ThanosGameRunner {
 	
 	// Notice this intuitive method for finding the screen size 
 	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	public static final int WIDTH = (int) (screenSize.getWidth()*3/4),HEIGHT=(int) (screenSize.getHeight()*3/4);
-	private static final int REFRESH_RATE = 10;
+	public static final int WIDTH = (int) (screenSize.getWidth()), HEIGHT=(int) (screenSize.getHeight());
+	private static final int REFRESH_RATE = 10; 
 
 	public ThanosGameRunner() {
 		EventQueue.invokeLater(new Runnable() {
@@ -69,12 +69,13 @@ public class ThanosGameRunner {
 	private void start() {
 		JFrame frame = new JFrame("ThanosGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		panel = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(img, 0, 0, frame.getWidth(), frame.getHeight(), null);
-			
+				
 				drawGame(g);
 			}
 		};
@@ -93,7 +94,7 @@ public class ThanosGameRunner {
 		panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
 		
 		// so that the frame is placed a little way from top and left side
-		frame.setLocation(WIDTH/10, HEIGHT/10);
+		frame.setLocation(WIDTH/2, HEIGHT/2);
 
 		// map the keystrokes that the panel detects to the game
 		mapKeyStrokesToActions(panel);

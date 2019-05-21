@@ -10,6 +10,8 @@ public class GameLevel {
 	public int brickSize = 80;
 	public File worldselector;
 	public static Point st, junc1, junc2, junc3, end;
+	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	
 	
 	private Brick[] brick;
 
@@ -18,17 +20,14 @@ public class GameLevel {
 	}
 
 	public void build() {
-		st = new Point(298,1080);
-		junc1 = new Point(1250,255);
-		junc2 = new Point(1150,780);
-		junc3 = new Point(400,490);
-		end = new Point(1745,490);
+		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), ThanosGameRunner.HEIGHT);
+		junc1 = new Point((int) (.639*ThanosGameRunner.WIDTH), (int) (.278*ThanosGameRunner.HEIGHT));
+		junc2 = new Point((int) (.597*ThanosGameRunner.WIDTH), (int) (.722*ThanosGameRunner.HEIGHT));
+		junc3 = new Point((int) (.231*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
+		end = new Point((int) (.907*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
 	}
 	
 	public void draw(Graphics g) {
-		g.drawLine(298, 1080, 1250,255 );
-		g.drawLine(1250, 255, 1150, 780);
-		g.drawLine(1150, 780, 400, 490);
-		g.drawLine(400, 490, 1745, 490);
+		g.drawLine((int)(st.getX()),(int) (st.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
 	}
 }
