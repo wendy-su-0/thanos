@@ -67,12 +67,6 @@ public class Enemies extends GameObject {
 	}
 
 	public void draw(Graphics g) {
-<<<<<<< Upstream, based on branch 'master' of https://github.com/wsu315/thanos
-		
-=======
-
-		System.out.println(currentY);
->>>>>>> 14c79dc updated enemies move
 		g.drawImage(image, currentX,  currentY, null);
 
 	}
