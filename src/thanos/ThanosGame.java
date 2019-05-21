@@ -13,6 +13,7 @@ public class ThanosGame {
 	public BlackWidow bw1;
 	public Hawkeye he1;
 	public Hulk h1;
+	public Enemies e1;
 	public ThanosGame() {
 
 		im1 = new IronMan(500,500);
@@ -22,12 +23,16 @@ public class ThanosGame {
 		he1 = new Hawkeye(1000,200);
 		h1 = new Hulk(300,400);
 		
+		e1 = new Enemies((int)GameLevel.junc1.getX(), (int)GameLevel.junc1.getY(), 5, 5, "thanos.jpg");
+		
 		gos.add(im1);
 		gos.add(ca1);
 		gos.add(t1);
 		gos.add(bw1);
 		gos.add(he1);
 		gos.add(h1);
+		gos.add(e1);
+		enemies.add(e1);
 	}
 	
 	public List<Enemies> returnEnemies(){

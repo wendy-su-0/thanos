@@ -33,7 +33,7 @@ public class ThanosGameRunner {
 	// Notice this intuitive method for finding the screen size 
 	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	public static final int WIDTH = (int) (screenSize.getWidth()), HEIGHT=(int) (screenSize.getHeight());
-	private static final int REFRESH_RATE = 9; 
+	private static final int REFRESH_RATE = 10; 
 
 	public ThanosGameRunner() {
 		EventQueue.invokeLater(new Runnable() {
@@ -125,8 +125,6 @@ public class ThanosGameRunner {
 		c = me.getY();
 		System.out.print(me);
 		panel.repaint();
-		
-		
 	}
 	
 	
@@ -139,16 +137,13 @@ public class ThanosGameRunner {
 		
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
+		
 		}
 		
 		for(Avengers a : game.avengers) {
 			if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
 				a.process(game);
-				for(Enemies e : game.enemies){
-				a.shoot(e);
-				}
 			}
-		
 		}
 	}
 
