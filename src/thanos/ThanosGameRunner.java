@@ -91,11 +91,10 @@ public class ThanosGameRunner {
 			}
 		});
 		// so that the frame isn't minimized
-		panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
+	
 		
 		// so that the frame is placed a little way from top and left side
-		frame.setLocation(WIDTH/2, HEIGHT/2);
-
+		panel.setSize(WIDTH, HEIGHT);
 		// map the keystrokes that the panel detects to the game
 		mapKeyStrokesToActions(panel);
 

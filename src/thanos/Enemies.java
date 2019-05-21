@@ -37,7 +37,6 @@ public class Enemies extends GameObject {
 		startY = (int) GameLevel.st.getY();
 		currentX = startX;
 		currentY = startY;
-		System.out.println(currentY);
 		image = getImage(str);
 		health = h;
 		speed = s;
@@ -69,7 +68,6 @@ public class Enemies extends GameObject {
 
 	public void draw(Graphics g) {
 		
-		System.out.println(currentY);
 		g.drawImage(image, currentX,  currentY, null);
 		
 	}
