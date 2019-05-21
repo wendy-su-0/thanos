@@ -33,7 +33,7 @@ public class ThanosGameRunner {
 	// Notice this intuitive method for finding the screen size 
 	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	public static final int WIDTH = (int) (screenSize.getWidth()), HEIGHT=(int) (screenSize.getHeight());
-	private static final int REFRESH_RATE = 10; 
+	private static final int REFRESH_RATE = 9; 
 
 	public ThanosGameRunner() {
 		EventQueue.invokeLater(new Runnable() {
