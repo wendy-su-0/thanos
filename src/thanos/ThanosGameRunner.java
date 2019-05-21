@@ -112,7 +112,6 @@ public class ThanosGameRunner {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				updateGame();
-				
 				panel.repaint();
 			}
 
@@ -146,7 +145,9 @@ public class ThanosGameRunner {
 			if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
 				a.process(game);
 				for(Enemies e : game.enemies){
-				a.shoot(e);
+					if(a.isInCirc(e))
+					a.shoot(e);
+					a.shooting();
 				}
 			}
 		

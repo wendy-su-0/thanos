@@ -62,9 +62,11 @@ public class Avengers extends GameObject{
 		g.drawImage(img, locX , locY, 100, 100, null);
 
 	}
-	
+	public double radius() {
+		return this.range.getRadius();
+	}
 	//not done
-	private boolean isInCirc(Enemies e) {
+	public boolean isInCirc(Enemies e) {
 		//if enemy xyloc is in circle return true
 		if (range.contains(e.getX(), e.getY()))
 			return true;
@@ -79,10 +81,14 @@ public class Avengers extends GameObject{
 		Projectile p = this.makeProjectile();
 		p.finishX = e.getX();
 		p.finishY = (int) e.getY();
-		firedProjectiles.add(p);
 		p.launch();
+		firedProjectiles.add(p);
 	}
-	
+	void shooting() {
+		for(Projectile p : firedProjectiles) {
+			p.move(p.dX, p.dY);
+		}
+	}
 	//the process the avenger every time each time elapsed = speed;
 	public void process(ThanosGame g) {
 		//mod timer % refresh

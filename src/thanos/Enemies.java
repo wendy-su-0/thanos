@@ -56,7 +56,7 @@ public class Enemies extends GameObject {
 
 	private void isHit(Projectile p) {
 		if(p.getHitBox().contains(hitbox)) {
-			health -= p.getStrengt();
+			health -= p.getStrength();
 		}
 		if(health<=0) {
 			destroy();
