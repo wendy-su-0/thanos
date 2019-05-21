@@ -20,7 +20,7 @@ public class Avengers extends GameObject{
 	private int v;
 	private int refresh;
 	private int vX, vY;
-	private Image img;
+	protected Image img;
 	private Circle range;
 	private ArrayList<Projectile> firedProjectiles = new ArrayList<Projectile>();
 

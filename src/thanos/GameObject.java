@@ -44,12 +44,12 @@ public class GameObject implements Directions{
 	}
 	
 	
-	public void draw(Graphics g) {
-		g.drawImage(img,locX, locY, 100,100, null);
-	}
-	
 	public static double area(Rectangle rect) {
 		return rect.width*rect.height;
+	}
+
+	public void draw(Graphics g) {
+		g.drawImage(img,locX, locY, 100,100, null);
 	}
 	
 	public boolean hit(GameObject go) {
