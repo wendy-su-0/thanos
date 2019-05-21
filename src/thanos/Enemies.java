@@ -26,7 +26,7 @@ public class Enemies extends GameObject {
 
 	//the initial x and y are pixels. they are then converted to st/ave coordinates 
 	//and passed into the robot constructor
-	
+
 	//when workng with the enemey class we need to be very clear is we are
 	//working with a ave/st x/y or a x/y in pixels
 
@@ -37,7 +37,6 @@ public class Enemies extends GameObject {
 		startY = (int) GameLevel.st.getY();
 		currentX = startX;
 		currentY = startY;
-		System.out.println(currentY);
 		image = getImage(str);
 		health = h;
 		speed = s;
@@ -68,10 +67,8 @@ public class Enemies extends GameObject {
 	}
 
 	public void draw(Graphics g) {
-		
-		System.out.println(currentY);
 		g.drawImage(image, currentX,  currentY, null);
-		
+
 	}
 
 	private void updateX() {
@@ -95,61 +92,56 @@ public class Enemies extends GameObject {
 	public void move() {
 		int count = 0;
 		if(count ==0) {
-			double slope = -((GameLevel.junc1.getY()-GameLevel.st.getY())/(GameLevel.junc1.getX()-GameLevel.st.getX()));
+			int totalX = (int)(GameLevel.junc1.getX() - this.startX);
+			int totalY = (int)(GameLevel.junc1.getY() - this.startY);
+			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
+			int time = dist/speed;
+			//this should actually be dependent on ticks
+			int xPerT = totalX/time;
+			int yPerT = totalY/time;
 
-			currentY = (int) (slope*currentX);
-			currentX++;
-			if(currentY == GameLevel.junc1.getY()) {
-				if(currentX<GameLevel.junc1.getX()) {
-					currentX++;
-				}
-				if(currentX>GameLevel.junc1.getX()) {
-					currentX--;
-				}
-				if(currentX==GameLevel.junc1.getX()) {
-					count++;
-				}
-			}
+			currentX += xPerT;
+			currentY += yPerT;
 		}
 		if(count == 1) {
-			double slope = -((GameLevel.junc2.getY()-GameLevel.junc1.getY())/(GameLevel.junc2.getX()-GameLevel.junc1.getX()));
 
-			currentY = (int) (slope*currentX);
-			currentX--;
-			if(currentY == GameLevel.junc2.getY()) {
-				if(currentX<GameLevel.junc2.getX()) {
-					currentX++;
-				}
-				if(currentX>GameLevel.junc2.getX()) {
-					currentX--;
-				}
-				if(currentX==GameLevel.junc2.getX()) {
-					count++;
-				}
-			}
+			int totalX = (int)(GameLevel.junc2.getX() - GameLevel.junc1.getX());
+			int totalY = (int)(GameLevel.junc2.getY() - GameLevel.junc1.getY());
+			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
+			int time = dist/speed;
+			//this should actually be dependent on ticks
+			int xPerT = totalX/time;
+			int yPerT = totalY/time;
+
+			currentX += xPerT;
+			currentY += yPerT;
+
 		}
 		if(count == 2) {
-			double slope = -((GameLevel.junc3.getY()-GameLevel.junc2.getY())/(GameLevel.junc3.getX()-GameLevel.junc2.getX()));
+			int totalX = (int)(GameLevel.junc2.getX() - GameLevel.junc1.getX());
+			int totalY = (int)(GameLevel.junc2.getY() - GameLevel.junc1.getY());
+			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
+			int time = dist/speed;
+			//this should actually be dependent on ticks
+			int xPerT = totalX/time;
+			int yPerT = totalY/time;
+			
+			currentX += xPerT;
+			currentY += yPerT;
+		}
 
-			currentY = (int) (slope*currentX);
-			currentX--;
-			if(currentY == GameLevel.junc3.getY()) {
-				if(currentX<GameLevel.junc3.getX()) {
-					currentX++;
-				}
-				if(currentX>GameLevel.junc3.getX()) {
-					currentX--;
-				}
-				if(currentX==GameLevel.junc3.getX()) {
-					count++;
-				}
-			}
 			if(count == 3) {
-				currentX++;
-				if(currentX == GameLevel.end.getX()) {
-					count++;
-				}
-			}
+
+			int totalX = (int)(GameLevel.junc3.getX() - GameLevel.junc2.getX());
+			int totalY = (int)(GameLevel.junc3.getY() - GameLevel.junc2.getY());
+			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
+			int time = dist/speed;
+			//this should actually be dependent on ticks
+			int xPerT = totalX/time;
+			int yPerT = totalY/time;
+
+			currentX += xPerT;
+			currentY += yPerT;
 		}
 	}
 }

@@ -33,7 +33,7 @@ public class ThanosGameRunner {
 	// Notice this intuitive method for finding the screen size 
 	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	public static final int WIDTH = (int) (screenSize.getWidth()), HEIGHT=(int) (screenSize.getHeight());
-	private static final int REFRESH_RATE = 9; 
+	private static final int REFRESH_RATE = 10; 
 
 	public ThanosGameRunner() {
 		EventQueue.invokeLater(new Runnable() {
@@ -91,11 +91,10 @@ public class ThanosGameRunner {
 			}
 		});
 		// so that the frame isn't minimized
-		panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
+	
 		
 		// so that the frame is placed a little way from top and left side
-		frame.setLocation(WIDTH/2, HEIGHT/2);
-
+		panel.setSize(WIDTH, HEIGHT);
 		// map the keystrokes that the panel detects to the game
 		mapKeyStrokesToActions(panel);
 
@@ -125,8 +124,6 @@ public class ThanosGameRunner {
 		c = me.getY();
 		System.out.print(me);
 		panel.repaint();
-		
-		
 	}
 	
 	
@@ -139,18 +136,19 @@ public class ThanosGameRunner {
 		
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
+		
 		}
 		
 		for(Avengers a : game.avengers) {
 			if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
 				a.process(game);
+
 				for(Enemies e : game.enemies){
 					if(a.isInCirc(e))
 					a.shoot(e);
 					a.shooting();
 				}
 			}
-		
 		}
 	}
 
