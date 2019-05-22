@@ -22,7 +22,7 @@ public class ThanosGame {
 		bw1 = new BlackWidow(140,220);
 		he1 = new Hawkeye(20,340);
 		h1 = new Hulk(140,340);
-		e1 = new Enemies(5, 3,"thanos.jpg");
+		e1 = new Enemies(5, 2,"thanos.jpg");
 		
 		//e1 = new Enemies((int)GameLevel.junc1.getX(), (int)GameLevel.junc1.getY(), 5, 5, "thanos.jpg");
 		
@@ -32,8 +32,8 @@ public class ThanosGame {
 		gos.add(bw1);
 		gos.add(he1);
 		gos.add(h1);
-		//gos.add(e1);
-		//enemies.add(e1);
+		gos.add(e1);
+		enemies.add(e1);
 	}
 	
 	public List<Enemies> returnEnemies(){

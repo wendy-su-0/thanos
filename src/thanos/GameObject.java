@@ -49,7 +49,7 @@ public class GameObject implements Directions{
 	}
 
 	public void draw(Graphics g) {
-		g.drawImage(img,locX, locY, 100,100, null);
+		g.drawImage(img, locX, locY, 100,100, null);
 	}
 	
 	public boolean hit(GameObject go) {
