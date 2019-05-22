@@ -22,7 +22,6 @@ public class Enemies extends GameObject {
 	private int currentY;
 	private boolean isDead = false;
 	private Image image;
-	private int ticks;
 	Robot r;
 
 	//the initial x and y are pixels. they are then converted to st/ave coordinates 
@@ -263,8 +262,6 @@ public class Enemies extends GameObject {
 		}
 		if(count == 2) {
 			int totalX = (int)(GameLevel.junc2.getX() - GameLevel.junc1.getX());
-			//start, junction 1, junction 3
-			
 			int totalY = (int)(GameLevel.junc2.getY() - GameLevel.junc1.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
@@ -290,16 +287,12 @@ public class Enemies extends GameObject {
 			currentY += yPerT;
 		}
 	}
-<<<<<<< Upstream, based on branch 'master' of https://github.com/wsu315/thanos
 	public void add(Avengers a) {
 		ticks += a.getV();
 	}
 	public int getTicks() {
 		return ticks;
 	}
-=======
-	*/
->>>>>>> 2b0986a thicc thanos traverses terrain
 }
 
 

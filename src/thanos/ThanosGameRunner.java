@@ -139,12 +139,7 @@ public class ThanosGameRunner {
 		
 		
 		if(ticks %hurts == 0) {
-<<<<<<< Upstream, based on branch 'master' of https://github.com/wsu315/thanos
 			System.out.println(ticks/hurts+" seconds");
-=======
-			System.out.println(ticks/hurts+" seconds");
-			
->>>>>>> 2b0986a thicc thanos traverses terrain
 		}
 		move();
 		
@@ -211,7 +206,7 @@ public class ThanosGameRunner {
 		//g.drawLine(130, 500, r, c);
 		game.draw(g);
 		l.draw(g);
-		//s.draw(g);
+		s.draw(g);
 		//game.draw(g);
 	}
 
