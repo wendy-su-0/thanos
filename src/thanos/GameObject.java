@@ -69,9 +69,12 @@ public class GameObject implements Directions{
 	public Rectangle getRect() {
 		return this.rect;
 	}
-	
+	//edkfshakjhdvkjcn
+	//not te rect
+	//upadete coordinates
 	public void move(int dx, int dy) {
-		rect.translate(dx, dy);
+		locX = dx;
+		locY = dy;
 	}
 	
 	public Image returnImg (Image im) {

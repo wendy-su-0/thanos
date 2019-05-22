@@ -26,7 +26,7 @@ public class ThanosGameRunner {
 	private int c;
 	private Image img = getImage();
 	GameLevel l = new GameLevel();
-	Enemies s = new Enemies((int) (GameLevel.st.getX()),(int) (GameLevel.st.getY()), 10, 10, "thanos.jpg");
+	//Enemies s = new Enemies(10, 10, "thanos.jpg");
 
 
 	
@@ -139,8 +139,14 @@ public class ThanosGameRunner {
 		
 		
 		if(ticks %hurts == 0) {
+<<<<<<< Upstream, based on branch 'master' of https://github.com/wsu315/thanos
 			System.out.println(ticks/hurts+" seconds");
+=======
+			System.out.println(ticks/hurts+" seconds");
+			
+>>>>>>> 2b0986a thicc thanos traverses terrain
 		}
+		move();
 		
 		for(Avengers a : game.avengers) {
 			if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
@@ -205,15 +211,17 @@ public class ThanosGameRunner {
 		//g.drawLine(130, 500, r, c);
 		game.draw(g);
 		l.draw(g);
-		s.draw(g);
+		//s.draw(g);
 		//game.draw(g);
 	}
 
 	private void move() {
 		// TODO Auto-generated method stub
 		for(Enemies e : game.enemies) {
-			e.move(0, 0);
+			e.move(e.moveX(), e.moveY());
+			System.out.println("ee");
 		}
+		//move goes in the go class
 		for(Avengers a : game.avengers) {
 			//l.firedProjectiles;
 			for(Projectile p : a.getFired()) {

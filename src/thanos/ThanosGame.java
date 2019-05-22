@@ -16,6 +16,7 @@ public class ThanosGame {
 	public Enemies e1;
 	public ThanosGame() {
 
+<<<<<<< Upstream, based on branch 'master' of https://github.com/wsu315/thanos
 		im1 = new IronMan(20,100);
 		ca1 = new CaptainAmerica(140,100);
 		t1 = new Thor(20, 220);
@@ -24,6 +25,15 @@ public class ThanosGame {
 		h1 = new Hulk(140,340);
 		
 		//e1 = new Enemies((int)GameLevel.junc1.getX(), (int)GameLevel.junc1.getY(), 5, 5, "thanos.jpg");
+=======
+		im1 = new IronMan(500,500);
+		ca1 = new CaptainAmerica(400,200);
+		t1 = new Thor(500, 400);
+		bw1 = new BlackWidow(100,300);
+		he1 = new Hawkeye(1000,200);
+		h1 = new Hulk(300,400);
+		e1 = new Enemies(5, 2,"thanos.jpg");
+>>>>>>> 2b0986a thicc thanos traverses terrain
 		
 		gos.add(im1);
 		gos.add(ca1);
