@@ -17,6 +17,7 @@ public class Enemies extends GameObject {
 	static final int AVE_SQUARE_SIZE = 64, ST_SQUARE_SIZE = 64;
 	private Rectangle hitbox;
 	private int startX, startY, health, speed;
+	private int ticks;
 	private Direction direction;
 	private int currentX;
 	private int currentY;
@@ -287,6 +288,8 @@ public class Enemies extends GameObject {
 			currentY += yPerT;
 		}
 	}
+	*/
+	
 	public void add(Avengers a) {
 		ticks += a.getV();
 	}
