@@ -25,7 +25,7 @@ public class ThanosGameRunner {
 	private int r;
 	private int c;
 	private Image img = getImage();
-	GameLevel l = new GameLevel();
+	//GameLevel l = new GameLevel();
 	//Enemies s = new Enemies(10, 10, "thanos.jpg");
 
 
@@ -81,6 +81,7 @@ public class ThanosGameRunner {
 		};
 		// random color to the background
 		
+		game.build();
 		
 		//panel.setBackground(new Color(255, 182, 193));
 		panel.addMouseListener(new MouseAdapter() {
@@ -132,6 +133,9 @@ public class ThanosGameRunner {
 	
 	
 	// this method is called every time the timer goes off (which right now is every 10 milliseconds = 100 times per second
+	public int getTricks() {
+		return ticks;
+	}
 	protected void updateGame() {
 		ticks++;// keeps track of the number of times the timer has gone off
 		
@@ -142,7 +146,7 @@ public class ThanosGameRunner {
 			System.out.println(ticks/hurts+" seconds");
 		}
 		move();
-		
+		//generateEnemies();
 		for(Avengers a : game.avengers) {
 			if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
 				a.process(game);
@@ -156,6 +160,13 @@ public class ThanosGameRunner {
 				}
 			}
 		
+		}
+	}
+
+	private void generateEnemies() {
+		// TODO Auto-generated method stub
+		if (ticks > 500){
+			game.enemies.add(new Enemies(5,2,"thanos.jpg"));
 		}
 	}
 
@@ -202,7 +213,7 @@ public class ThanosGameRunner {
 	protected void drawGame(Graphics g) {
 		//g.drawLine(130, 500, r, c);
 		game.draw(g);
-		l.draw(g);
+		//l.draw(g);
 		//s.draw(g);
 		//game.draw(g);
 	}
