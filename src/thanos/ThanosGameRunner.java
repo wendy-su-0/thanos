@@ -203,7 +203,7 @@ public class ThanosGameRunner {
 		//g.drawLine(130, 500, r, c);
 		game.draw(g);
 		l.draw(g);
-		s.draw(g);
+		//s.draw(g);
 		//game.draw(g);
 	}
 
