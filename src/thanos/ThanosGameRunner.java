@@ -81,7 +81,7 @@ public class ThanosGameRunner {
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(img, 0, 0, frame.getWidth(), frame.getHeight(), null);
-
+				game.draw(g);
 				drawGame(g);
 			}
 		};
@@ -159,6 +159,7 @@ public class ThanosGameRunner {
 			for(int e = 0; e < game.enemies.size(); e++){
 				if(game.avengers.get(i).isInCirc(game.enemies.get(e))) {
 					game.enemies.get(e).add(game.avengers.get(i));
+					game.enemies.get(e).reduceSize(game.avengers.get(i));
 					if(game.enemies.get(e).getTicks() >= 1000)
 						game.enemies.remove(e);
 				}

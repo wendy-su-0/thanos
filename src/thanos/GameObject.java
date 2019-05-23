@@ -20,6 +20,7 @@ public class GameObject implements Directions{
 	private Image img;
 	int width, height;
 	private Rectangle rect;
+	protected int size = 100;
 	
 	public GameObject(int x, int y, Image image) {
 		locX = x;
@@ -49,7 +50,8 @@ public class GameObject implements Directions{
 	}
 
 	public void draw(Graphics g) {
-		g.drawImage(img, locX, locY, 100,100, null);
+		g.drawImage(img, locX, locY, size,size, null);
+
 	}
 	
 	public boolean hit(GameObject go) {

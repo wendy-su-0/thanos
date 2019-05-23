@@ -25,8 +25,8 @@ public class Enemies extends GameObject {
 	protected Image image;
 	Robot r;
 	private int count = 0;
-	private int size;
 	private int xPerT, yPerT;
+	private int iSize=0;
 
 	//the initial x and y are pixels. they are then converted to st/ave coordinates 
 	//and passed into the robot constructor
@@ -56,7 +56,6 @@ public class Enemies extends GameObject {
 		health = h;
 		speed = s;
 		image = getImage(str);
-		size = 100;
 	}
 
 	protected Image getImage(String imgName) {
@@ -96,18 +95,9 @@ public class Enemies extends GameObject {
 	public int getX() {
 		return currentX;
 	}
-@Override
-public void draw(Graphics g) {
-	this.reduceSize();
-	g.drawImage(image, locX, locY, size,size, null);
-}
 
-private void reduceSize() {
-	size--;
-	if(size <= 0) {
-		size = 10;
-	}
-}
+
+
 	public int getY() {
 		return currentY;
 	}
@@ -117,7 +107,7 @@ private void reduceSize() {
 	public void moveXY() {
 
 		if(count  ==0) {
-			
+
 			int totalX = (int)(ThanosGameRunner.junc1.getX() - startX);
 			int totalY = (int)(ThanosGameRunner.junc1.getY() - startY);
 
@@ -163,12 +153,12 @@ private void reduceSize() {
 			//this should actually be dependent on ticks
 			xPerT = Math.round(totalX/time);
 			yPerT = Math.round(totalY/time);
-			
+
 			System.out.print(time);
 			System.out.println(totalY);
 			//System.out.print(yPerT);
 			//System.out.println(xPerT);
-			
+
 			currentX += xPerT;
 			currentY += yPerT;
 			System.out.println("yee haw");
@@ -179,7 +169,7 @@ private void reduceSize() {
 		int xPerT;
 		int yPerT = 0;
 		if(count == 0) {
-			
+
 			int totalX = (int)(ThanosGameRunner.junc1.getX() - startX);
 			int totalY = (int)(ThanosGameRunner.junc1.getY() - startY);
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
@@ -279,6 +269,7 @@ private void reduceSize() {
 
 	public void add(Avengers a) {
 		ticks += a.getV();
+		
 	}
 	public int getTicks() {
 		return ticks;
@@ -292,6 +283,16 @@ private void reduceSize() {
 	public int getMoveY() {
 		moveXY();
 		return yPerT;
+	}
+	public void reduceSize(Avengers a) {
+		iSize++;
+		if(iSize == a.getV()/4) {
+		size--;
+		iSize = 0;
+		}
+		if(size<=0)
+			size = 0;
+		
 	}
 }
 
