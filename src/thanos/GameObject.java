@@ -74,9 +74,9 @@ public class GameObject implements Directions{
 	//upadete coordinates
 	public void move(int dx, int dy) {
 		locX = dx;
-		System.out.print(dx+"");
+		//System.out.print(dx+"");
 		locY = dy;
-		System.out.println(dy+"");
+		//System.out.println(dy+"");
 	}
 	
 	public Image returnImg (Image im) {

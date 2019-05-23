@@ -239,8 +239,8 @@ public class ThanosGameRunner {
 	private void move() {
 		// TODO Auto-generated method stub
 		for(Enemies e : game.enemies) {
-			e.move(e.moveX(), e.moveY());
-			System.out.println("ee");
+			e.move(e.getMoveX(), e.getMoveY());
+			//System.out.println("ee");
 		}
 		//move goes in the go class
 		for(Avengers a : game.avengers) {
