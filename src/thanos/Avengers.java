@@ -21,7 +21,7 @@ public class Avengers extends GameObject{
 	private int v;
 	private int refresh;
 	private int vX, vY;
-	private Image img;
+	protected Image img;
 	private Circle range;
 	private Circle clickedCircle;
 	private boolean firstClick = true;
@@ -65,9 +65,11 @@ public class Avengers extends GameObject{
 		g.drawImage(img, locX , locY, 100, 100, null);
 
 	}
-	
+	public double radius() {
+		return this.range.getRadius();
+	}
 	//not done
-	private boolean isInCirc(Enemies e) {
+	public boolean isInCirc(Enemies e) {
 		//if enemy xyloc is in circle return true
 		if (range.contains(e.getX(), e.getY()))
 			return true;
@@ -75,15 +77,21 @@ public class Avengers extends GameObject{
 	}
 	
 	//not done
-	private void shoot(Enemies e) {
-		//return int?
-		Projectile p = new Projectile(x,y,refresh, null);
+	public Projectile makeProjectile() {
+		return new Projectile(x,y, refresh, null);
+	}
+	void shoot(Enemies e) {
+		Projectile p = this.makeProjectile();
 		p.finishX = e.getX();
 		p.finishY = (int) e.getY();
-		firedProjectiles.add(p);
 		p.launch();
+		firedProjectiles.add(p);
 	}
-	
+	void shooting() {
+		for(Projectile p : firedProjectiles) {
+			p.move(p.dX, p.dY);
+		}
+	}
 	//the process the avenger every time each time elapsed = speed;
 	public void process(ThanosGame g) {
 		//mod timer % refresh

@@ -44,12 +44,12 @@ public class GameObject implements Directions{
 	}
 	
 	
-	public void draw(Graphics g) {
-		g.drawImage(img,locX, locY, 100,100, null);
-	}
-	
 	public static double area(Rectangle rect) {
 		return rect.width*rect.height;
+	}
+
+	public void draw(Graphics g) {
+		g.drawImage(img, locX, locY, 100,100, null);
 	}
 	
 	public boolean hit(GameObject go) {
@@ -69,9 +69,14 @@ public class GameObject implements Directions{
 	public Rectangle getRect() {
 		return this.rect;
 	}
-	
+	//edkfshakjhdvkjcn
+	//not te rect
+	//upadete coordinates
 	public void move(int dx, int dy) {
-		rect.translate(dx, dy);
+		locX = dx;
+		//System.out.print(dx+"");
+		locY = dy;
+		//System.out.println(dy+"");
 	}
 	
 	public Image returnImg (Image im) {

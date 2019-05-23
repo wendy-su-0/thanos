@@ -19,7 +19,7 @@ import kareltherobot.*;
 
 public class ThanosGameRunner {
 	private JPanel panel;
-	private ThanosGame game = new ThanosGame();
+	private ThanosGame game;
 	private Timer timer;
 	private int ticks;
 	private int r;
@@ -28,9 +28,16 @@ public class ThanosGameRunner {
 	private boolean firstClick = true;
 	private Image img = getImage();
 	GameLevel l = new GameLevel();
-	Enemies s = new Enemies((int) (GameLevel.st.getX()),(int) (GameLevel.st.getY()), 10, 10, "thanos.jpg");
+	//Enemies s = new Enemies((int) (GameLevel.st.getX()),(int) (GameLevel.st.getY()), 10, 10, "thanos.jpg");
 
 
+	private int c;
+	private Image img = getImage();
+	//public GameLevel l = new GameLevel();
+	//Enemies s = new Enemies(10, 10, "thanos.jpg");
+
+	public static Point st, junc1, junc2, junc3, end;
+	//public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	// Notice this intuitive method for finding the screen size 
 	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -38,7 +45,7 @@ public class ThanosGameRunner {
 	private static final int REFRESH_RATE = 10; 
 
 	public ThanosGameRunner() {
-		EventQueue.invokeLater(new Runnable() {
+			EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
 				try {
@@ -82,6 +89,7 @@ public class ThanosGameRunner {
 		};
 		// random color to the background
 		
+		//game.build();
 		
 		//panel.setBackground(new Color(255, 182, 193));
 		panel.addMouseListener(new MouseAdapter() {
@@ -150,6 +158,9 @@ public class ThanosGameRunner {
 	
 	
 	// this method is called every time the timer goes off (which right now is every 10 milliseconds = 100 times per second
+	public int getTricks() {
+		return ticks;
+	}
 	protected void updateGame() {
 		ticks++;// keeps track of the number of times the timer has gone off
 		
@@ -159,12 +170,30 @@ public class ThanosGameRunner {
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
 		}
-		
+		move();
+		//generateEnemies();
 		for(Avengers a : game.avengers) {
 			if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
 				a.process(game);
+				for(Enemies e : game.enemies){
+				a.shoot(e);
+					if(a.isInCirc(e)) {
+						e.add(a);
+						if(e.getTicks() == 1000)
+							e = null;
+					}
+				}
 			}
+		
 		}
+	}
+
+	private void generateEnemies() {
+		// TODO Auto-generated method stub
+//		if (ticks > 100){
+//			game.enemies.add(new Enemies(5,2,"thanos.jpg"));
+//			game.returnEnemies();
+//		}
 	}
 
 	private void mapKeyStrokesToActions(JPanel panel) {
@@ -210,16 +239,29 @@ public class ThanosGameRunner {
 	protected void drawGame(Graphics g) {
 		//g.drawLine(130, 500, r, c);
 		game.draw(g);
-		l.draw(g);
-		s.draw(g);
+		g.drawLine((int)(st.getX()),(int) (st.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
+		g.drawLine((int)(junc2.getX()),(int) (junc2.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
+		g.drawLine((int)(junc2.getX()),(int) (junc2.getY()), (int) (junc3.getX()),(int) (junc3.getY()));
+		//l.draw(g);
+		//s.draw(g);
 		//game.draw(g);
+	}
+	
+	public void build() {
+		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), (int) ThanosGameRunner.HEIGHT);
+		junc1 = new Point((int) (.639*ThanosGameRunner.WIDTH), (int) (.278*ThanosGameRunner.HEIGHT));
+		junc2 = new Point((int) (.597*ThanosGameRunner.WIDTH), (int) (.722*ThanosGameRunner.HEIGHT));
+		junc3 = new Point((int) (.231*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
+		end = new Point((int) (.907*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
 	}
 
 	private void move() {
 		// TODO Auto-generated method stub
 		for(Enemies e : game.enemies) {
-			e.move(0, 0);
+			e.move(e.getMoveX(), e.getMoveY());
+			//System.out.println("ee");
 		}
+		//move goes in the go class
 		for(Avengers a : game.avengers) {
 			//l.firedProjectiles;
 			for(Projectile p : a.getFired()) {

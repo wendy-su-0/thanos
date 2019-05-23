@@ -10,6 +10,7 @@ public class Projectile extends GameObject {
 	boolean hitEnemy = false;
 	private Rectangle hitbox;
 	private Image image;
+	public int dX, dY;
 	
 	public Projectile(int x, int y, int s, Image image) {
 		super(x, y, image);
@@ -33,8 +34,14 @@ public class Projectile extends GameObject {
 		return hitbox;
 	}
 	
-	public int getStrengt() {
+	public int getStrength() {
 		return strength;
+	}
+	
+	public void move(int dX,int dY) {
+		currentX += dX;
+		currentY += dY;
+		
 	}
 
 
@@ -47,6 +54,8 @@ public class Projectile extends GameObject {
 		//this should actually be dependent on ticks
 		int xPerT = totalX/time;
 		int yPerT = totalY/time;
+		dX = xPerT;
+		dY = yPerT;
 		//linked to timer
 		//this code shouldn't be here
 		while (time > 0) {
