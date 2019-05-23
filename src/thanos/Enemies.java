@@ -94,7 +94,7 @@ public class Enemies extends GameObject {
 		currentY = r.street()*this.ST_SQUARE_SIZE;
 	}
 
-	public double getX() {
+	public int getX() {
 		return currentX;
 	}
 @Override
@@ -109,7 +109,7 @@ private void reduceSize() {
 		size = 10;
 	}
 }
-	public double getY() {
+	public int getY() {
 		return currentY;
 	}
 	//once it find that initial and finish points it doesn't need to keep on calculating x/y per t
