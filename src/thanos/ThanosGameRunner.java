@@ -125,6 +125,7 @@ public class ThanosGameRunner {
 
 
 		});
+        new TestDrag();
 		timer.start();
 	}
 
