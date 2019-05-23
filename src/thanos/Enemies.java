@@ -48,9 +48,9 @@ public class Enemies extends GameObject {
 	 */
 
 	public Enemies(int h, int s, String str) {
-		super((int)ThanosGameRunner.st.getX(),(int)ThanosGameRunner.st.getY() + 51, str);
+		super((int)ThanosGameRunner.st.getX(),(int)ThanosGameRunner.st.getY(), str);
 		startX = (int)ThanosGameRunner.st.getX();
-		startY = (int)ThanosGameRunner.st.getY() + 51;
+		startY = (int)ThanosGameRunner.st.getY();
 		currentX = startX;
 		currentY = startY;
 		health = h;
@@ -164,9 +164,9 @@ private void reduceSize() {
 			xPerT = (int) Math.round(totalX/time);
 			yPerT = (int) Math.round(totalY/time);
 			
-			System.out.println(time);
-			System.out.println(totalY);
-			System.out.println(yPerT);
+			//System.out.println(time);
+			//System.out.println(totalY);
+			//System.out.println(yPerT);
 			//System.out.println(xPerT);
 			
 			currentX += xPerT;
@@ -175,7 +175,7 @@ private void reduceSize() {
 		}
 	}
 
-	public int moveY() {
+	/*public int moveY() {
 		int xPerT;
 		int yPerT = 0;
 		if(count == 0) {
@@ -218,7 +218,7 @@ private void reduceSize() {
 			currentY += yPerT;
 		}
 		return yPerT;
-	}
+	}*/
 	/*
 	public void move() {
 		int count = 0;
