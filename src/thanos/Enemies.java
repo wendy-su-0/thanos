@@ -25,6 +25,7 @@ public class Enemies extends GameObject {
 	protected Image image;
 	Robot r;
 	private int count = 0;
+	private int size;
 	private int xPerT, yPerT;
 
 	//the initial x and y are pixels. they are then converted to st/ave coordinates 
@@ -55,6 +56,7 @@ public class Enemies extends GameObject {
 		health = h;
 		speed = s;
 		image = getImage(str);
+		size = 100;
 	}
 
 	protected Image getImage(String imgName) {
@@ -81,11 +83,6 @@ public class Enemies extends GameObject {
 		image = null;
 	}
 
-	public void draw(Graphics g) {
-		g.drawImage(image, currentX,  currentY, null);
-
-	}
-
 	private void updateX() {
 		//updates the xLoc in pixels based off of the changed avenue
 		currentX = r.avenue()*this.AVE_SQUARE_SIZE;
@@ -99,7 +96,18 @@ public class Enemies extends GameObject {
 	public int getX() {
 		return currentX;
 	}
+@Override
+public void draw(Graphics g) {
+	this.reduceSize();
+	g.drawImage(image, locX, locY, size,size, null);
+}
 
+private void reduceSize() {
+	size--;
+	if(size <= 0) {
+		size = 10;
+	}
+}
 	public int getY() {
 		return currentY;
 	}

@@ -151,6 +151,7 @@ public class ThanosGameRunner {
 		}
 		move();
 		//generateEnemies();
+		
 		for(int i = 0; i < game.avengers.size(); i++) {
 				for(int e = 0; e < game.enemies.size(); e++){
 					if(game.avengers.get(i).isInCirc(game.enemies.get(e))) {
