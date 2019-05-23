@@ -24,6 +24,8 @@ public class Enemies extends GameObject {
 	private boolean isDead = false;
 	private Image image;
 	Robot r;
+	private int xCount = 0;
+	private int yCount = 0;
 
 	//the initial x and y are pixels. they are then converted to st/ave coordinates 
 	//and passed into the robot constructor
@@ -33,17 +35,17 @@ public class Enemies extends GameObject {
 
 	/*public Enemies(int h, int s, String str) {
 		// TODO Auto-generated constructor stub
-		super((int) ThanosGame.st.getX(), (int) ThanosGame.st.getY(), str);
-		startX = (int) ThanosGame.st.getX();
-		startY = (int) ThanosGame.st.getY();
+		super((int) ThanosGameRunner.st.getX(), (int) ThanosGameRunner.st.getY(), str);
+		startX = (int) ThanosGameRunner.st.getX();
+		startY = (int) ThanosGameRunner.st.getY();
 		currentX = startX;
 		currentY = startY;
 		image = getImage(str);
 		health = h;
 		speed = s;
 	}
-	*/
-	
+	 */
+
 	public Enemies(int h, int s, String str) {
 		super(500,500, str);
 		startX = 500;
@@ -103,140 +105,106 @@ public class Enemies extends GameObject {
 	}
 	//once it find that initial and finish points it doesn't need to keep on calculating x/y per t
 	//it just nees to store that value and move by that
-	
+
 	public int moveX() {
-		int count = 0;
 		int xPerT = 0;
 		int yPerT;
-		if(count ==0) {
-			if(currentX > (int)(ThanosGame.junc1.getX())) {
-				count++;
+		if(xCount  ==0) {
+			
+			int totalX = (int)(ThanosGameRunner.junc1.getX() - startX);
+			int totalY = (int)(ThanosGameRunner.junc1.getY() - startY);
+
+			//int totalX = (int)(ThanosGameRunner.junc1.getX() - ThanosGameRunnerRunner.st.getX());
+			//int totalY = (int)(ThanosGameRunnerRunner.junc1.getY() - ThanosGameRunnerRunner.st.getY());
+			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
+			int time = (dist/speed);
+			//this should actually be dependent on ticks
+			xPerT = Math.round(totalX/time);
+			currentX += xPerT;
+			if(currentX > (int)(ThanosGameRunner.junc1.getX())) {
+				xCount++;
 			}
-			int totalX = (int)(ThanosGame.junc1.getX() - startX);
-			int totalY = (int)(ThanosGame.junc1.getY() - startY);
+		}
+		if(xCount == 1) {
 			
-			//int totalX = (int)(ThanosGame.junc1.getX() - ThanosGame.st.getX());
-			//int totalY = (int)(ThanosGame.junc1.getY() - ThanosGame.st.getY());
+			int totalX = (int)(ThanosGameRunner.junc2.getX() - ThanosGameRunner.junc1.getX() );
+			int totalY = (int)(ThanosGameRunner.junc2.getY() - ThanosGameRunner.junc1.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = (dist/speed);
 			//this should actually be dependent on ticks
-			xPerT = totalX/time/1000;
-			yPerT = totalY/time/1000;
+			xPerT = Math.round(totalX/time);
 
-			currentX += xPerT;
-			currentY += yPerT;
-		}
-		if(count == 1) {
 
-			int totalX = (int)(ThanosGame.junc2.getX() - ThanosGame.junc1.getX());
-			int totalY = (int)(ThanosGame.junc2.getY() - ThanosGame.junc1.getY());
-			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
-			int time = (dist/speed);
-			//this should actually be dependent on ticks
-			xPerT = totalX/time;
-			yPerT = totalY/time;
-
-			currentX += xPerT;
-			currentY += yPerT;
+			if(currentX > (int)(ThanosGameRunner.junc2.getX())) {
+				xCount++;
+			}
 
 		}
-		if(count == 2) {
-			int totalX = (int)(ThanosGame.junc2.getX() - ThanosGame.junc1.getX());
+		if(xCount == 2) {
+			int totalX = (int)(ThanosGameRunner.junc3.getX() - ThanosGameRunner.junc2.getX());
 			//start, junction 1, junction 3
-			
-			int totalY = (int)(ThanosGame.junc2.getY() - ThanosGame.junc1.getY());
+
+			int totalY = (int)(ThanosGameRunner.junc3.getY() - ThanosGameRunner.junc2.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = (dist/speed);
 			//this should actually be dependent on ticks
-			xPerT = totalX/time;
-			yPerT = totalY/time;
-		
-			currentX += xPerT;
-			currentY += yPerT;
-		}
-
-			if(count == 3) {
-
-			int totalX = (int)(ThanosGame.junc3.getX() - ThanosGame.junc2.getX());
-			int totalY = (int)(ThanosGame.junc3.getY() - ThanosGame.junc2.getY());
-			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
-			int time = dist/speed;
-			//this should actually be dependent on ticks
-			xPerT = totalX/time;
-			yPerT = totalY/time;
+			xPerT = Math.round(totalX/time/1000);
 
 			currentX += xPerT;
-			currentY += yPerT;
 		}
-			return xPerT;
+		return xPerT;
 	}
-	
+
 	public int moveY() {
-		int count = 0;
 		int xPerT;
 		int yPerT = 0;
-		if(count ==0) {
-			int totalX = (int)(ThanosGame.junc1.getX() - ThanosGame.st.getX());
-			int totalY = (int)(ThanosGame.junc1.getY() - ThanosGame.st.getY());
-			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
-			int time = dist/speed;
-			//this should actually be dependent on ticks
-			xPerT = totalX/time;
-			yPerT = totalY/time;
-
-			currentX += xPerT;
-			currentY += yPerT;
-		}
-		if(count == 1) {
-
-			int totalX = (int)(ThanosGame.junc2.getX() - ThanosGame.junc1.getX());
-			int totalY = (int)(ThanosGame.junc2.getY() - ThanosGame.junc1.getY());
-			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
-			int time = dist/speed;
-			//this should actually be dependent on ticks
-			xPerT = totalX/time;
-			yPerT = totalY/time;
-
-			currentX += xPerT;
-			currentY += yPerT;
-
-		}
-		if(count == 2) {
-			int totalX = (int)(ThanosGame.junc2.getX() - ThanosGame.junc1.getX());
-			//start, junction 1, junction 3
+		if(yCount ==0) {
 			
-			int totalY = (int)(ThanosGame.junc2.getY() - ThanosGame.junc1.getY());
+			int totalX = (int)(ThanosGameRunner.junc1.getX() - startX);
+			int totalY = (int)(ThanosGameRunner.junc1.getY() - startY);
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
-			xPerT = totalX/time;
-			yPerT = totalY/time;
-		
-			currentX += xPerT;
+			yPerT = Math.round(totalY/time);
+
 			currentY += yPerT;
+			if(currentY < (int)(ThanosGameRunner.junc1.getY())) {
+				yCount++;
+			}
 		}
+		if(yCount == 1) {
 
-			if(count == 3) {
-
-			int totalX = (int)(ThanosGame.junc3.getX() - ThanosGame.junc2.getX());
-			int totalY = (int)(ThanosGame.junc3.getY() - ThanosGame.junc2.getY());
+			int totalX = (int)(ThanosGameRunner.junc2.getX() - ThanosGameRunner.junc1.getX());
+			int totalY = (int)(ThanosGameRunner.junc2.getY() - ThanosGameRunner.junc1.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
-			xPerT = totalX/time;
-			yPerT = totalY/time;
+			yPerT = Math.round(totalY/time);
 
-			currentX += xPerT;
+			currentY += yPerT;
+			if(currentY > (int)(ThanosGameRunner.junc2.getY())) {
+				yCount++;
+			}
+		}
+		if(yCount == 2) {
+
+			int totalX = (int)(ThanosGameRunner.junc3.getX() - ThanosGameRunner.junc2.getX());
+			int totalY = (int)(ThanosGameRunner.junc3.getY() - ThanosGameRunner.junc2.getY());
+			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
+			int time = dist/speed;
+			//this should actually be dependent on ticks
+			yPerT = Math.round(totalY/time);
+
 			currentY += yPerT;
 		}
-			return yPerT;
+		return yPerT;
 	}
 	/*
 	public void move() {
 		int count = 0;
 		if(count ==0) {
-			int totalX = (int)(ThanosGame.junc1.getX() - ThanosGame.st.getX());
-			int totalY = (int)(ThanosGame.junc1.getY() - ThanosGame.st.getY());
+			int totalX = (int)(ThanosGameRunner.junc1.getX() - ThanosGameRunner.st.getX());
+			int totalY = (int)(ThanosGameRunner.junc1.getY() - ThanosGameRunner.st.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
@@ -248,8 +216,8 @@ public class Enemies extends GameObject {
 		}
 		if(count == 1) {
 
-			int totalX = (int)(ThanosGame.junc2.getX() - ThanosGame.junc1.getX());
-			int totalY = (int)(ThanosGame.junc2.getY() - ThanosGame.junc1.getY());
+			int totalX = (int)(ThanosGameRunner.junc2.getX() - ThanosGameRunner.junc1.getX());
+			int totalY = (int)(ThanosGameRunner.junc2.getY() - ThanosGameRunner.junc1.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
@@ -261,22 +229,22 @@ public class Enemies extends GameObject {
 
 		}
 		if(count == 2) {
-			int totalX = (int)(ThanosGame.junc2.getX() - ThanosGame.junc1.getX());
-			int totalY = (int)(ThanosGame.junc2.getY() - ThanosGame.junc1.getY());
+			int totalX = (int)(ThanosGameRunner.junc2.getX() - ThanosGameRunner.junc1.getX());
+			int totalY = (int)(ThanosGameRunner.junc2.getY() - ThanosGameRunner.junc1.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
 			int xPerT = totalX/time;
 			int yPerT = totalY/time;
-			
+
 			currentX += xPerT;
 			currentY += yPerT;
 		}
 
 			if(count == 3) {
 
-			int totalX = (int)(ThanosGame.junc3.getX() - ThanosGame.junc2.getX());
-			int totalY = (int)(ThanosGame.junc3.getY() - ThanosGame.junc2.getY());
+			int totalX = (int)(ThanosGameRunner.junc3.getX() - ThanosGameRunner.junc2.getX());
+			int totalY = (int)(ThanosGameRunner.junc3.getY() - ThanosGameRunner.junc2.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
@@ -287,8 +255,8 @@ public class Enemies extends GameObject {
 			currentY += yPerT;
 		}
 	}
-	*/
-	
+	 */
+
 	public void add(Avengers a) {
 		ticks += a.getV();
 	}

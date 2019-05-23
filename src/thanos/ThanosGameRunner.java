@@ -19,16 +19,17 @@ import kareltherobot.*;
 
 public class ThanosGameRunner {
 	private JPanel panel;
-	private ThanosGame game = new ThanosGame();
+	private ThanosGame game;
 	private Timer timer;
 	private int ticks;
 	private int r;
 	private int c;
 	private Image img = getImage();
-	//GameLevel l = new GameLevel();
+	//public GameLevel l = new GameLevel();
 	//Enemies s = new Enemies(10, 10, "thanos.jpg");
 
-
+	public static Point st, junc1, junc2, junc3, end;
+	//public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	// Notice this intuitive method for finding the screen size 
 	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -36,7 +37,7 @@ public class ThanosGameRunner {
 	private static final int REFRESH_RATE = 10; 
 
 	public ThanosGameRunner() {
-		EventQueue.invokeLater(new Runnable() {
+			EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
 				try {
@@ -67,6 +68,8 @@ public class ThanosGameRunner {
 	}
 
 	private void start() {
+		build();
+		game = new ThanosGame();
 		JFrame frame = new JFrame("ThanosGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
@@ -84,7 +87,7 @@ public class ThanosGameRunner {
 		};
 		// random color to the background
 		
-		game.build();
+		//game.build();
 		
 		//panel.setBackground(new Color(255, 182, 193));
 		panel.addMouseListener(new MouseAdapter() {
@@ -217,9 +220,20 @@ public class ThanosGameRunner {
 	protected void drawGame(Graphics g) {
 		//g.drawLine(130, 500, r, c);
 		game.draw(g);
+		g.drawLine((int)(st.getX()),(int) (st.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
+		g.drawLine((int)(junc2.getX()),(int) (junc2.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
+		g.drawLine((int)(junc2.getX()),(int) (junc2.getY()), (int) (junc3.getX()),(int) (junc3.getY()));
 		//l.draw(g);
 		//s.draw(g);
 		//game.draw(g);
+	}
+	
+	public void build() {
+		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), (int)ThanosGameRunner.HEIGHT);
+		junc1 = new Point((int) (.639*ThanosGameRunner.WIDTH), (int) (.278*ThanosGameRunner.HEIGHT));
+		junc2 = new Point((int) (.597*ThanosGameRunner.WIDTH), (int) (.722*ThanosGameRunner.HEIGHT));
+		junc3 = new Point((int) (.231*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
+		end = new Point((int) (.907*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
 	}
 
 	private void move() {
