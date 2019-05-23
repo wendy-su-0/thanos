@@ -16,7 +16,8 @@ public class Enemies extends GameObject {
 	//the final int needs to be changed i'm too lazy rn to figure out the pixels of each ave and st
 	static final int AVE_SQUARE_SIZE = 64, ST_SQUARE_SIZE = 64;
 	private Rectangle hitbox;
-	private int startX, startY, health, speed;
+	private int health, speed;
+	private double startX, startY;
 	private int ticks;
 	private Direction direction;
 	protected int currentX;
@@ -26,7 +27,7 @@ public class Enemies extends GameObject {
 	Robot r;
 	private int count = 0;
 	private int size;
-	private int xPerT, yPerT;
+	private double xPerT, yPerT;
 
 	//the initial x and y are pixels. they are then converted to st/ave coordinates 
 	//and passed into the robot constructor
@@ -49,10 +50,10 @@ public class Enemies extends GameObject {
 
 	public Enemies(int h, int s, String str) {
 		super((int)ThanosGameRunner.st.getX(),(int)ThanosGameRunner.st.getY(), str);
-		startX = (int)ThanosGameRunner.st.getX();
-		startY = (int)ThanosGameRunner.st.getY();
-		currentX = startX;
-		currentY = startY;
+		startX = ThanosGameRunner.st.getX();
+		startY = ThanosGameRunner.st.getY();
+		currentX = (int)startX;
+		currentY = (int)startY;
 		health = h;
 		speed = s;
 		image = getImage(str);
@@ -93,7 +94,7 @@ public class Enemies extends GameObject {
 		currentY = r.street()*this.ST_SQUARE_SIZE;
 	}
 
-	public int getX() {
+	public double getX() {
 		return currentX;
 	}
 @Override
@@ -108,7 +109,7 @@ private void reduceSize() {
 		size = 10;
 	}
 }
-	public int getY() {
+	public double getY() {
 		return currentY;
 	}
 	//once it find that initial and finish points it doesn't need to keep on calculating x/y per t
@@ -126,11 +127,11 @@ private void reduceSize() {
 			double dist = Math.sqrt((totalX*totalX)+(totalY*totalY));
 			double time = (dist/speed);
 			//this should actually be dependent on ticks
-			xPerT = (int) (totalX/time);
-			yPerT = (int) (totalY/time);
+			xPerT =  (int)(totalX/time);
+			yPerT = (int)(totalY/time);
 			currentX += xPerT;
 			currentY += yPerT;
-			if(currentX > (int)(ThanosGameRunner.junc1.getX())) {
+			if(currentX > (ThanosGameRunner.junc1.getX())) {
 				count++;
 				System.out.println("count0");
 			}
@@ -147,7 +148,7 @@ private void reduceSize() {
 			yPerT = (int) Math.round(totalY/time);
 			currentX += xPerT;
 			currentY += yPerT;
-			if(currentY > (int)(ThanosGameRunner.junc2.getY())) {
+			if(currentY > (ThanosGameRunner.junc2.getY())) {
 				count++;
 				System.out.println("count1");
 			}
@@ -286,12 +287,12 @@ private void reduceSize() {
 
 	public int getMoveX() {
 		moveXY();
-		return xPerT;
+		return (int)xPerT;
 	}
 
 	public int getMoveY() {
 		moveXY();
-		return yPerT;
+		return (int)yPerT;
 	}
 }
 
