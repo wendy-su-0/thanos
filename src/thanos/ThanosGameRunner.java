@@ -69,6 +69,9 @@ public class ThanosGameRunner {
 	private void start() {
 		JFrame frame = new JFrame("ThanosGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+	
+	
 		
 		panel = new JPanel() {
 			@Override
