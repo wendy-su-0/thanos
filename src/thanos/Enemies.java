@@ -22,7 +22,7 @@ public class Enemies extends GameObject {
 	private int currentX;
 	private int currentY;
 	private boolean isDead = false;
-	private Image image;
+	protected Image image;
 	Robot r;
 	private int xCount = 0;
 	private int yCount = 0;
