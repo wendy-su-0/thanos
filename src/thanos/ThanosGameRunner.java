@@ -119,7 +119,6 @@ public class ThanosGameRunner {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				updateGame();
-				
 				panel.repaint();
 			}
 
@@ -154,16 +153,17 @@ public class ThanosGameRunner {
 		move();
 		//generateEnemies();
 		for(Avengers a : game.avengers) {
-			if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
-				a.process(game);
+			//if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
+				//a.process(game);
 				for(Enemies e : game.enemies){
-				a.shoot(e);
+				//a.shoot(e);
 					if(a.isInCirc(e)) {
 						e.add(a);
-						if(e.getTicks() == 1000)
+						System.out.println("eeee");
+						if(e.getTicks() >= 1000)
 							e = null;
 					}
-				}
+				//}
 			}
 		
 		}

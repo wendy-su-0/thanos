@@ -27,7 +27,7 @@ public class ThanosGame {
 		ca1 = new CaptainAmerica(140,100);
 		t1 = new Thor(20, 220);
 		bw1 = new BlackWidow(140,220);
-		he1 = new Hawkeye(20,340);
+		he1 = new Hawkeye(560,500);
 		h1 = new Hulk(140,340);
 		e1 = new Thanos(5, 2);
 		
