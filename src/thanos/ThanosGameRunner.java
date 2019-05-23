@@ -24,8 +24,6 @@ public class ThanosGameRunner {
 	private int ticks;
 	private int r;
 	private int c;
-	int firstClickR, firstClickC;
-	private boolean firstClick = true;
 	private Image img = getImage();
 	GameLevel l = new GameLevel();
 	//Enemies s = new Enemies((int) (GameLevel.st.getX()),(int) (GameLevel.st.getY()), 10, 10, "thanos.jpg");
@@ -121,7 +119,10 @@ public class ThanosGameRunner {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				updateGame();
+<<<<<<< HEAD
 				s.move();
+=======
+>>>>>>> branch 'master' of https://github.com/wsu315/thanos
 				panel.repaint();
 			}
 
@@ -164,25 +165,26 @@ public class ThanosGameRunner {
 	protected void updateGame() {
 		ticks++;// keeps track of the number of times the timer has gone off
 		
+<<<<<<< HEAD
 		int hurts = 1000/REFRESH_RATE;
 		
 		s.move();
+=======
+		int hurts = 1000/REFRESH_RATE;
+		
+>>>>>>> branch 'master' of https://github.com/wsu315/thanos
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
 		}
 		move();
 		//generateEnemies();
-		for(Avengers a : game.avengers) {
-			if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
-				a.process(game);
-				for(Enemies e : game.enemies){
-				a.shoot(e);
-					if(a.isInCirc(e)) {
-						e.add(a);
-						if(e.getTicks() == 1000)
-							e = null;
+		for(int i = 0; i < game.avengers.size(); i++) {
+				for(int e = 0; e < game.enemies.size(); e++){
+					if(game.avengers.get(i).isInCirc(game.enemies.get(e))) {
+						game.enemies.get(e).add(game.avengers.get(i));
+						if(game.enemies.get(e).getTicks() >= 1000)
+							game.enemies.remove(e);
 					}
-				}
 			}
 		
 		}
@@ -262,13 +264,13 @@ public class ThanosGameRunner {
 			//System.out.println("ee");
 		}
 		//move goes in the go class
-		for(Avengers a : game.avengers) {
-			//l.firedProjectiles;
-			for(Projectile p : a.getFired()) {
-				(p).move(0, 0) ;
-			}
+//		for(Avengers a : game.avengers) {
+//			//l.firedProjectiles;
+//			for(Projectile p : a.getFired()) {
+//				(p).move(0, 0) ;
+
 		}
-	}
+	
 	
 	
 
