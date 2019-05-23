@@ -39,4 +39,9 @@ public class ThanosGame {
 			o.draw(g);
 		}
 	}
+
+	public void swap(int firstClickR, int firstClickC, int r, int c) {
+		// TODO Auto-generated method stub
+		
+	}
 }

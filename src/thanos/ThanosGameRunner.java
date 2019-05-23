@@ -24,6 +24,8 @@ public class ThanosGameRunner {
 	private int ticks;
 	private int r;
 	private int c;
+	int firstClickR, firstClickC;
+	private boolean firstClick = true;
 	private Image img = getImage();
 	GameLevel l = new GameLevel();
 	Enemies s = new Enemies((int) (GameLevel.st.getX()),(int) (GameLevel.st.getY()), 10, 10, "thanos.jpg");
@@ -69,13 +71,12 @@ public class ThanosGameRunner {
 	private void start() {
 		JFrame frame = new JFrame("ThanosGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		panel = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
 				g.drawImage(img, 0, 0, frame.getWidth(), frame.getHeight(), null);
-				
+			
 				drawGame(g);
 			}
 		};
@@ -94,7 +95,7 @@ public class ThanosGameRunner {
 		panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
 		
 		// so that the frame is placed a little way from top and left side
-		frame.setLocation(WIDTH/2, HEIGHT/2);
+		frame.setLocation(WIDTH/10, HEIGHT/10);
 
 		// map the keystrokes that the panel detects to the game
 		mapKeyStrokesToActions(panel);
@@ -112,12 +113,13 @@ public class ThanosGameRunner {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				updateGame();
-				
+				s.move();
 				panel.repaint();
 			}
 
 			
 		});
+		new TestDrag();
 		timer.start();
 	}
 	
@@ -126,6 +128,24 @@ public class ThanosGameRunner {
 		c = me.getY();
 		System.out.print(me);
 		panel.repaint();
+		//int r = (me.getX()-50)/ZHUel.SQUARE_SIZE;
+		//int c = (me.getY()-50)/ZHUel.SQUARE_SIZE;
+
+		System.out.println("You just clicked "+me);	
+		if (firstClick) {
+			firstClickR = r;
+			firstClickC = c;
+			firstClick = false;
+		}
+		else {
+			game.swap(firstClickR, firstClickC, r, c);
+			firstClick = true;
+		}
+		
+	}
+	
+	public void swap(int firstR, int firstC, int r, int c) {
+		
 	}
 	
 	
@@ -135,7 +155,7 @@ public class ThanosGameRunner {
 		
 		int hurts = 1000/REFRESH_RATE;
 		
-		
+		s.move();
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
 		}
