@@ -45,9 +45,9 @@ public class Enemies extends GameObject {
 	*/
 	
 	public Enemies(int h, int s, String str) {
-		super((int)ThanosGame.st.getX(),(int) ThanosGame.st.getY(), str);
-		startX = (int)ThanosGame.st.getX();
-		startY = (int)ThanosGame.st.getY();
+		super(500,500, str);
+		startX = 500;
+		startY = 500;
 		currentX = startX;
 		currentY = startY;
 		health = h;
