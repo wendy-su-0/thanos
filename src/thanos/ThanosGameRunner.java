@@ -165,9 +165,10 @@ public class ThanosGameRunner {
 
 	private void generateEnemies() {
 		// TODO Auto-generated method stub
-		if (ticks > 500){
-			game.enemies.add(new Enemies(5,2,"thanos.jpg"));
-		}
+//		if (ticks > 100){
+//			game.enemies.add(new Enemies(5,2,"thanos.jpg"));
+//			game.returnEnemies();
+//		}
 	}
 
 	private void mapKeyStrokesToActions(JPanel panel) {

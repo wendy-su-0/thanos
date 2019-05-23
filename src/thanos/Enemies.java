@@ -33,9 +33,9 @@ public class Enemies extends GameObject {
 
 	/*public Enemies(int h, int s, String str) {
 		// TODO Auto-generated constructor stub
-		super((int) GameLevel.st.getX(), (int) GameLevel.st.getY(), str);
-		startX = (int) GameLevel.st.getX();
-		startY = (int) GameLevel.st.getY();
+		super((int) ThanosGame.st.getX(), (int) ThanosGame.st.getY(), str);
+		startX = (int) ThanosGame.st.getX();
+		startY = (int) ThanosGame.st.getY();
 		currentX = startX;
 		currentY = startY;
 		image = getImage(str);
@@ -112,11 +112,11 @@ public class Enemies extends GameObject {
 			if(currentX > (int)(ThanosGame.junc1.getX())) {
 				count++;
 			}
-			int totalX = (int)(GameLevel.junc1.getX() - startX);
-			int totalY = (int)(GameLevel.junc1.getY() - startY);
+			int totalX = (int)(ThanosGame.junc1.getX() - startX);
+			int totalY = (int)(ThanosGame.junc1.getY() - startY);
 			
-			//int totalX = (int)(GameLevel.junc1.getX() - GameLevel.st.getX());
-			//int totalY = (int)(GameLevel.junc1.getY() - GameLevel.st.getY());
+			//int totalX = (int)(ThanosGame.junc1.getX() - ThanosGame.st.getX());
+			//int totalY = (int)(ThanosGame.junc1.getY() - ThanosGame.st.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = (dist/speed);
 			//this should actually be dependent on ticks
@@ -128,8 +128,8 @@ public class Enemies extends GameObject {
 		}
 		if(count == 1) {
 
-			int totalX = (int)(GameLevel.junc2.getX() - GameLevel.junc1.getX());
-			int totalY = (int)(GameLevel.junc2.getY() - GameLevel.junc1.getY());
+			int totalX = (int)(ThanosGame.junc2.getX() - ThanosGame.junc1.getX());
+			int totalY = (int)(ThanosGame.junc2.getY() - ThanosGame.junc1.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = (dist/speed);
 			//this should actually be dependent on ticks
@@ -141,10 +141,10 @@ public class Enemies extends GameObject {
 
 		}
 		if(count == 2) {
-			int totalX = (int)(GameLevel.junc2.getX() - GameLevel.junc1.getX());
+			int totalX = (int)(ThanosGame.junc2.getX() - ThanosGame.junc1.getX());
 			//start, junction 1, junction 3
 			
-			int totalY = (int)(GameLevel.junc2.getY() - GameLevel.junc1.getY());
+			int totalY = (int)(ThanosGame.junc2.getY() - ThanosGame.junc1.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = (dist/speed);
 			//this should actually be dependent on ticks
@@ -157,8 +157,8 @@ public class Enemies extends GameObject {
 
 			if(count == 3) {
 
-			int totalX = (int)(GameLevel.junc3.getX() - GameLevel.junc2.getX());
-			int totalY = (int)(GameLevel.junc3.getY() - GameLevel.junc2.getY());
+			int totalX = (int)(ThanosGame.junc3.getX() - ThanosGame.junc2.getX());
+			int totalY = (int)(ThanosGame.junc3.getY() - ThanosGame.junc2.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
@@ -176,8 +176,8 @@ public class Enemies extends GameObject {
 		int xPerT;
 		int yPerT = 0;
 		if(count ==0) {
-			int totalX = (int)(GameLevel.junc1.getX() - GameLevel.st.getX());
-			int totalY = (int)(GameLevel.junc1.getY() - GameLevel.st.getY());
+			int totalX = (int)(ThanosGame.junc1.getX() - ThanosGame.st.getX());
+			int totalY = (int)(ThanosGame.junc1.getY() - ThanosGame.st.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
@@ -189,8 +189,8 @@ public class Enemies extends GameObject {
 		}
 		if(count == 1) {
 
-			int totalX = (int)(GameLevel.junc2.getX() - GameLevel.junc1.getX());
-			int totalY = (int)(GameLevel.junc2.getY() - GameLevel.junc1.getY());
+			int totalX = (int)(ThanosGame.junc2.getX() - ThanosGame.junc1.getX());
+			int totalY = (int)(ThanosGame.junc2.getY() - ThanosGame.junc1.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
@@ -202,10 +202,10 @@ public class Enemies extends GameObject {
 
 		}
 		if(count == 2) {
-			int totalX = (int)(GameLevel.junc2.getX() - GameLevel.junc1.getX());
+			int totalX = (int)(ThanosGame.junc2.getX() - ThanosGame.junc1.getX());
 			//start, junction 1, junction 3
 			
-			int totalY = (int)(GameLevel.junc2.getY() - GameLevel.junc1.getY());
+			int totalY = (int)(ThanosGame.junc2.getY() - ThanosGame.junc1.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
@@ -218,8 +218,8 @@ public class Enemies extends GameObject {
 
 			if(count == 3) {
 
-			int totalX = (int)(GameLevel.junc3.getX() - GameLevel.junc2.getX());
-			int totalY = (int)(GameLevel.junc3.getY() - GameLevel.junc2.getY());
+			int totalX = (int)(ThanosGame.junc3.getX() - ThanosGame.junc2.getX());
+			int totalY = (int)(ThanosGame.junc3.getY() - ThanosGame.junc2.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
@@ -235,8 +235,8 @@ public class Enemies extends GameObject {
 	public void move() {
 		int count = 0;
 		if(count ==0) {
-			int totalX = (int)(GameLevel.junc1.getX() - GameLevel.st.getX());
-			int totalY = (int)(GameLevel.junc1.getY() - GameLevel.st.getY());
+			int totalX = (int)(ThanosGame.junc1.getX() - ThanosGame.st.getX());
+			int totalY = (int)(ThanosGame.junc1.getY() - ThanosGame.st.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
@@ -248,8 +248,8 @@ public class Enemies extends GameObject {
 		}
 		if(count == 1) {
 
-			int totalX = (int)(GameLevel.junc2.getX() - GameLevel.junc1.getX());
-			int totalY = (int)(GameLevel.junc2.getY() - GameLevel.junc1.getY());
+			int totalX = (int)(ThanosGame.junc2.getX() - ThanosGame.junc1.getX());
+			int totalY = (int)(ThanosGame.junc2.getY() - ThanosGame.junc1.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
@@ -261,8 +261,8 @@ public class Enemies extends GameObject {
 
 		}
 		if(count == 2) {
-			int totalX = (int)(GameLevel.junc2.getX() - GameLevel.junc1.getX());
-			int totalY = (int)(GameLevel.junc2.getY() - GameLevel.junc1.getY());
+			int totalX = (int)(ThanosGame.junc2.getX() - ThanosGame.junc1.getX());
+			int totalY = (int)(ThanosGame.junc2.getY() - ThanosGame.junc1.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
@@ -275,8 +275,8 @@ public class Enemies extends GameObject {
 
 			if(count == 3) {
 
-			int totalX = (int)(GameLevel.junc3.getX() - GameLevel.junc2.getX());
-			int totalY = (int)(GameLevel.junc3.getY() - GameLevel.junc2.getY());
+			int totalX = (int)(ThanosGame.junc3.getX() - ThanosGame.junc2.getX());
+			int totalY = (int)(ThanosGame.junc3.getY() - ThanosGame.junc2.getY());
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = dist/speed;
 			//this should actually be dependent on ticks
