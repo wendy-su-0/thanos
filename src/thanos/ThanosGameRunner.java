@@ -24,7 +24,7 @@ public class ThanosGameRunner {
 	private int ticks;
 	private int r;
 	private int c;
-	private Image img = getImage();
+	private Image img = getImage() ;
 	//public GameLevel l = new GameLevel();
 	//Enemies s = new Enemies(10, 10, "thanos.jpg");
 
