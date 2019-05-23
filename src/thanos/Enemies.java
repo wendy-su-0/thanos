@@ -265,7 +265,6 @@ public class Enemies extends GameObject {
 
 	public void add(Avengers a) {
 		ticks += a.getV();
-		ticks += 1000;
 	}
 	public int getTicks() {
 		return ticks;

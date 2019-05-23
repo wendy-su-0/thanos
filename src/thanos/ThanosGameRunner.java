@@ -146,24 +146,18 @@ public class ThanosGameRunner {
 		
 		int hurts = 1000/REFRESH_RATE;
 		
-		
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
 		}
 		move();
 		//generateEnemies();
-		for(Avengers a : game.avengers) {
-			//if (ticks % hurts == 0 && (ticks%hurts)%a.getV() == 0) {
-				//a.process(game);
-				for(Enemies e : game.enemies){
-				//a.shoot(e);
-					if(a.isInCirc(e)) {
-						e.add(a);
-						System.out.println("eeee");
-						if(e.getTicks() >= 1000)
-							e = null;
+		for(int i = 0; i < game.avengers.size(); i++) {
+				for(int e = 0; e < game.enemies.size(); e++){
+					if(game.avengers.get(i).isInCirc(game.enemies.get(e))) {
+						game.enemies.get(e).add(game.avengers.get(i));
+						if(game.enemies.get(e).getTicks() >= 1000)
+							game.enemies.remove(e);
 					}
-				//}
 			}
 		
 		}
@@ -243,13 +237,13 @@ public class ThanosGameRunner {
 			//System.out.println("ee");
 		}
 		//move goes in the go class
-		for(Avengers a : game.avengers) {
-			//l.firedProjectiles;
-			for(Projectile p : a.getFired()) {
-				(p).move(0, 0) ;
-			}
+//		for(Avengers a : game.avengers) {
+//			//l.firedProjectiles;
+//			for(Projectile p : a.getFired()) {
+//				(p).move(0, 0) ;
+
 		}
-	}
+	
 	
 	
 
