@@ -27,7 +27,7 @@ public class ThanosGame {
 		ca1 = new CaptainAmerica(140,100);
 		t1 = new Thor(20, 220);
 		bw1 = new BlackWidow(140,220);
-		he1 = new Hawkeye(20,340);
+		he1 = new Hawkeye(560,500);
 		h1 = new Hulk(140,340);
 		e1 = new Thanos(5, 2);
 		
@@ -40,6 +40,13 @@ public class ThanosGame {
 		gos.add(he1);
 		gos.add(h1);
 		gos.add(e1);
+		avengers.add(im1);
+		avengers.add(ca1);
+		avengers.add(t1);
+		avengers.add(bw1);
+		avengers.add(he1);
+		avengers.add(h1);
+	
 		enemies.add(e1);
 	}
 	
@@ -67,7 +74,10 @@ public class ThanosGame {
 //	}
 
 	public void draw(Graphics g) {
-		for(GameObject o: gos) {
+		for(GameObject o: avengers) {
+			o.draw(g);
+		}
+		for(GameObject o: enemies) {
 			o.draw(g);
 		}
 	}
