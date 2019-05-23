@@ -118,16 +118,16 @@ private void reduceSize() {
 
 		if(count  ==0) {
 			
-			int totalX = (int)(ThanosGameRunner.junc1.getX() - startX);
-			int totalY = (int)(ThanosGameRunner.junc1.getY() - startY);
+			double totalX = (ThanosGameRunner.junc1.getX() - startX);
+			double totalY = (ThanosGameRunner.junc1.getY() - startY);
 
 			//int totalX = (int)(ThanosGameRunner.junc1.getX() - ThanosGameRunnerRunner.st.getX());
 			//int totalY = (int)(ThanosGameRunnerRunner.junc1.getY() - ThanosGameRunnerRunner.st.getY());
-			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
-			int time = (dist/speed);
+			double dist = Math.sqrt((totalX*totalX)+(totalY*totalY));
+			double time = (dist/speed);
 			//this should actually be dependent on ticks
-			xPerT = Math.round(totalX/time);
-			yPerT = Math.round(totalY/time);
+			xPerT = (int) (totalX/time);
+			yPerT = (int) (totalY/time);
 			currentX += xPerT;
 			currentY += yPerT;
 			if(currentX > (int)(ThanosGameRunner.junc1.getX())) {
@@ -138,13 +138,13 @@ private void reduceSize() {
 		if(count == 1) {
 			//int totalX = (int)(ThanosGameRunner.junc2.getX() - currentX);
 			//int totalY = (int)(ThanosGameRunner.junc2.getY() - currentY);
-			int totalX = (int)(ThanosGameRunner.junc2.getX() - ThanosGameRunner.junc1.getX() );
-			int totalY = (int)(ThanosGameRunner.junc2.getY() - ThanosGameRunner.junc1.getY());
-			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
-			int time = (dist/speed);
+			double totalX = (ThanosGameRunner.junc2.getX() - ThanosGameRunner.junc1.getX() );
+			double totalY = (ThanosGameRunner.junc2.getY() - ThanosGameRunner.junc1.getY());
+			double dist = Math.sqrt((totalX*totalX)+(totalY*totalY));
+			double time = (dist/speed);
 			//this should actually be dependent on ticks
-			xPerT = Math.round(totalX/time);
-			yPerT = Math.round(totalY/time);
+			xPerT = (int) Math.round(totalX/time);
+			yPerT = (int) Math.round(totalY/time);
 			currentX += xPerT;
 			currentY += yPerT;
 			if(currentY > (int)(ThanosGameRunner.junc2.getY())) {
@@ -154,24 +154,24 @@ private void reduceSize() {
 
 		}
 		if(count == 2) {
-			int totalX = (int)(ThanosGameRunner.junc3.getX() - ThanosGameRunner.junc2.getX());
+			double totalX = (ThanosGameRunner.junc3.getX() - ThanosGameRunner.junc2.getX());
 			//start, junction 1, junction 3
 
-			int totalY = (int)(ThanosGameRunner.junc3.getY() - ThanosGameRunner.junc2.getY());
-			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
-			int time = (dist/speed);
+			double totalY = (ThanosGameRunner.junc3.getY() - ThanosGameRunner.junc2.getY());
+			double dist = Math.sqrt((totalX*totalX)+(totalY*totalY));
+			double time = (dist/speed);
 			//this should actually be dependent on ticks
-			xPerT = Math.round(totalX/time);
-			yPerT = Math.round(totalY/time);
+			xPerT = (int) Math.round(totalX/time);
+			yPerT = (int) Math.round(totalY/time);
 			
-			System.out.print(time);
+			System.out.println(time);
 			System.out.println(totalY);
-			//System.out.print(yPerT);
+			System.out.println(yPerT);
 			//System.out.println(xPerT);
 			
 			currentX += xPerT;
 			currentY += yPerT;
-			System.out.println("yee haw");
+			//System.out.println("yee haw");
 		}
 	}
 
