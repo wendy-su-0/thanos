@@ -19,8 +19,8 @@ public class Enemies extends GameObject {
 	private int startX, startY, health, speed;
 	private int ticks;
 	private Direction direction;
-	private int currentX;
-	private int currentY;
+	protected int currentX;
+	protected int currentY;
 	private boolean isDead = false;
 	protected Image image;
 	Robot r;
