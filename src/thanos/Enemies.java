@@ -163,6 +163,12 @@ private void reduceSize() {
 			//this should actually be dependent on ticks
 			xPerT = Math.round(totalX/time);
 			yPerT = Math.round(totalY/time);
+			
+			System.out.print(time);
+			System.out.println(totalY);
+			//System.out.print(yPerT);
+			//System.out.println(xPerT);
+			
 			currentX += xPerT;
 			currentY += yPerT;
 			System.out.println("yee haw");

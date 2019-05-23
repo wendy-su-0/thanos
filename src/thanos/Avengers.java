@@ -3,6 +3,7 @@ import kareltherobot.*;
 import kareltherobot.Robot;
 
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.lang.*;
 import java.util.ArrayList;
 
@@ -22,6 +23,8 @@ public class Avengers extends GameObject{
 	private int vX, vY;
 	protected Image img;
 	private Circle range;
+	private Circle clickedCircle;
+	private boolean firstClick = true;
 	private ArrayList<Projectile> firedProjectiles = new ArrayList<Projectile>();
 
 	protected Image getImage(String imgName) {
@@ -131,6 +134,25 @@ public class Avengers extends GameObject{
 	
 	public ArrayList<Projectile> getFired(){
 		return this.firedProjectiles;
+	}
+	
+	/*public void mousePressed(MouseEvent me) {
+		clickedAt(me);
+		if (range.contains(me.getX(), me.getY()) && firstClick) {
+			this.secondClick());
+		}
+		//frame.repaint();
+	}*/
+
+	
+	private void secondClick(int x2, int y2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void clickedAt(MouseEvent me) {
+		System.out.print(me);
+		
 	}
 
 }
