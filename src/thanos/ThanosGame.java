@@ -8,8 +8,8 @@ import java.util.*;
 
 public class ThanosGame {
 
-	public static Point st, junc1, junc2, junc3, end;
-	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+//	public static Point st, junc1, junc2, junc3, end;
+//	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	public List<GameObject> gos = new ArrayList<>();
 	public List<Enemies> enemies = new ArrayList<>();
@@ -29,7 +29,7 @@ public class ThanosGame {
 		bw1 = new BlackWidow(140,220);
 		he1 = new Hawkeye(20,340);
 		h1 = new Hulk(140,340);
-		e1 = new Enemies(5, 2,"thanos.jpg");
+		e1 = new Thanos(5, 2);
 		
 		//e1 = new Enemies((int)GameLevel.junc1.getX(), (int)GameLevel.junc1.getY(), 5, 5, "thanos.jpg");
 		
@@ -58,13 +58,13 @@ public class ThanosGame {
 		}
 	}
 
-	public void build() {
-		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), (int)ThanosGameRunner.HEIGHT);
-		junc1 = new Point((int) (.639*ThanosGameRunner.WIDTH), (int) (.278*ThanosGameRunner.HEIGHT));
-		junc2 = new Point((int) (.597*ThanosGameRunner.WIDTH), (int) (.722*ThanosGameRunner.HEIGHT));
-		junc3 = new Point((int) (.231*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
-		end = new Point((int) (.907*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
-	}
+//	public void build() {
+//		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), (int)ThanosGameRunner.HEIGHT);
+//		junc1 = new Point((int) (.639*ThanosGameRunner.WIDTH), (int) (.278*ThanosGameRunner.HEIGHT));
+//		junc2 = new Point((int) (.597*ThanosGameRunner.WIDTH), (int) (.722*ThanosGameRunner.HEIGHT));
+//		junc3 = new Point((int) (.231*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
+//		end = new Point((int) (.907*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
+//	}
 
 	public void draw(Graphics g) {
 		for(GameObject o: gos) {
