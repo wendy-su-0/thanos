@@ -229,7 +229,7 @@ public class ThanosGameRunner {
 	}
 	
 	public void build() {
-		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), (int)ThanosGameRunner.HEIGHT);
+		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), (int) ThanosGameRunner.HEIGHT);
 		junc1 = new Point((int) (.639*ThanosGameRunner.WIDTH), (int) (.278*ThanosGameRunner.HEIGHT));
 		junc2 = new Point((int) (.597*ThanosGameRunner.WIDTH), (int) (.722*ThanosGameRunner.HEIGHT));
 		junc3 = new Point((int) (.231*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
@@ -239,8 +239,8 @@ public class ThanosGameRunner {
 	private void move() {
 		// TODO Auto-generated method stub
 		for(Enemies e : game.enemies) {
-			e.move(e.moveX(), e.moveY());
-			System.out.println("ee");
+			e.move(e.getMoveX(), e.getMoveY());
+			//System.out.println("ee");
 		}
 		//move goes in the go class
 		for(Avengers a : game.avengers) {
