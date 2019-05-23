@@ -153,10 +153,11 @@ public class Enemies extends GameObject {
 			int dist = (int)Math.sqrt((totalX*totalX)+(totalY*totalY));
 			int time = (dist/speed);
 			//this should actually be dependent on ticks
-			xPerT = Math.round(totalX/time/1000);
+			xPerT = Math.round(totalX/time);
 			yPerT = Math.round(totalY/time);
 			currentX += xPerT;
 			currentY += yPerT;
+			System.out.println("yee haw");
 		}
 	}
 
