@@ -26,6 +26,7 @@ public class Enemies extends GameObject {
 	protected Image image;
 	Robot r;
 	private int count = 0;
+	public int cost = 300;
 	private int xPerT, yPerT;
 	private int iSize=0;
 	protected int size = 100;

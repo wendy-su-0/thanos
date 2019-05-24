@@ -125,7 +125,7 @@ public class ThanosGameRunner {
 
 
 		});
-        new TestDrag();
+		new TestDrag();
 		timer.start();
 	}
 
@@ -154,27 +154,28 @@ public class ThanosGameRunner {
 		}
 		move();
 		game.generateEnemies(ticks);
-		
+
 		if(ticks%200 ==0) {
 			game.generateEnemies();
 		}
-		
+
 		for(int i = 0; i < game.avengers.size(); i++) {
 			for(int e = 0; e < game.enemies.size(); e++){
 				if(game.avengers.get(i).isInCirc(game.enemies.get(e))) {
 					game.enemies.get(e).add(game.avengers.get(i));
 					game.enemies.get(e).reduceSize(game.avengers.get(i));
 					if(game.enemies.get(e).getTicks() >= 1000)
-						game.enemies.remove(e);
+						game.bank += game.enemies.get(e).cost/5;
+					game.enemies.remove(e);
 				}
 			}
 
 		}
 
 		if(gameLevel == 1) {
-		if(ticks%200 ==0 && ticks <= 1500 ) 
-			game.generateEnemies();
-		
+			if(ticks%200 ==0 && ticks <= 1500 ) 
+				game.generateEnemies();
+
 		}
 	}
 	/*
@@ -185,7 +186,7 @@ public class ThanosGameRunner {
 		//			game.returnEnemies();
 		//		}
 	}
-	*/
+	 */
 	private void mapKeyStrokesToActions(JPanel panel) {
 
 		// A map is an Data storage interface which defines
@@ -253,12 +254,12 @@ public class ThanosGameRunner {
 			//System.out.println("ee");
 		}
 		//move goes in the go class
-//		for(Avengers a : game.avengers) {
-//			//l.firedProjectiles;
-//			//for(Projectile p : a.getFired()) {
-//			//	(p).move(0, 0) ;
-//			//}
-//		}
+		//		for(Avengers a : game.avengers) {
+		//			//l.firedProjectiles;
+		//			//for(Projectile p : a.getFired()) {
+		//			//	(p).move(0, 0) ;
+		//			//}
+		//		}
 	}
 
 

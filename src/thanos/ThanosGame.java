@@ -21,6 +21,7 @@ public class ThanosGame {
 	public Hawkeye he1;
 	public Hulk h1;
 	public Enemies e1;
+	public int bank = 1000;
 	//public Enemies e2;
 	//public Enemies e3;
 	public ThanosGame() {
@@ -98,16 +99,19 @@ public class ThanosGame {
 		if(ticks % 400 == 0) {
 			enemies.add(new Kree(15,2));
 			gos.add(new Kree (15,2));
+			bank-= enemies.get(enemies.size()-1).cost;
 		}
 
 		if(ticks % 200 == 0) {
 			enemies.add(new Leviathan(2,5));
 			gos.add(new Leviathan(2,5));
+			bank-= enemies.get(enemies.size()-1).cost;
 		}
 
 		if (ticks == 700){
 			enemies.add(e1);
 			gos.add(e1);
+			bank-= enemies.get(enemies.size()-1).cost;
 		}
 
 	}
@@ -115,6 +119,7 @@ public class ThanosGame {
 	public void generateEnemies() {
 		enemies.add(new Leviathan(2,5));
 		gos.add(new Leviathan(2,5));
+		bank-= enemies.get(enemies.size()-1).cost;
 		//kree speed 2
 		//thanos speed 2
 		//leviathan speed 5
