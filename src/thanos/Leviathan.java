@@ -5,7 +5,7 @@ import java.awt.Graphics;
 public class Leviathan extends Enemies{
 
 	public Leviathan(int h, int s) {
-		super(h, s, "leviathan.jpg");
+		super(h, s, "leviathon.png");
 	}
 
 	@Override

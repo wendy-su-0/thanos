@@ -8,9 +8,9 @@ import java.util.*;
 
 public class ThanosGame {
 
-//	public static Point st, junc1, junc2, junc3, end;
-//	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	
+	//	public static Point st, junc1, junc2, junc3, end;
+	//	public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
 	public List<GameObject> gos = new ArrayList<>();
 	public List<Enemies> enemies = new ArrayList<>();
 	public List<Avengers> avengers = new ArrayList<>();
@@ -34,9 +34,9 @@ public class ThanosGame {
 		e1 = new Thanos(30, 2);
 		e2 = new Leviathan(2,4);
 		e3 = new Kree(15,3);
-		
+
 		//e1 = new Enemies((int)GameLevel.junc1.getX(), (int)GameLevel.junc1.getY(), 5, 5, "thanos.jpg");
-		
+
 		gos.add(im1);
 		gos.add(ca1);
 		gos.add(t1);
@@ -50,16 +50,16 @@ public class ThanosGame {
 		avengers.add(bw1);
 		avengers.add(he1);
 		avengers.add(h1);
-	
+
 		//enemies.add(e1);
 	}
-	
 
-	
+
+
 	public List<Enemies> returnEnemies(){
 		return enemies;
 	}
-	
+
 	private void checkDead() {
 		for (int i = 0; i < enemies.size(); i++) {
 			if(enemies.get(i)==null){
@@ -69,27 +69,27 @@ public class ThanosGame {
 		}
 	}
 
-//	public void build() {
-//		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), (int)ThanosGameRunner.HEIGHT);
-//		junc1 = new Point((int) (.639*ThanosGameRunner.WIDTH), (int) (.278*ThanosGameRunner.HEIGHT));
-//		junc2 = new Point((int) (.597*ThanosGameRunner.WIDTH), (int) (.722*ThanosGameRunner.HEIGHT));
-//		junc3 = new Point((int) (.231*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
-//		end = new Point((int) (.907*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
-//	}
+	//	public void build() {
+	//		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), (int)ThanosGameRunner.HEIGHT);
+	//		junc1 = new Point((int) (.639*ThanosGameRunner.WIDTH), (int) (.278*ThanosGameRunner.HEIGHT));
+	//		junc2 = new Point((int) (.597*ThanosGameRunner.WIDTH), (int) (.722*ThanosGameRunner.HEIGHT));
+	//		junc3 = new Point((int) (.231*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
+	//		end = new Point((int) (.907*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
+	//	}
 
 	public void draw(Graphics g) {
 		for(GameObject o: avengers) {
 			o.draw(g);
 		}
 		for(GameObject e : enemies) {
-		e.draw(g);
-		System.out.println("draw");
+			e.draw(g);
+			System.out.println("draw");
 		}
 	}
 
 	public void swap(int firstClickR, int firstClickC, int r, int c) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 
@@ -99,16 +99,20 @@ public class ThanosGame {
 			enemies.add(e2);
 			gos.add(e2);
 		}
-		
+
 		if(ticks == 1) {
 			enemies.add(e3);
 			gos.add(e3);
 		}
-		
+
 		if (ticks == 500){
 			enemies.add(e1);
 			gos.add(e1);
 		}
 
+	}
+	public void generateEnemies() {
+		enemies.add(new Leviathan(2,4));
+		gos.add(new Leviathan(2,4));
 	}
 }

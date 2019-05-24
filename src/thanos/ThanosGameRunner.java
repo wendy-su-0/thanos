@@ -165,6 +165,9 @@ public class ThanosGameRunner {
 			}
 
 		}
+		if(ticks%200 ==0) {
+			game.generateEnemies();
+		}
 	}
 	/*
 	private void generateEnemies() {
