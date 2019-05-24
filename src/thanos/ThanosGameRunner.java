@@ -152,7 +152,7 @@ public class ThanosGameRunner {
 			System.out.println(ticks/hurts+" seconds");
 		}
 		move();
-		//generateEnemies();
+		game.generateEnemies(ticks);
 		
 		for(int i = 0; i < game.avengers.size(); i++) {
 			for(int e = 0; e < game.enemies.size(); e++){
@@ -166,7 +166,7 @@ public class ThanosGameRunner {
 
 		}
 	}
-
+	/*
 	private void generateEnemies() {
 		// TODO Auto-generated method stub
 		//		if (ticks > 100){
@@ -174,7 +174,7 @@ public class ThanosGameRunner {
 		//			game.returnEnemies();
 		//		}
 	}
-
+	*/
 	private void mapKeyStrokesToActions(JPanel panel) {
 
 		// A map is an Data storage interface which defines
