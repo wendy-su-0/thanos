@@ -119,7 +119,6 @@ public class ThanosGameRunner {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				updateGame();
-
 				panel.repaint();
 			}
 
@@ -140,7 +139,7 @@ public class ThanosGameRunner {
 
 
 	// this method is called every time the timer goes off (which right now is every 10 milliseconds = 100 times per second
-	public int getTricks() {
+	public int getTicks() {
 		return ticks;
 	}
 	protected void updateGame() {
@@ -242,12 +241,12 @@ public class ThanosGameRunner {
 			//System.out.println("ee");
 		}
 		//move goes in the go class
-		for(Avengers a : game.avengers) {
-			//l.firedProjectiles;
-			for(Projectile p : a.getFired()) {
-				(p).move(0, 0) ;
-			}
-		}
+//		for(Avengers a : game.avengers) {
+//			//l.firedProjectiles;
+//			//for(Projectile p : a.getFired()) {
+//			//	(p).move(0, 0) ;
+//			//}
+//		}
 	}
 
 

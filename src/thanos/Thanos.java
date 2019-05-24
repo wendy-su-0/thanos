@@ -3,7 +3,7 @@ package thanos;
 import java.awt.Graphics;
 
 public class Thanos extends Enemies{
-	
+
 	public Thanos(int h, int s) {
 		super(h, s, "thanos.jpg");
 	}

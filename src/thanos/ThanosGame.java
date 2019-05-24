@@ -77,8 +77,9 @@ public class ThanosGame {
 		for(GameObject o: avengers) {
 			o.draw(g);
 		}
-		for(Enemies e : enemies) {
+		for(GameObject e : enemies) {
 		e.draw(g);
+		System.out.println("draw");
 		}
 	}
 
