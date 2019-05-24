@@ -95,12 +95,12 @@ public class ThanosGame {
 
 
 	public void generateEnemies(int ticks) {
-		if(ticks % 300 == 0) {
-			enemies.add(new Kree(15,3));
-			gos.add(new Kree (15,3));
+		if(ticks % 400 == 0) {
+			enemies.add(new Kree(15,2));
+			gos.add(new Kree (15,2));
 		}
 
-		if(ticks == 1) {
+		if(ticks % 200 == 0) {
 			enemies.add(new Leviathan(2,5));
 			gos.add(new Leviathan(2,5));
 		}
@@ -113,7 +113,10 @@ public class ThanosGame {
 	}
 	
 	public void generateEnemies() {
-		enemies.add(new Leviathan(2,4));
-		gos.add(new Leviathan(2,4));
+		enemies.add(new Leviathan(2,5));
+		gos.add(new Leviathan(2,5));
+		//kree speed 2
+		//thanos speed 2
+		//leviathan speed 5
 	}
 }
