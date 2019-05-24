@@ -112,9 +112,6 @@ public class Enemies extends GameObject {
 
 		if(count  ==0) {
 
-			int totalX = (int)(ThanosGameRunner.junc1.getX() - startX);
-			int totalY = (int)(ThanosGameRunner.junc1.getY() - startY);
-
 			
 			double totalX = (ThanosGameRunner.junc1.getX() - startX);
 			double totalY = (ThanosGameRunner.junc1.getY() - startY);
