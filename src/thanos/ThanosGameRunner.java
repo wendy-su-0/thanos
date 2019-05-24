@@ -154,6 +154,10 @@ public class ThanosGameRunner {
 		move();
 		game.generateEnemies(ticks);
 		
+		if(ticks%200 ==0) {
+			game.generateEnemies();
+		}
+		
 		for(int i = 0; i < game.avengers.size(); i++) {
 			for(int e = 0; e < game.enemies.size(); e++){
 				if(game.avengers.get(i).isInCirc(game.enemies.get(e))) {
@@ -165,9 +169,7 @@ public class ThanosGameRunner {
 			}
 
 		}
-		if(ticks%200 ==0) {
-			game.generateEnemies();
-		}
+
 	}
 	/*
 	private void generateEnemies() {
