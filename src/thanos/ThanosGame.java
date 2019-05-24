@@ -20,7 +20,7 @@ public class ThanosGame {
 	public BlackWidow bw1;
 	public Hawkeye he1;
 	public Hulk h1;
-	//public Enemies e1;
+	public Enemies e1;
 	//public Enemies e2;
 	//public Enemies e3;
 	public ThanosGame() {
@@ -31,7 +31,7 @@ public class ThanosGame {
 		bw1 = new BlackWidow(140,220);
 		he1 = new Hawkeye(560,500);
 		h1 = new Hulk(140,340);
-		//e1 = new Thanos(30, 2);
+		e1 = new Thanos(30, 2);
 		//e2 = new Leviathan(2,4);
 		//e3 = new Kree(15,3);
 
@@ -43,12 +43,12 @@ public class ThanosGame {
 		gos.add(bw1);
 		gos.add(he1);
 		gos.add(h1);
-		//gos.add(e1);
+		gos.add(e1);
 		avengers.add(im1);
 		avengers.add(ca1);
 		avengers.add(t1);
 		avengers.add(bw1);
-		avengers.add(he1);
+		//avengers.add(he1);
 		avengers.add(h1);
 
 		//enemies.add(e1);
@@ -83,7 +83,7 @@ public class ThanosGame {
 		}
 		for(GameObject e : enemies) {
 			e.draw(g);
-			System.out.println("draw");
+			//System.out.println("draw");
 		}
 	}
 
@@ -106,8 +106,8 @@ public class ThanosGame {
 		}
 
 		if (ticks == 700){
-			enemies.add(new Thanos(40,2));
-			gos.add(new Thanos(40,2));
+			enemies.add(e1);
+			gos.add(e1);
 		}
 
 	}
