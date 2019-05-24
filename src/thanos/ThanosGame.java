@@ -48,7 +48,7 @@ public class ThanosGame {
 		avengers.add(ca1);
 		avengers.add(t1);
 		avengers.add(bw1);
-		//avengers.add(he1);
+		avengers.add(he1);
 		avengers.add(h1);
 
 		//enemies.add(e1);
