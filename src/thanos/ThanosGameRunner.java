@@ -156,7 +156,7 @@ public class ThanosGameRunner {
 		game.generateEnemies(ticks);
 		
 		if(ticks%200 ==0) {
-			//game.generateEnemies();
+			game.generateEnemies();
 		}
 		
 		for(int i = 0; i < game.avengers.size(); i++) {

@@ -112,9 +112,9 @@ public class Enemies extends GameObject {
 
 		if(count  ==0) {
 
-			double totalX = (ThanosGameRunner.junc1.getX() - startX);
+			double totalX = (ThanosGameRunner.junc1.getX() - ThanosGameRunner.st.getX());
 
-			double totalY = (ThanosGameRunner.junc1.getY() - startY);
+			double totalY = (ThanosGameRunner.junc1.getY() - ThanosGameRunner.st.getY());
 
 
 			//int totalX = (int)(ThanosGameRunner.junc1.getX() - ThanosGameRunnerRunner.st.getX());
@@ -173,7 +173,7 @@ public class Enemies extends GameObject {
 			//System.out.println("yee haw");
 		}
 		if(count == 3) {
-			System.out.println("yeehaw");
+			//System.out.println("yeehaw");
 			double totalX = (ThanosGameRunner.end.getX()- ThanosGameRunner.junc3.getX());
 
 			double totalY = (ThanosGameRunner.junc3.getY() - ThanosGameRunner.end.getY());
