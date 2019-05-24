@@ -155,6 +155,10 @@ public class ThanosGameRunner {
 		move();
 		game.generateEnemies(ticks);
 		
+		if(ticks%200 ==0) {
+			//game.generateEnemies();
+		}
+		
 		for(int i = 0; i < game.avengers.size(); i++) {
 			for(int e = 0; e < game.enemies.size(); e++){
 				if(game.avengers.get(i).isInCirc(game.enemies.get(e))) {
@@ -166,6 +170,7 @@ public class ThanosGameRunner {
 			}
 
 		}
+
 		if(gameLevel == 1) {
 		if(ticks%200 ==0 && ticks <= 1500 ) 
 			game.generateEnemies();
@@ -227,6 +232,7 @@ public class ThanosGameRunner {
 		g.drawLine((int)(st.getX()),(int) (st.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
 		g.drawLine((int)(junc2.getX()),(int) (junc2.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
 		g.drawLine((int)(junc2.getX()),(int) (junc2.getY()), (int) (junc3.getX()),(int) (junc3.getY()));
+		g.drawLine((int)(end.getX()), (int)end.getY(), (int)(junc3.getX()), (int)(junc3.getY()));
 		//l.draw(g);
 		//s.draw(g);
 		//game.draw(g);
