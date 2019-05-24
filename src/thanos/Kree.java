@@ -4,7 +4,7 @@ import java.awt.Graphics;
 
 public class Kree extends Enemies{
 	public Kree(int h, int s) {
-		super(h, s, "tesserac.png");
+		super(h, s,  "tesserac.png");
 	}
 
 	@Override
