@@ -112,8 +112,8 @@ public class Enemies extends GameObject {
 
 		if(count  ==0) {
 
-
 			double totalX = (ThanosGameRunner.junc1.getX() - startX);
+
 			double totalY = (ThanosGameRunner.junc1.getY() - startY);
 
 
@@ -160,11 +160,16 @@ public class Enemies extends GameObject {
 
 			xPerT = (int) Math.round(totalX/time);
 			yPerT = (int) Math.round(totalY/time);
-			
+
+			System.out.print(time);
+			System.out.println(totalY);
+			//System.out.print(yPerT);
+
 			//System.out.println(time);
 			//System.out.println(totalY);
-			//System.out.println(yPerT);
+	//System.out.println(yPerT);
 
+			//System.out.println(yPerT);
 			//System.out.println(xPerT);
 
 			currentX += xPerT;
