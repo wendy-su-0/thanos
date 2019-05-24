@@ -111,15 +111,13 @@ public class Enemies extends GameObject {
 	public void moveXY() {
 
 		if(count  ==0) {
-<<<<<<< HEAD
 
 			int totalX = (int)(ThanosGameRunner.junc1.getX() - startX);
 			int totalY = (int)(ThanosGameRunner.junc1.getY() - startY);
-=======
+
 			
 			double totalX = (ThanosGameRunner.junc1.getX() - startX);
 			double totalY = (ThanosGameRunner.junc1.getY() - startY);
->>>>>>> branch 'master' of https://github.com/wsu315/thanos
 
 			//int totalX = (int)(ThanosGameRunner.junc1.getX() - ThanosGameRunnerRunner.st.getX());
 			//int totalY = (int)(ThanosGameRunnerRunner.junc1.getY() - ThanosGameRunnerRunner.st.getY());
@@ -161,21 +159,17 @@ public class Enemies extends GameObject {
 			double dist = Math.sqrt((totalX*totalX)+(totalY*totalY));
 			double time = (dist/speed);
 			//this should actually be dependent on ticks
-<<<<<<< HEAD
-			xPerT = Math.round(totalX/time);
-			yPerT = Math.round(totalY/time);
+
+			xPerT = (int) Math.round(totalX/time);
+			yPerT = (int) Math.round(totalY/time);
 
 			System.out.print(time);
 			System.out.println(totalY);
 			//System.out.print(yPerT);
-=======
-			xPerT = (int) Math.round(totalX/time);
-			yPerT = (int) Math.round(totalY/time);
 			
 			//System.out.println(time);
 			//System.out.println(totalY);
 			//System.out.println(yPerT);
->>>>>>> branch 'master' of https://github.com/wsu315/thanos
 			//System.out.println(xPerT);
 
 			currentX += xPerT;
