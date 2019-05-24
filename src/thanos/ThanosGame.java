@@ -22,6 +22,7 @@ public class ThanosGame {
 	public Hulk h1;
 	public Enemies e1;
 	public Enemies e2;
+	public Enemies e3;
 	public ThanosGame() {
 
 		im1 = new IronMan(20,100);
@@ -32,6 +33,7 @@ public class ThanosGame {
 		h1 = new Hulk(140,340);
 		e1 = new Thanos(30, 2);
 		e2 = new Leviathan(2,4);
+		e3 = new Kree(15,3);
 		
 		//e1 = new Enemies((int)GameLevel.junc1.getX(), (int)GameLevel.junc1.getY(), 5, 5, "thanos.jpg");
 		
@@ -98,7 +100,12 @@ public class ThanosGame {
 			gos.add(e2);
 		}
 		
-		if (ticks == 1000){
+		if(ticks == 1) {
+			enemies.add(e3);
+			gos.add(e3);
+		}
+		
+		if (ticks == 500){
 			enemies.add(e1);
 			gos.add(e1);
 		}
