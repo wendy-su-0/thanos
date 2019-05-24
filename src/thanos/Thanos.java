@@ -11,7 +11,8 @@ public class Thanos extends Enemies{
 	@Override
 
 	public void draw(Graphics g) {
-		g.drawImage(image,currentX, currentY, size,size, null);
+		//g.drawImage(image,currentX, currentY, size,size, null);
+		g.drawImage(image, currentX, currentY, 100,50,null);
 	}
 
 }
