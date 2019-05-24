@@ -5,7 +5,7 @@ import java.awt.Graphics;
 public class Hulk extends Avengers {
 
 	public Hulk(int x, int y) {
-		super(x, y, 2, 70, "hulk.png");
+		super(x, y, 2, 100, "hulk.png");
 		// TODO Auto-generated constructor stub
 	}
 	

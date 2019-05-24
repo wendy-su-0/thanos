@@ -25,10 +25,10 @@ public class ThanosGame {
 	public Enemies e3;
 	public ThanosGame() {
 
-		im1 = new IronMan(20,100);
-		ca1 = new CaptainAmerica(140,100);
-		t1 = new Thor(20, 220);
-		bw1 = new BlackWidow(140,220);
+		im1 = new IronMan(2000,300);
+		ca1 = new CaptainAmerica(1400,400);
+		t1 = new Thor(200, 320);
+		bw1 = new BlackWidow(740,520);
 		he1 = new Hawkeye(560,500);
 		h1 = new Hulk(140,340);
 		e1 = new Thanos(30, 2);

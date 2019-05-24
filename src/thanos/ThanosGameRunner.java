@@ -25,6 +25,7 @@ public class ThanosGameRunner {
 	private int r;
 	private int c;
 	private Image img = getImage() ;
+	private int gameLevel=1;
 	//public GameLevel l = new GameLevel();
 	//Enemies s = new Enemies(10, 10, "thanos.jpg");
 
@@ -165,8 +166,10 @@ public class ThanosGameRunner {
 			}
 
 		}
-		if(ticks%200 ==0) {
+		if(gameLevel == 1) {
+		if(ticks%200 ==0 && ticks <= 1500 ) 
 			game.generateEnemies();
+		
 		}
 	}
 	/*
