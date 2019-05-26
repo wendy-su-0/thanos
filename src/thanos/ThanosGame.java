@@ -2,9 +2,13 @@ package thanos;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.util.*;
+
+import javax.imageio.ImageIO;
 
 public class ThanosGame {
 
@@ -89,7 +93,18 @@ public class ThanosGame {
 			e.draw(g);
 			//System.out.println("draw");
 		}
+		for (int i = 0; i < hearts; i++) {
+			Image img = null;
+			try {
+				img = ImageIO.read(this.getClass().getResource("heart.png"));
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			g.drawImage(img, (int)ThanosGameRunner.WIDTH-125 - (50*i), (int)ThanosGameRunner.HEIGHT-75, 50, 50, null);
+		}
 	}
+	
 
 	public void swap(int firstClickR, int firstClickC, int r, int c) {
 		// TODO Auto-generated method stub
@@ -135,10 +150,6 @@ public class ThanosGame {
 			if(e.getX() > ThanosGameRunner.end.getX()) {
 				hearts--;
 			}
-		}
-		
-		for (int i = 0; i < hearts; i++) {
-			
 		}
 	}
 }
