@@ -24,6 +24,9 @@ public class ThanosGame {
 	public int bank = 1000;
 	//public Enemies e2;
 	//public Enemies e3;
+	
+	private int hearts = 5;
+	
 	public ThanosGame() {
 
 		im1 = new IronMan(2000,300);
@@ -123,5 +126,19 @@ public class ThanosGame {
 		//kree speed 2
 		//thanos speed 2
 		//leviathan speed 5
+	}
+
+
+
+	public void checkHearts() {
+		for(Enemies e: enemies) {
+			if(e.getX() > ThanosGameRunner.end.getX()) {
+				hearts--;
+			}
+		}
+		
+		for (int i = 0; i < hearts; i++) {
+			
+		}
 	}
 }
