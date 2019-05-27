@@ -125,7 +125,7 @@ public class ThanosGameRunner {
 
 
 		});
-		new TestDrag();
+		//new TestDrag();
 		timer.start();
 	}
 
@@ -164,9 +164,10 @@ public class ThanosGameRunner {
 				if(game.avengers.get(i).isInCirc(game.enemies.get(e))) {
 					game.enemies.get(e).add(game.avengers.get(i));
 					game.enemies.get(e).reduceSize(game.avengers.get(i));
-					if(game.enemies.get(e).getTicks() >= 1000)
+					if(game.enemies.get(e).getTicks() >= 1000) {
 						game.bank += game.enemies.get(e).cost/5;
 					game.enemies.remove(e);
+					}
 				}
 			}
 
