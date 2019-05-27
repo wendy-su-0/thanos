@@ -17,8 +17,9 @@ import javax.swing.*;
 import kareltherobot.*;
 
 
-public class ThanosGameRunner {
-	private JPanel panel;
+public class ThanosGameRunner  implements ActionListener {
+	private JPanel gamePanel, menu;
+	private JSplitPane mainPanel;
 	private ThanosGame game;
 	private Timer timer;
 	private int ticks;
@@ -26,6 +27,7 @@ public class ThanosGameRunner {
 	private int c;
 	private Image img = getImage() ;
 	private int gameLevel=1;
+	private JButton BW,CA;
 	//public GameLevel l = new GameLevel();
 	//Enemies s = new Enemies(10, 10, "thanos.jpg");
 
@@ -74,10 +76,13 @@ public class ThanosGameRunner {
 		JFrame frame = new JFrame("ThanosGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-
-
-
-		panel = new JPanel() {
+		mainPanel = new JSplitPane();
+		BW = new JButton("Black Widow");
+		CA = new JButton("Captain America");
+		
+		
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
+		gamePanel = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -86,12 +91,19 @@ public class ThanosGameRunner {
 				drawGame(g);
 			}
 		};
+		menu = new JPanel() {
+			@Override
+			public void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				g.drawRect(0, 0, screenSize.width, screenSize.height);
+			}
+		};
 		// random color to the background
 
 		//game.build();
 
 		//panel.setBackground(new Color(255, 182, 193));
-		panel.addMouseListener(new MouseAdapter() {
+		gamePanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent me) {
 				clickedAt(me);				
@@ -99,41 +111,61 @@ public class ThanosGameRunner {
 			}
 		});
 		// so that the frame isn't minimized
-		panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
-
+		gamePanel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
+		
 		// so that the frame is placed a little way from top and left side
 		frame.setLocation(WIDTH/2, HEIGHT/2);
 		frame.setSize(WIDTH, HEIGHT);
 		// map the keystrokes that the panel detects to the game
-		mapKeyStrokesToActions(panel);
-
-		frame.add(panel);
+		mapKeyStrokesToActions(gamePanel);
+		
+		frame.getContentPane().setLayout(new GridLayout());
+		frame.getContentPane().add(mainPanel);
+		mainPanel.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+		mainPanel.setDividerLocation(WIDTH/5);
+		mainPanel.setLeftComponent(menu);
+		mainPanel.setRightComponent(gamePanel);
+		menu.setLayout(new BoxLayout(menu,BoxLayout.Y_AXIS));
+		menu.add(BW); menu.add(CA);
+		giveButtonAvenger();
+	
 		frame.pack();
 		frame.setVisible(true);
 
 		// after setting visible to true, you can get focus.  You need focus to consume
 		// the keystrokes hit by the user
-		panel.requestFocusInWindow();
+		gamePanel.requestFocusInWindow();
 
 		// this timer controls the actions in the game and then repaints after each update to data
 		timer = new Timer(REFRESH_RATE, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				updateGame();
-				panel.repaint();
+				gamePanel.repaint();
 			}
 
 
 		});
-		new TestDrag();
+		//new TestDrag();
 		timer.start();
 	}
 
+	private void giveButtonAvenger()  {
+		BW.addActionListener(this);
+	}
+	
+    public void actionPerformed(ActionEvent ae) {
+       String test = ae.getActionCommand();
+       if(test.equals("Black Widow")) {
+    	   
+       }
+    }
+	
 	protected void clickedAt(MouseEvent me) {
 		r = me.getX();
 		c = me.getY();
 		System.out.print(me);
-		panel.repaint();
+		gamePanel.repaint();
 
 
 	}
@@ -225,7 +257,7 @@ public class ThanosGameRunner {
 	public  void hit(String s) {
 		//	game.keyHit(s);
 
-		panel.repaint();
+		gamePanel.repaint();
 	}
 	protected void drawGame(Graphics g) {
 		//g.drawLine(130, 500, r, c);
