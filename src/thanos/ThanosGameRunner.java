@@ -19,6 +19,7 @@ import kareltherobot.*;
 
 public class ThanosGameRunner  implements ActionListener {
 	private JPanel gamePanel, menu;
+	private JFrame frame;
 	private JSplitPane mainPanel;
 	private ThanosGame game;
 	private Timer timer;
@@ -27,7 +28,8 @@ public class ThanosGameRunner  implements ActionListener {
 	private int c;
 	private Image img = getImage() ;
 	private int gameLevel=1;
-	private JButton BW,CA;
+	private JButton BW,CA, HE, H, IM, T;
+	private JOptionPane instructions;
 	//public GameLevel l = new GameLevel();
 	//Enemies s = new Enemies(10, 10, "thanos.jpg");
 
@@ -52,8 +54,7 @@ public class ThanosGameRunner  implements ActionListener {
 		});
 	}
 
-	private Image getImage(
-			) {
+	private Image getImage() {
 		try {
 
 			img = ImageIO.read(this.getClass().getResource("avenger.jpg"));
@@ -73,14 +74,15 @@ public class ThanosGameRunner  implements ActionListener {
 	private void start() {
 		build();
 		game = new ThanosGame();
-		JFrame frame = new JFrame("ThanosGame");
+		instructions = new JOptionPane();
+		instructions.showMessageDialog(null, "To place a tower, select the location and then select the desired tower", "Instructions", JOptionPane.INFORMATION_MESSAGE);
+		
+		frame = new JFrame("ThanosGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		mainPanel = new JSplitPane();
-		BW = new JButton("Black Widow");
-		CA = new JButton("Captain America");
-		
-		
+		createButtons();
+	
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
 		gamePanel = new JPanel() {
 			@Override
@@ -126,9 +128,12 @@ public class ThanosGameRunner  implements ActionListener {
 		mainPanel.setLeftComponent(menu);
 		mainPanel.setRightComponent(gamePanel);
 		menu.setLayout(new BoxLayout(menu,BoxLayout.Y_AXIS));
-		menu.add(BW); menu.add(CA);
+		//initializes buttons
+		addButtons();
+		//sets each button to an avenger 
 		giveButtonAvenger();
-	
+		instructions.setLocation(WIDTH/2, HEIGHT/2);
+		instructions.setVisible(true);
 		frame.pack();
 		frame.setVisible(true);
 
@@ -150,16 +155,101 @@ public class ThanosGameRunner  implements ActionListener {
 		timer.start();
 	}
 
+	private void addButtons() {
+		menu.add(BW); 
+		menu.add(CA);
+		menu.add(HE);
+		menu.add(H);
+		menu.add(IM);
+		menu.add(T);
+		
+	}
+
+	private void createButtons() {
+		BW = new JButton("Black Widow");
+	
+		CA = new JButton("Captain America");
+		
+		HE = new JButton("Hawkeye");
+		H = new JButton("Hulk");
+		IM = new JButton("Iron Man");
+		T = new JButton("Thor");
+		
+	}
+
 	private void giveButtonAvenger()  {
 		BW.addActionListener(this);
+		CA.addActionListener(this);
+		HE.addActionListener(this);
+		H.addActionListener(this);
+		IM.addActionListener(this);
+		T.addActionListener(this);
 	}
 	
     public void actionPerformed(ActionEvent ae) {
        String test = ae.getActionCommand();
+       
        if(test.equals("Black Widow")) {
-    	   
+    	   int x = r;
+    	   int y = c;
+    	   System.out.println(x);
+    	   System.out.println(y);
+    	   BlackWidow s = new BlackWidow(x, y);
+    	   game.addAvenger(s);
+    	   gamePanel.repaint();
+       }
+       
+       if(test.equals("Captain America")) {
+    	   int x = r;
+    	   int y = c;
+    	   System.out.println(x);
+    	   System.out.println(y);
+    	   CaptainAmerica s = new CaptainAmerica(x, y);
+    	   game.addAvenger(s);
+    	   gamePanel.repaint();
+       }
+       
+       if(test.equals("Hawkeye")) {
+    	   int x = r;
+    	   int y = c;
+    	   System.out.println(x);
+    	   System.out.println(y);
+    	   Hawkeye s = new Hawkeye(x, y);
+    	   game.addAvenger(s);
+    	   gamePanel.repaint();
+       }
+       
+       if(test.equals("Hulk")) {
+    	   int x = r;
+    	   int y = c;
+    	   System.out.println(x);
+    	   System.out.println(y);
+    	   Hulk s = new Hulk(x, y);
+    	   game.addAvenger(s);
+    	   gamePanel.repaint();
+       }
+       
+       if(test.equals("Iron Man")) {
+    	   int x = r;
+    	   int y = c;
+    	   System.out.println(x);
+    	   System.out.println(y);
+    	   IronMan s = new IronMan(x, y);
+    	   game.addAvenger(s);
+    	   gamePanel.repaint();
+       }
+       
+       if(test.equals("Thor")) {
+    	   int x = r;
+    	   int y = c;
+    	   System.out.println(x);
+    	   System.out.println(y);
+    	   Thor s = new Thor(x, y);
+    	   game.addAvenger(s);
+    	   gamePanel.repaint();
        }
     }
+	
 	
 	protected void clickedAt(MouseEvent me) {
 		r = me.getX();
@@ -275,8 +365,8 @@ public class ThanosGameRunner  implements ActionListener {
 		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), (int) ThanosGameRunner.HEIGHT);
 		junc1 = new Point((int) (.639*ThanosGameRunner.WIDTH), (int) (.278*ThanosGameRunner.HEIGHT));
 		junc2 = new Point((int) (.597*ThanosGameRunner.WIDTH), (int) (.722*ThanosGameRunner.HEIGHT));
-		junc3 = new Point((int) (.231*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
-		end = new Point((int) (.907*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
+		junc3 = new Point((int) (.225*ThanosGameRunner.WIDTH), (int) (.450*ThanosGameRunner.HEIGHT));
+		end = new Point((int) (.907*ThanosGameRunner.WIDTH), (int) (.450*ThanosGameRunner.HEIGHT));
 	}
 
 	private void move() {
@@ -293,6 +383,8 @@ public class ThanosGameRunner  implements ActionListener {
 		//			//}
 		//		}
 	}
+
+	
 
 
 
