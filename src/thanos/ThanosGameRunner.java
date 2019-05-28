@@ -166,14 +166,19 @@ public class ThanosGameRunner  implements ActionListener {
 	}
 
 	private void createButtons() {
+		Font f = new Font("SansSerif", Font.BOLD, 18);
 		BW = new JButton("Black Widow");
-	
+		BW.setFont(f);
 		CA = new JButton("Captain America");
-		
+		CA.setFont(f);
 		HE = new JButton("Hawkeye");
+		HE.setFont(f);
 		H = new JButton("Hulk");
+		H.setFont(f);
 		IM = new JButton("Iron Man");
+		IM.setFont(f);
 		T = new JButton("Thor");
+		T.setFont(f);
 		
 	}
 
@@ -194,13 +199,13 @@ public class ThanosGameRunner  implements ActionListener {
     	   int y = c;
     	   System.out.println(x);
     	   System.out.println(y);
-    	   if(game.bank - 300 > 0) {
+    	   if(game.bank - 300 >= 0) {
     	   BlackWidow s = new BlackWidow(x, y);
     	   game.addAvenger(s);
     	   game.bank -= 300;
     	   gamePanel.repaint();
     	   }
-    	   else Broke();
+    	   else bRoke();
     	   
        }
        
@@ -209,13 +214,13 @@ public class ThanosGameRunner  implements ActionListener {
     	   int y = c;
     	   System.out.println(x);
     	   System.out.println(y);
-    	   if(game.bank - 400 > 0) {
+    	   if(game.bank - 400 >= 0) {
     	   CaptainAmerica s = new CaptainAmerica(x, y);
     	   game.addAvenger(s);
     	   game.bank -= 400;
     	   gamePanel.repaint();
     	   }
-    	   else Broke();
+    	   else bRoke();
        }
        
        if(test.equals("Hawkeye")) {
@@ -223,13 +228,13 @@ public class ThanosGameRunner  implements ActionListener {
     	   int y = c;
     	   System.out.println(x);
     	   System.out.println(y);
-    	   if(game.bank - 300 > 0) {
+    	   if(game.bank - 300 >= 0) {
     	   Hawkeye s = new Hawkeye(x, y);
     	   game.addAvenger(s);
     	   game.bank -= 300;
     	   gamePanel.repaint();
     	   }
-    	   else Broke();
+    	   else bRoke();
        }
        
        if(test.equals("Hulk")) {
@@ -237,13 +242,13 @@ public class ThanosGameRunner  implements ActionListener {
     	   int y = c;
     	   System.out.println(x);
     	   System.out.println(y);
-    	   if(game.bank - 300 > 0) {
+    	   if(game.bank - 300 >= 0) {
     	   Hulk s = new Hulk(x, y);
     	   game.addAvenger(s);
     	   game.bank -= 300;
     	   gamePanel.repaint();
     	   }
-    	   else Broke();
+    	   else bRoke();
        }
        
        if(test.equals("Iron Man")) {
@@ -251,13 +256,13 @@ public class ThanosGameRunner  implements ActionListener {
     	   int y = c;
     	   System.out.println(x);
     	   System.out.println(y);
-    	   if(game.bank - 500 > 0) {
+    	   if(game.bank - 500 >= 0) {
     	   IronMan s = new IronMan(x, y);
     	   game.addAvenger(s);
     	   game.bank -= 500;
     	   gamePanel.repaint();
     	   }
-    	   else Broke();
+    	   else bRoke();
        }
        
        if(test.equals("Thor")) {
@@ -265,13 +270,13 @@ public class ThanosGameRunner  implements ActionListener {
     	   int y = c;
     	   System.out.println(x);
     	   System.out.println(y);
-    	   if(game.bank - 300 > 0) {
+    	   if(game.bank - 300 >= 0) {
     	   Thor s = new Thor(x, y);
     	   game.addAvenger(s);
     	   game.bank -= 400;
     	   gamePanel.repaint();
     	   }
-    	   else Broke();
+    	   else bRoke();
        }
     }
 	
@@ -290,8 +295,13 @@ public class ThanosGameRunner  implements ActionListener {
 	public int getTicks() {
 		return ticks;
 	}
+	private void levelUp() {
+		JOptionPane levelUp = new JOptionPane();
+		levelUp.showMessageDialog( null, "Level Up! You are now on level" + game.gameLevel + "!");
 	
-	private void Broke() {
+	}
+	
+	private void bRoke() {
 		JOptionPane bankrupt = new JOptionPane();
 		bankrupt.showMessageDialog(null, "Seems like you can't buy any more towers! There's only room for one billionare genius philantropist in here!");
 	}
@@ -305,9 +315,12 @@ public class ThanosGameRunner  implements ActionListener {
 			System.out.println(ticks/hurts+" seconds");
 		}
 		move();
-		game.generateEnemies(ticks);
+		game.generateEnemies(ticks, game.gameLevel);
 
-
+		if(ticks > ((game.gameLevel+1)*game.gameLevel/2)*2000 + 100) {
+			game.gameLevel++;
+			this.levelUp();
+		}
 
 		for(int i = 0; i < game.avengers.size(); i++) {
 			for(int e = 0; e < game.enemies.size(); e++){
@@ -324,7 +337,6 @@ public class ThanosGameRunner  implements ActionListener {
 		}
 
 		
-			game.generateEnemies(ticks);
 
 		
 	}
