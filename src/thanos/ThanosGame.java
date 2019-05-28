@@ -104,7 +104,7 @@ public class ThanosGame {
 		}
 		for(GameObject e : enemies) {
 			e.draw(g);
-			System.out.println("draw");
+			//System.out.println("draw");
 		}
 		
 		hearts.draw(g);
@@ -154,6 +154,13 @@ public class ThanosGame {
 				}
 			}
 		}
+//		
+//		for(Enemies e: enemies) {
+//			if(e.getX() > ThanosGameRunner.end.getX()) {
+//				hearts.num--;
+//				enemies.remove(e);
+//			}
+//		}
 	}
 	
 	public void addAvenger(Avengers a) {

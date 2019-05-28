@@ -129,7 +129,7 @@ public class Enemies extends GameObject {
 			currentY += yPerT;
 			if(currentX > (ThanosGameRunner.junc1.getX())) {
 				count++;
-				System.out.println("count0");
+				//System.out.println("count0");
 			}
 		}
 		if(count == 1) {
@@ -146,7 +146,7 @@ public class Enemies extends GameObject {
 			currentY += yPerT;
 			if(currentY > (ThanosGameRunner.junc2.getY())) {
 				count++;
-				System.out.println("count1");
+				//System.out.println("count1");
 			}
 
 		}
@@ -169,7 +169,7 @@ public class Enemies extends GameObject {
 			currentY += yPerT;
 			if(currentY < ThanosGameRunner.junc3.getY()) {
 				count++;
-				System.out.println("count2");
+				//System.out.println("count2");
 			}
 			//System.out.println("yee haw");
 		}
@@ -191,7 +191,7 @@ public class Enemies extends GameObject {
 			currentY += yPerT;
 			if(currentX > ThanosGameRunner.end.getX()) {
 				count++;
-				System.out.println("count3");
+				//System.out.println("count3");
 			}
 		}
 	}
