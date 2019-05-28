@@ -338,6 +338,7 @@ public void actionPerformed(ActionEvent ae) {
 						game.bank += (game.enemies.get(e).cost)/20;
 						game.enemies.remove(e);
 					}
+					break;
 				}
 			}
 
