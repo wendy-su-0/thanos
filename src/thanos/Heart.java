@@ -10,7 +10,7 @@ public class Heart {
 
 	public int num = 5;
 	private Image img;
-	public int health = num*3;
+	public int health = num*3 - 1;
 	
 	public Heart() {
 		img = getImage("heart.png");

@@ -339,7 +339,6 @@ public class ThanosGameRunner  implements ActionListener {
 		
 
 		game.checkHearts();
-
 		}
 	
 	/*

@@ -144,12 +144,9 @@ public class ThanosGame {
 
 	public void checkHearts() {
 		for(int i = 0; i< enemies.size(); i++) {
-			if(enemies.get(i).getX()>ThanosGameRunner.end.getX()) {
-				hearts.health--;
+			if((ThanosGameRunner.end.getX() - 3 <= enemies.get(i).getX()) && (enemies.get(i).getX() <= ThanosGameRunner.end.getX() + 3) ){
 				hearts.num--;
-			}
-			if(hearts.health%3==0) {
-				hearts.num--;
+	
 				enemies.remove(enemies.get(i));
 			}
 		}
