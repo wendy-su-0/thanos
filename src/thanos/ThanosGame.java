@@ -150,13 +150,13 @@ public class ThanosGame {
 
 
 
-	public void checkHearts() {
-		for(Enemies e: enemies) {
-			if(e.getX() > ThanosGameRunner.end.getX()) {
-				hearts--;
-			}
-		}
-	}
+//	public void checkHearts() {
+//		for(Enemies e: enemies) {
+//			if(e.getX() > ThanosGameRunner.end.getX()) {
+//				hearts--;
+//			}
+//		}
+//	}
 	
 	public void addAvenger(Avengers a) {
 		avengers.add(a);

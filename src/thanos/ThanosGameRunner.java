@@ -275,6 +275,7 @@ public class ThanosGameRunner  implements ActionListener {
 			System.out.println(ticks/hurts+" seconds");
 		}
 		move();
+		
 		game.generateEnemies(ticks);
 
 		if(ticks%200 ==0) {
