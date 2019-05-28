@@ -160,13 +160,6 @@ public class ThanosGame {
 		avengers.add(a);
 	}
 
-//
-//	public void checkHearts() {
-//		for(Enemies e: enemies) {
-//			if(e.getX() > ThanosGameRunner.end.getX()) {
-//				hearts--;
-//			}
-//		}
-//	}
+
 
 }
