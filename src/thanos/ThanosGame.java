@@ -105,7 +105,7 @@ public class ThanosGame {
 		}
 		for(GameObject e : enemies) {
 			e.draw(g);
-			System.out.println("draw");
+			//System.out.println("draw");
 		}
 
 		hearts.draw(g);
@@ -125,15 +125,15 @@ public class ThanosGame {
 
 
 	public void generateEnemies(int ticks, int level) {
-			if(ticks % 400/(gameLevel/2 + 1) == 0 && ticks <  gameLevel*(gameLevel+1)/2*2000) {
-				enemies.add(new Kree(15,2));
-				gos.add(new Kree (15,2));
-			}
+		if(ticks % 400/(gameLevel/2 + 1) == 0 && ticks <  gameLevel*(gameLevel+1)/2*2000) {
+			enemies.add(new Kree(15,2));
+			gos.add(new Kree (15,2));
+		}
 
-			if(ticks % 200/(gameLevel/2 + 1) == 0 && ticks <  gameLevel*(gameLevel+1)/2*2000) {
-				enemies.add(new Leviathan(2,5));
-				gos.add(new Leviathan(2,5));
-			
+		if(ticks % 200/(gameLevel/2 + 1) == 0 && ticks <  gameLevel*(gameLevel+1)/2*2000) {
+			enemies.add(new Leviathan(2,5));
+			gos.add(new Leviathan(2,5));
+
 		}
 
 	}
@@ -143,13 +143,27 @@ public class ThanosGame {
 
 
 	public void checkHearts() {
-		for(Enemies e: enemies) {
-			if(e.getX() > ThanosGameRunner.end.getX()) {
+		for(int i = 0; i< enemies.size(); i++) {
+			if(enemies.get(i).getX()>ThanosGameRunner.end.getX()) {
 				hearts.health--;
 				hearts.num--;
 			}
+			if(hearts.health%3==0) {
+				hearts.num--;
+				enemies.remove(enemies.get(i));
+			}
 		}
+
 	}
+
+	//		
+	//		for(Enemies e: enemies) {
+	//			if(e.getX() > ThanosGameRunner.end.getX()) {
+	//				hearts.num--;
+	//				enemies.remove(e);
+	//			}
+	//		}
+
 
 	public void addAvenger(Avengers a) {
 		avengers.add(a);

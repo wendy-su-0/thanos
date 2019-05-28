@@ -338,8 +338,10 @@ public class ThanosGameRunner  implements ActionListener {
 
 		
 
-		
-	}
+		game.checkHearts();
+
+		}
+	
 	/*
 	private void generateEnemies() {
 		// TODO Auto-generated method stub
