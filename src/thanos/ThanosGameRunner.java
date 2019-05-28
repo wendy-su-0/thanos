@@ -28,7 +28,7 @@ public class ThanosGameRunner  implements ActionListener {
 	private int c;
 	private Image img = getImage() ;
 	private int gameLevel=1;
-	private JButton BW,CA, HE, H, IM, T;
+	private JButton BW,CA, HE, H, IM, T, START;
 	private JOptionPane instructions;
 	//public GameLevel l = new GameLevel();
 	//Enemies s = new Enemies(10, 10, "thanos.jpg");
@@ -152,7 +152,6 @@ public class ThanosGameRunner  implements ActionListener {
 
 		});
 		//new TestDrag();
-		timer.start();
 	}
 
 	private void addButtons() {
@@ -162,6 +161,7 @@ public class ThanosGameRunner  implements ActionListener {
 		menu.add(H);
 		menu.add(IM);
 		menu.add(T);
+		menu.add(START);
 		
 	}
 
@@ -179,6 +179,9 @@ public class ThanosGameRunner  implements ActionListener {
 		IM.setFont(f);
 		T = new JButton("Thor");
 		T.setFont(f);
+		START = new JButton("Start");
+		START.setFont(f);
+		
 		
 	}
 
@@ -189,10 +192,14 @@ public class ThanosGameRunner  implements ActionListener {
 		H.addActionListener(this);
 		IM.addActionListener(this);
 		T.addActionListener(this);
+		START.addActionListener(this);
 	}
 	
     public void actionPerformed(ActionEvent ae) {
        String test = ae.getActionCommand();
+       if(test.equals("Start")) 
+    	   timer.start();
+       
        
        if(test.equals("Black Widow")) {
     	   int x = r;
@@ -320,6 +327,7 @@ public class ThanosGameRunner  implements ActionListener {
 		if(ticks > ((game.gameLevel+1)*game.gameLevel/2)*2000 + 100) {
 			game.gameLevel++;
 			this.levelUp();
+			timer.stop();
 		}
 
 		for(int i = 0; i < game.avengers.size(); i++) {
