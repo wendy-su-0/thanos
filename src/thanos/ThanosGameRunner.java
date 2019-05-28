@@ -76,13 +76,13 @@ public class ThanosGameRunner  implements ActionListener {
 		game = new ThanosGame();
 		instructions = new JOptionPane();
 		instructions.showMessageDialog(null, "To place a tower, select the location and then select the desired tower", "Instruction", JOptionPane.INFORMATION_MESSAGE);
-		
+
 		frame = new JFrame("ThanosGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
 		mainPanel = new JSplitPane();
 		createButtons();
-	
+
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
 		gamePanel = new JPanel() {
 			@Override
@@ -114,13 +114,13 @@ public class ThanosGameRunner  implements ActionListener {
 		});
 		// so that the frame isn't minimized
 		gamePanel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
-		
+
 		// so that the frame is placed a little way from top and left side
 		frame.setLocation(WIDTH/2, HEIGHT/2);
 		frame.setSize(WIDTH, HEIGHT);
 		// map the keystrokes that the panel detects to the game
 		mapKeyStrokesToActions(gamePanel);
-		
+
 		frame.getContentPane().setLayout(new GridLayout());
 		frame.getContentPane().add(mainPanel);
 		mainPanel.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
@@ -162,7 +162,7 @@ public class ThanosGameRunner  implements ActionListener {
 		menu.add(H);
 		menu.add(IM);
 		menu.add(T);
-		
+
 	}
 
 	private void createButtons() {
@@ -179,7 +179,7 @@ public class ThanosGameRunner  implements ActionListener {
 		IM.setFont(f);
 		T = new JButton("Thor");
 		T.setFont(f);
-		
+
 	}
 
 	private void giveButtonAvenger()  {
@@ -190,97 +190,97 @@ public class ThanosGameRunner  implements ActionListener {
 		IM.addActionListener(this);
 		T.addActionListener(this);
 	}
-	
-    public void actionPerformed(ActionEvent ae) {
-       String test = ae.getActionCommand();
-       
-       if(test.equals("Black Widow")) {
-    	   int x = r;
-    	   int y = c;
-    	   System.out.println(x);
-    	   System.out.println(y);
-    	   if(game.bank - 300 >= 0) {
-    	   BlackWidow s = new BlackWidow(x, y);
-    	   game.addAvenger(s);
-    	   game.bank -= 300;
-    	   gamePanel.repaint();
-    	   }
-    	   else bRoke();
-    	   
-       }
-       
-       if(test.equals("Captain America")) {
-    	   int x = r;
-    	   int y = c;
-    	   System.out.println(x);
-    	   System.out.println(y);
-    	   if(game.bank - 400 >= 0) {
-    	   CaptainAmerica s = new CaptainAmerica(x, y);
-    	   game.addAvenger(s);
-    	   game.bank -= 400;
-    	   gamePanel.repaint();
-    	   }
-    	   else bRoke();
-       }
-       
-       if(test.equals("Hawkeye")) {
-    	   int x = r;
-    	   int y = c;
-    	   System.out.println(x);
-    	   System.out.println(y);
-    	   if(game.bank - 300 >= 0) {
-    	   Hawkeye s = new Hawkeye(x, y);
-    	   game.addAvenger(s);
-    	   game.bank -= 300;
-    	   gamePanel.repaint();
-    	   }
-    	   else bRoke();
-       }
-       
-       if(test.equals("Hulk")) {
-    	   int x = r;
-    	   int y = c;
-    	   System.out.println(x);
-    	   System.out.println(y);
-    	   if(game.bank - 300 >= 0) {
-    	   Hulk s = new Hulk(x, y);
-    	   game.addAvenger(s);
-    	   game.bank -= 300;
-    	   gamePanel.repaint();
-    	   }
-    	   else bRoke();
-       }
-       
-       if(test.equals("Iron Man")) {
-    	   int x = r;
-    	   int y = c;
-    	   System.out.println(x);
-    	   System.out.println(y);
-    	   if(game.bank - 500 >= 0) {
-    	   IronMan s = new IronMan(x, y);
-    	   game.addAvenger(s);
-    	   game.bank -= 500;
-    	   gamePanel.repaint();
-    	   }
-    	   else bRoke();
-       }
-       
-       if(test.equals("Thor")) {
-    	   int x = r;
-    	   int y = c;
-    	   System.out.println(x);
-    	   System.out.println(y);
-    	   if(game.bank - 300 >= 0) {
-    	   Thor s = new Thor(x, y);
-    	   game.addAvenger(s);
-    	   game.bank -= 400;
-    	   gamePanel.repaint();
-    	   }
-    	   else bRoke();
-       }
-    }
-	
-	
+
+	public void actionPerformed(ActionEvent ae) {
+		String test = ae.getActionCommand();
+
+		if(test.equals("Black Widow")) {
+			int x = r;
+			int y = c;
+			System.out.println(x);
+			System.out.println(y);
+			if(game.bank - 300 >= 0) {
+				BlackWidow s = new BlackWidow(x, y);
+				game.addAvenger(s);
+				game.bank -= 300;
+				gamePanel.repaint();
+			}
+			else bRoke();
+
+		}
+
+		if(test.equals("Captain America")) {
+			int x = r;
+			int y = c;
+			System.out.println(x);
+			System.out.println(y);
+			if(game.bank - 400 >= 0) {
+				CaptainAmerica s = new CaptainAmerica(x, y);
+				game.addAvenger(s);
+				game.bank -= 400;
+				gamePanel.repaint();
+			}
+			else bRoke();
+		}
+
+		if(test.equals("Hawkeye")) {
+			int x = r;
+			int y = c;
+			System.out.println(x);
+			System.out.println(y);
+			if(game.bank - 300 >= 0) {
+				Hawkeye s = new Hawkeye(x, y);
+				game.addAvenger(s);
+				game.bank -= 300;
+				gamePanel.repaint();
+			}
+			else bRoke();
+		}
+
+		if(test.equals("Hulk")) {
+			int x = r;
+			int y = c;
+			System.out.println(x);
+			System.out.println(y);
+			if(game.bank - 300 >= 0) {
+				Hulk s = new Hulk(x, y);
+				game.addAvenger(s);
+				game.bank -= 300;
+				gamePanel.repaint();
+			}
+			else bRoke();
+		}
+
+		if(test.equals("Iron Man")) {
+			int x = r;
+			int y = c;
+			System.out.println(x);
+			System.out.println(y);
+			if(game.bank - 500 >= 0) {
+				IronMan s = new IronMan(x, y);
+				game.addAvenger(s);
+				game.bank -= 500;
+				gamePanel.repaint();
+			}
+			else bRoke();
+		}
+
+		if(test.equals("Thor")) {
+			int x = r;
+			int y = c;
+			System.out.println(x);
+			System.out.println(y);
+			if(game.bank - 300 >= 0) {
+				Thor s = new Thor(x, y);
+				game.addAvenger(s);
+				game.bank -= 400;
+				gamePanel.repaint();
+			}
+			else bRoke();
+		}
+	}
+
+
 	protected void clickedAt(MouseEvent me) {
 		r = me.getX();
 		c = me.getY();
@@ -298,9 +298,9 @@ public class ThanosGameRunner  implements ActionListener {
 	private void levelUp() {
 		JOptionPane levelUp = new JOptionPane();
 		levelUp.showMessageDialog( null, "Level Up! You are now on level" + game.gameLevel + "!");
-	
+
 	}
-	
+
 	private void bRoke() {
 		JOptionPane bankrupt = new JOptionPane();
 		bankrupt.showMessageDialog(null, "Seems like you can't buy any more towers! There's only room for one billionare genius philantropist in here!");
@@ -310,7 +310,7 @@ public class ThanosGameRunner  implements ActionListener {
 
 		int hurts = 1000/REFRESH_RATE;
 
-		
+
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
 		}
@@ -336,11 +336,20 @@ public class ThanosGameRunner  implements ActionListener {
 
 		}
 
-		
+
 
 		game.checkHearts();
+		if(game.checkZero()){
+			endGame();
 		}
-	
+	}
+
+	private void endGame() {
+		JOptionPane endGame = new JOptionPane();
+		endGame.showMessageDialog(null, "You are out of lives", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+		timer.stop();
+	}
+
 	/*
 	private void generateEnemies() {
 		// TODO Auto-generated method stub

@@ -154,6 +154,13 @@ public int getHearts() {
 		}
 
 	}
+	
+	public boolean checkZero() {
+		if (hearts.num == 0) {
+			return true;
+		}
+		return false;
+	}
 
 	//		
 	//		for(Enemies e: enemies) {
