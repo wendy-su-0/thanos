@@ -143,6 +143,7 @@ public class ThanosGameRunner {
 	public int getTicks() {
 		return ticks;
 	}
+	
 	protected void updateGame() {
 		ticks++;// keeps track of the number of times the timer has gone off
 
@@ -153,11 +154,7 @@ public class ThanosGameRunner {
 			System.out.println(ticks/hurts+" seconds");
 		}
 		move();
-		game.generateEnemies(ticks);
 
-		if(ticks%200 ==0) {
-			game.generateEnemies();
-		}
 
 		for(int i = 0; i < game.avengers.size(); i++) {
 			for(int e = 0; e < game.enemies.size(); e++){
@@ -165,19 +162,18 @@ public class ThanosGameRunner {
 					game.enemies.get(e).add(game.avengers.get(i));
 					game.enemies.get(e).reduceSize(game.avengers.get(i));
 					if(game.enemies.get(e).getTicks() >= 1000) {
-						game.bank += game.enemies.get(e).cost/5;
-					game.enemies.remove(e);
+						game.bank += (game.enemies.get(e).cost)/5;
+						game.enemies.remove(e);
 					}
 				}
 			}
 
 		}
 
-		if(gameLevel == 1) {
-			if(ticks%200 ==0 && ticks <= 1500 ) 
-				game.generateEnemies();
+		
+			game.generateEnemies(ticks);
 
-		}
+		
 	}
 	/*
 	private void generateEnemies() {

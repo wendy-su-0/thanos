@@ -25,7 +25,7 @@ public class ThanosGame {
 	public Hawkeye he1;
 	public Hulk h1;
 	public Enemies e1;
-	public int bank = 1000;
+	public int bank = 100000;
 	//public Enemies e2;
 	//public Enemies e3;
 	
@@ -68,14 +68,14 @@ public class ThanosGame {
 		return enemies;
 	}
 
-	private void checkDead() {
-		for (int i = 0; i < enemies.size(); i++) {
-			if(enemies.get(i)==null){
-				enemies.remove(i);
-				i--;
-			}
-		}
-	}
+//	private void checkDead() {
+//		for (int i = 0; i < enemies.size(); i++) {
+//			if(enemies.get(i)==null){
+//				enemies.remove(i);
+//				i--;
+//			}
+//		}
+//	}
 
 	//	public void build() {
 	//		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), (int)ThanosGameRunner.HEIGHT);
@@ -134,14 +134,6 @@ public class ThanosGame {
 
 	}
 	
-	public void generateEnemies() {
-		enemies.add(new Leviathan(2,5));
-		gos.add(new Leviathan(2,5));
-		bank-= enemies.get(enemies.size()-1).cost;
-		//kree speed 2
-		//thanos speed 2
-		//leviathan speed 5
-	}
 
 
 
