@@ -1,6 +1,8 @@
 package thanos;
 
+import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Point;
@@ -25,13 +27,22 @@ public class ThanosGame {
 	public Hawkeye he1;
 	public Hulk h1;
 	public Enemies e1;
-	public int bank = 100000;
+	private Heart hearts;
+	public int bank = 1000;
 	//public Enemies e2;
 	//public Enemies e3;
 	
-	private int hearts = 5;
+	//private int hearts = 5;
 	
 	public ThanosGame() {
+
+//		im1 = new IronMan(2000,300);
+//		ca1 = new CaptainAmerica(1400,400);
+//		t1 = new Thor(200, 320);
+//		bw1 = new BlackWidow(740,520);
+//		he1 = new Hawkeye(560,500);
+//		h1 = new Hulk(140,340);
+//		e1 = new Thanos(30, 2);
 
 		im1 = new IronMan(2000,300);
 		ca1 = new CaptainAmerica(1400,400);
@@ -40,24 +51,26 @@ public class ThanosGame {
 		he1 = new Hawkeye(560,500);
 		h1 = new Hulk(140,340);
 		e1 = new Thanos(30, 2);
+		hearts = new Heart();
+
 		//e2 = new Leviathan(2,4);
 		//e3 = new Kree(15,3);
 
 		//e1 = new Enemies((int)GameLevel.junc1.getX(), (int)GameLevel.junc1.getY(), 5, 5, "thanos.jpg");
 
-		gos.add(im1);
-		gos.add(ca1);
-		gos.add(t1);
-		gos.add(bw1);
-		gos.add(he1);
-		gos.add(h1);
-		gos.add(e1);
-		avengers.add(im1);
-		avengers.add(ca1);
-		avengers.add(t1);
-		avengers.add(bw1);
-		avengers.add(he1);
-		avengers.add(h1);
+//		gos.add(im1);
+//		gos.add(ca1);
+//		gos.add(t1);
+//		gos.add(bw1);
+//		gos.add(he1);
+//		gos.add(h1);
+//		gos.add(e1);
+//		avengers.add(im1);
+//		avengers.add(ca1);
+//		avengers.add(t1);
+//		avengers.add(bw1);
+//		avengers.add(he1);
+//		avengers.add(h1);
 
 		//enemies.add(e1);
 	}
@@ -91,18 +104,15 @@ public class ThanosGame {
 		}
 		for(GameObject e : enemies) {
 			e.draw(g);
-			//System.out.println("draw");
+			System.out.println("draw");
 		}
-		for (int i = 0; i < hearts; i++) {
-			Image img = null;
-			try {
-				img = ImageIO.read(this.getClass().getResource("heart.png"));
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			g.drawImage(img, (int)ThanosGameRunner.WIDTH-125 - (50*i), (int)ThanosGameRunner.HEIGHT-75, 50, 50, null);
-		}
+		
+		hearts.draw(g);
+		g.setColor(Color.WHITE);
+		Font font = new Font( "Monospaced", Font.BOLD, 50 );
+		g.setFont(font);
+		g.drawString(bank+"", (int)ThanosGameRunner.WIDTH - 300, (int)ThanosGameRunner.HEIGHT-150);
+		
 	}
 	
 
@@ -117,19 +127,16 @@ public class ThanosGame {
 		if(ticks % 400 == 0) {
 			enemies.add(new Kree(15,2));
 			gos.add(new Kree (15,2));
-			bank-= enemies.get(enemies.size()-1).cost;
 		}
 
 		if(ticks % 200 == 0) {
 			enemies.add(new Leviathan(2,5));
 			gos.add(new Leviathan(2,5));
-			bank-= enemies.get(enemies.size()-1).cost;
 		}
 
 		if (ticks == 700){
 			enemies.add(e1);
 			gos.add(e1);
-			bank-= enemies.get(enemies.size()-1).cost;
 		}
 
 	}
@@ -137,11 +144,29 @@ public class ThanosGame {
 
 
 
+
 	public void checkHearts() {
 		for(Enemies e: enemies) {
 			if(e.getX() > ThanosGameRunner.end.getX()) {
-				hearts--;
+				hearts.health--;
+				if(hearts.health%3==0) {
+				hearts.num--;
+				}
 			}
 		}
 	}
+	
+	public void addAvenger(Avengers a) {
+		avengers.add(a);
+	}
+
+//
+//	public void checkHearts() {
+//		for(Enemies e: enemies) {
+//			if(e.getX() > ThanosGameRunner.end.getX()) {
+//				hearts--;
+//			}
+//		}
+//	}
+
 }

@@ -17,8 +17,10 @@ import javax.swing.*;
 import kareltherobot.*;
 
 
-public class ThanosGameRunner {
-	private JPanel panel;
+public class ThanosGameRunner  implements ActionListener {
+	private JPanel gamePanel, menu;
+	private JFrame frame;
+	private JSplitPane mainPanel;
 	private ThanosGame game;
 	private Timer timer;
 	private int ticks;
@@ -26,6 +28,8 @@ public class ThanosGameRunner {
 	private int c;
 	private Image img = getImage() ;
 	private int gameLevel=1;
+	private JButton BW,CA, HE, H, IM, T;
+	private JOptionPane instructions;
 	//public GameLevel l = new GameLevel();
 	//Enemies s = new Enemies(10, 10, "thanos.jpg");
 
@@ -50,8 +54,7 @@ public class ThanosGameRunner {
 		});
 	}
 
-	private Image getImage(
-			) {
+	private Image getImage() {
 		try {
 
 			img = ImageIO.read(this.getClass().getResource("avenger.jpg"));
@@ -71,13 +74,17 @@ public class ThanosGameRunner {
 	private void start() {
 		build();
 		game = new ThanosGame();
-		JFrame frame = new JFrame("ThanosGame");
+		instructions = new JOptionPane();
+		instructions.showMessageDialog(null, "To place a tower, select the location and then select the desired tower", "Instruction", JOptionPane.INFORMATION_MESSAGE);
+		
+		frame = new JFrame("ThanosGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
-
-
-
-		panel = new JPanel() {
+		mainPanel = new JSplitPane();
+		createButtons();
+	
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
+		gamePanel = new JPanel() {
 			@Override
 			public void paintComponent(Graphics g) {
 				super.paintComponent(g);
@@ -86,12 +93,19 @@ public class ThanosGameRunner {
 				drawGame(g);
 			}
 		};
+		menu = new JPanel() {
+			@Override
+			public void paintComponent(Graphics g) {
+				super.paintComponent(g);
+				g.drawRect(0, 0, screenSize.width, screenSize.height);
+			}
+		};
 		// random color to the background
 
 		//game.build();
 
 		//panel.setBackground(new Color(255, 182, 193));
-		panel.addMouseListener(new MouseAdapter() {
+		gamePanel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent me) {
 				clickedAt(me);				
@@ -99,28 +113,40 @@ public class ThanosGameRunner {
 			}
 		});
 		// so that the frame isn't minimized
-		panel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
-
+		gamePanel.setPreferredSize(new Dimension(WIDTH,HEIGHT));
+		
 		// so that the frame is placed a little way from top and left side
 		frame.setLocation(WIDTH/2, HEIGHT/2);
 		frame.setSize(WIDTH, HEIGHT);
 		// map the keystrokes that the panel detects to the game
-		mapKeyStrokesToActions(panel);
-
-		frame.add(panel);
+		mapKeyStrokesToActions(gamePanel);
+		
+		frame.getContentPane().setLayout(new GridLayout());
+		frame.getContentPane().add(mainPanel);
+		mainPanel.setOrientation(JSplitPane.HORIZONTAL_SPLIT);
+		mainPanel.setDividerLocation(WIDTH/5);
+		mainPanel.setLeftComponent(menu);
+		mainPanel.setRightComponent(gamePanel);
+		menu.setLayout(new BoxLayout(menu,BoxLayout.Y_AXIS));
+		//initializes buttons
+		addButtons();
+		//sets each button to an avenger 
+		giveButtonAvenger();
+		instructions.setLocation(WIDTH/2, HEIGHT/2);
+		instructions.setVisible(true);
 		frame.pack();
 		frame.setVisible(true);
 
 		// after setting visible to true, you can get focus.  You need focus to consume
 		// the keystrokes hit by the user
-		panel.requestFocusInWindow();
+		gamePanel.requestFocusInWindow();
 
 		// this timer controls the actions in the game and then repaints after each update to data
 		timer = new Timer(REFRESH_RATE, new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				updateGame();
-				panel.repaint(); 
+				gamePanel.repaint();
 			}
 
 
@@ -129,11 +155,132 @@ public class ThanosGameRunner {
 		timer.start();
 	}
 
+	private void addButtons() {
+		menu.add(BW); 
+		menu.add(CA);
+		menu.add(HE);
+		menu.add(H);
+		menu.add(IM);
+		menu.add(T);
+		
+	}
+
+	private void createButtons() {
+		BW = new JButton("Black Widow");
+	
+		CA = new JButton("Captain America");
+		
+		HE = new JButton("Hawkeye");
+		H = new JButton("Hulk");
+		IM = new JButton("Iron Man");
+		T = new JButton("Thor");
+		
+	}
+
+	private void giveButtonAvenger()  {
+		BW.addActionListener(this);
+		CA.addActionListener(this);
+		HE.addActionListener(this);
+		H.addActionListener(this);
+		IM.addActionListener(this);
+		T.addActionListener(this);
+	}
+	
+    public void actionPerformed(ActionEvent ae) {
+       String test = ae.getActionCommand();
+       
+       if(test.equals("Black Widow")) {
+    	   int x = r;
+    	   int y = c;
+    	   System.out.println(x);
+    	   System.out.println(y);
+    	   if(game.bank - 300 > 0) {
+    	   BlackWidow s = new BlackWidow(x, y);
+    	   game.addAvenger(s);
+    	   game.bank -= 300;
+    	   gamePanel.repaint();
+    	   }
+    	   else Broke();
+    	   
+       }
+       
+       if(test.equals("Captain America")) {
+    	   int x = r;
+    	   int y = c;
+    	   System.out.println(x);
+    	   System.out.println(y);
+    	   if(game.bank - 400 > 0) {
+    	   CaptainAmerica s = new CaptainAmerica(x, y);
+    	   game.addAvenger(s);
+    	   game.bank -= 400;
+    	   gamePanel.repaint();
+    	   }
+    	   else Broke();
+       }
+       
+       if(test.equals("Hawkeye")) {
+    	   int x = r;
+    	   int y = c;
+    	   System.out.println(x);
+    	   System.out.println(y);
+    	   if(game.bank - 300 > 0) {
+    	   Hawkeye s = new Hawkeye(x, y);
+    	   game.addAvenger(s);
+    	   game.bank -= 300;
+    	   gamePanel.repaint();
+    	   }
+    	   else Broke();
+       }
+       
+       if(test.equals("Hulk")) {
+    	   int x = r;
+    	   int y = c;
+    	   System.out.println(x);
+    	   System.out.println(y);
+    	   if(game.bank - 300 > 0) {
+    	   Hulk s = new Hulk(x, y);
+    	   game.addAvenger(s);
+    	   game.bank -= 300;
+    	   gamePanel.repaint();
+    	   }
+    	   else Broke();
+       }
+       
+       if(test.equals("Iron Man")) {
+    	   int x = r;
+    	   int y = c;
+    	   System.out.println(x);
+    	   System.out.println(y);
+    	   if(game.bank - 500 > 0) {
+    	   IronMan s = new IronMan(x, y);
+    	   game.addAvenger(s);
+    	   game.bank -= 500;
+    	   gamePanel.repaint();
+    	   }
+    	   else Broke();
+       }
+       
+       if(test.equals("Thor")) {
+    	   int x = r;
+    	   int y = c;
+    	   System.out.println(x);
+    	   System.out.println(y);
+    	   if(game.bank - 300 > 0) {
+    	   Thor s = new Thor(x, y);
+    	   game.addAvenger(s);
+    	   game.bank -= 400;
+    	   gamePanel.repaint();
+    	   }
+    	   else Broke();
+       }
+    }
+	
+	
 	protected void clickedAt(MouseEvent me) {
 		r = me.getX();
 		c = me.getY();
 		System.out.print(me);
-		panel.repaint();
+		gamePanel.repaint();
 
 
 	}
@@ -144,16 +291,22 @@ public class ThanosGameRunner {
 		return ticks;
 	}
 	
+	private void Broke() {
+		JOptionPane bankrupt = new JOptionPane();
+		bankrupt.showMessageDialog(null, "Seems like you can't buy any more towers! There's only room for one billionare genius philantropist in here!");
+	}
 	protected void updateGame() {
 		ticks++;// keeps track of the number of times the timer has gone off
 
 		int hurts = 1000/REFRESH_RATE;
 
-
+		
 		if(ticks %hurts == 0) {
 			System.out.println(ticks/hurts+" seconds");
 		}
 		move();
+		game.generateEnemies(ticks);
+
 
 
 		for(int i = 0; i < game.avengers.size(); i++) {
@@ -222,7 +375,7 @@ public class ThanosGameRunner {
 	public  void hit(String s) {
 		//	game.keyHit(s);
 
-		panel.repaint();
+		gamePanel.repaint();
 	}
 	protected void drawGame(Graphics g) {
 		//g.drawLine(130, 500, r, c);
@@ -240,8 +393,8 @@ public class ThanosGameRunner {
 		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), (int) ThanosGameRunner.HEIGHT);
 		junc1 = new Point((int) (.639*ThanosGameRunner.WIDTH), (int) (.278*ThanosGameRunner.HEIGHT));
 		junc2 = new Point((int) (.597*ThanosGameRunner.WIDTH), (int) (.722*ThanosGameRunner.HEIGHT));
-		junc3 = new Point((int) (.231*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
-		end = new Point((int) (.907*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
+		junc3 = new Point((int) (.225*ThanosGameRunner.WIDTH), (int) (.450*ThanosGameRunner.HEIGHT));
+		end = new Point((int) (.907*ThanosGameRunner.WIDTH), (int) (.450*ThanosGameRunner.HEIGHT));
 	}
 
 	private void move() {
@@ -258,6 +411,8 @@ public class ThanosGameRunner {
 		//			//}
 		//		}
 	}
+
+	
 
 
 
