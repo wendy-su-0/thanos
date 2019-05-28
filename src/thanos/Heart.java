@@ -8,7 +8,7 @@ import javax.imageio.ImageIO;
 
 public class Heart {
 
-	private int num = 5;
+	public int num = 5;
 	private Image img;
 	
 	public Heart() {
@@ -30,4 +30,13 @@ public class Heart {
 			g.drawImage(img, (int)ThanosGameRunner.WIDTH-240-(50*i), (int)ThanosGameRunner.HEIGHT-75, 50, 50, null);
 		}
 	}
+	
+
+//	public void checkHearts() {
+//		for() {
+//			if(e.getX() > ThanosGameRunner.end.getX()) {
+//				num--;
+//			}
+//		}
+//	}
 }
