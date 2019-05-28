@@ -425,8 +425,6 @@ public class ThanosGameRunner  implements ActionListener {
 		//		}
 	}
 
-	
-
 
 
 }

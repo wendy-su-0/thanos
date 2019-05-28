@@ -138,7 +138,9 @@ public class ThanosGame {
 
 	}
 
-
+public int getHearts() {
+	return hearts.num;
+}
 
 
 
