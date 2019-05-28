@@ -31,12 +31,4 @@ public class Heart {
 		}
 	}
 	
-
-//	public void checkHearts() {
-//		for() {
-//			if(e.getX() > ThanosGameRunner.end.getX()) {
-//				num--;
-//			}
-//		}
-//	}
 }
