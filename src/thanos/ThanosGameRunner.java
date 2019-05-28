@@ -120,7 +120,7 @@ public class ThanosGameRunner {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				updateGame();
-				panel.repaint();
+				panel.repaint(); 
 			}
 
 
