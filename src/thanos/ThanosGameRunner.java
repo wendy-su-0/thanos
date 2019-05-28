@@ -75,7 +75,7 @@ public class ThanosGameRunner  implements ActionListener {
 		build();
 		game = new ThanosGame();
 		instructions = new JOptionPane();
-		instructions.showMessageDialog(null, "To place a tower, select the location and then select the desired tower", "Instructions", JOptionPane.INFORMATION_MESSAGE);
+		instructions.showMessageDialog(null, "To place a tower, select the location and then select the desired tower", "Instruction", JOptionPane.INFORMATION_MESSAGE);
 		
 		frame = new JFrame("ThanosGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

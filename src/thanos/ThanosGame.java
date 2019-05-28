@@ -25,11 +25,12 @@ public class ThanosGame {
 	public Hawkeye he1;
 	public Hulk h1;
 	public Enemies e1;
+	private Heart hearts;
 	public int bank = 1000;
 	//public Enemies e2;
 	//public Enemies e3;
 	
-	private int hearts = 5;
+	//private int hearts = 5;
 	
 	public ThanosGame() {
 
@@ -40,6 +41,16 @@ public class ThanosGame {
 //		he1 = new Hawkeye(560,500);
 //		h1 = new Hulk(140,340);
 //		e1 = new Thanos(30, 2);
+
+		im1 = new IronMan(2000,300);
+		ca1 = new CaptainAmerica(1400,400);
+		t1 = new Thor(200, 320);
+		bw1 = new BlackWidow(740,520);
+		he1 = new Hawkeye(560,500);
+		h1 = new Hulk(140,340);
+		e1 = new Thanos(30, 2);
+		hearts = new Heart();
+
 		//e2 = new Leviathan(2,4);
 		//e3 = new Kree(15,3);
 
@@ -91,18 +102,11 @@ public class ThanosGame {
 		}
 		for(GameObject e : enemies) {
 			e.draw(g);
-			//System.out.println("draw");
+			System.out.println("draw");
 		}
-		for (int i = 0; i < hearts; i++) {
-			Image img = null;
-			try {
-				img = ImageIO.read(this.getClass().getResource("heart.png"));
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			g.drawImage(img, (int)ThanosGameRunner.WIDTH-125 - (50*i), (int)ThanosGameRunner.HEIGHT-75, 50, 50, null);
-		}
+		
+		hearts.draw(g);
+		
 	}
 	
 
@@ -145,6 +149,7 @@ public class ThanosGame {
 
 
 
+
 	public void checkHearts() {
 		for(Enemies e: enemies) {
 			if(e.getX() > ThanosGameRunner.end.getX()) {
@@ -156,4 +161,14 @@ public class ThanosGame {
 	public void addAvenger(Avengers a) {
 		avengers.add(a);
 	}
+
+//
+//	public void checkHearts() {
+//		for(Enemies e: enemies) {
+//			if(e.getX() > ThanosGameRunner.end.getX()) {
+//				hearts--;
+//			}
+//		}
+//	}
+
 }
