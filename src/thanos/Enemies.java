@@ -216,7 +216,7 @@ public class Enemies extends GameObject {
 	public void reduceSize(Avengers a) {
 		iSize++;
 		if(iSize == a.getV()*2) {
-		size-=5;
+		size-=3;
 		iSize = 0;
 		}
 		if(size<=0)

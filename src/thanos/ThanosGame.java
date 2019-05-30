@@ -29,7 +29,7 @@ public class ThanosGame {
 	public Enemies e1;
 	private Heart hearts;
 	public int gameLevel = 1;
-	public int bank = 800;
+	public int bank = 1500;
 	//public Enemies e2;
 	//public Enemies e3;
 

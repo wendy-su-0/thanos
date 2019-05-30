@@ -334,8 +334,8 @@ public void actionPerformed(ActionEvent ae) {
 				if(game.avengers.get(i).isInCirc(game.enemies.get(e))) {
 					game.enemies.get(e).add(game.avengers.get(i));
 					game.enemies.get(e).reduceSize(game.avengers.get(i));
-					if(game.enemies.get(e).getTicks() >= 1000) {
-						game.bank += (game.enemies.get(e).cost)/20;
+					if(game.enemies.get(e).getTicks() >= 500) {
+						game.bank += (game.enemies.get(e).cost)/10;
 						game.enemies.remove(e);
 					}
 					break;
