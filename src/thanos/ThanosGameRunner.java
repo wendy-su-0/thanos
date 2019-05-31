@@ -13,6 +13,7 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
 
 import kareltherobot.*;
 
@@ -27,6 +28,10 @@ public class ThanosGameRunner  implements ActionListener {
 	private int r;
 	private int c;
 	private Image img = getImage() ;
+	private Image icon1 = getIcon1();
+	private Image icon2 = getIcon2();
+	private Image icon3 = getIcon3();
+	private Image icon4 = getIcon4();
 	private int gameLevel=1;
 	private JButton BW,CA, HE, H, IM, T, START;
 	private JOptionPane instructions;
@@ -54,6 +59,55 @@ public class ThanosGameRunner  implements ActionListener {
 		});
 	}
 
+	private Image getIcon4() {
+		try {
+
+			icon4 = ImageIO.read(this.getClass().getResource("endgame2.jpg"));
+			
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return icon4;
+	}
+
+	private Image getIcon3() {
+		try {
+
+			icon3 = ImageIO.read(this.getClass().getResource("happytony.jpg"));
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return icon3;
+	}
+
+	private Image getIcon2() {
+		try {
+
+			icon2 = ImageIO.read(this.getClass().getResource("sadthor.png"));
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return icon2;
+	}
+
+	private Image getIcon1() {
+		try {
+
+			icon1 = ImageIO.read(this.getClass().getResource("thanos.jpg"));
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return icon1;
+	}
+
 	private Image getImage() {
 		try {
 
@@ -73,9 +127,19 @@ public class ThanosGameRunner  implements ActionListener {
 
 	private void start() {
 		build();
+		Font f = new Font("Helvetica Neue", Font.PLAIN, 20);
 		game = new ThanosGame();
 		instructions = new JOptionPane();
-		instructions.showMessageDialog(null, "To place a tower, select the location and then select the desired tower", "Instruction", JOptionPane.INFORMATION_MESSAGE);
+		instructions.setFont(f);
+		ImageIcon icon = new ImageIcon(icon1);
+		UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+		          "Veranda", Font.BOLD, 18)));   
+		JOptionPane.showMessageDialog(
+				null,
+				"To place a tower, select the location and then select the desired tower",
+				"Instructions",
+				JOptionPane.INFORMATION_MESSAGE,
+				icon);
 
 		frame = new JFrame("ThanosGame");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -166,23 +230,38 @@ public class ThanosGameRunner  implements ActionListener {
 	}
 
 	private void createButtons() {
-		Font f = new Font("SansSerif", Font.BOLD, 18);
-		BW = new JButton("Black Widow");
+		Font f = new Font("Helvetica Nue", Font.BOLD, 16);
+		BW = new JButton();
+		BW.setSize(50,50);
 		BW.setFont(f);
-		CA = new JButton("Captain America");
-		CA.setFont(f);
-		HE = new JButton("Hawkeye");
+		BW.setText("Black Widow 300");
+		BW.setForeground(Color.black);
+		CA = new JButton();
+		CA.setFont(f);;
+		CA.setText("Cap America 400");
+		CA.setForeground(Color.RED);
+		HE = new JButton();
+		HE.setText("Hawkeye 300");
+		HE.setForeground(Color.blue);
 		HE.setFont(f);
-		H = new JButton("Hulk");
+		H = new JButton();
+		H.setText("Hulk 300");
+		H.setForeground(Color.GREEN);
 		H.setFont(f);
-		IM = new JButton("Iron Man");
+		IM = new JButton();
+		IM.setText("Iron Man 500");
+		IM.setForeground(Color.YELLOW);
 		IM.setFont(f);
-		T = new JButton("Thor");
+		T = new JButton();
+		T.setText("Thor 400");
+		T.setForeground(Color.GRAY);
 		T.setFont(f);
 		START = new JButton("Start");
 		START.setFont(f);
 
 	}
+
+	
 
 	private void giveButtonAvenger()  {
 		BW.addActionListener(this);
@@ -199,7 +278,7 @@ public void actionPerformed(ActionEvent ae) {
  	   timer.start();
     
     
-    if(test.equals("Black Widow")) {
+    if(test.equals("Black Widow 300")) {
  	   int x = r;
  	   int y = c;
  	   System.out.println(x);
@@ -214,7 +293,7 @@ public void actionPerformed(ActionEvent ae) {
  	   
     }
     
-    if(test.equals("Captain America")) {
+    if(test.equals("Cap America 400")) {
  	   int x = r;
  	   int y = c;
  	   System.out.println(x);
@@ -228,7 +307,7 @@ public void actionPerformed(ActionEvent ae) {
  	   else bRoke();
     }
     
-    if(test.equals("Hawkeye")) {
+    if(test.equals("Hawkeye 300")) {
  	   int x = r;
  	   int y = c;
  	   System.out.println(x);
@@ -242,7 +321,7 @@ public void actionPerformed(ActionEvent ae) {
  	   else bRoke();
     }
     
-    if(test.equals("Hulk")) {
+    if(test.equals("Hulk 300")) {
  	   int x = r;
  	   int y = c;
  	   System.out.println(x);
@@ -256,7 +335,7 @@ public void actionPerformed(ActionEvent ae) {
  	   else bRoke();
     }
     
-    if(test.equals("Iron Man")) {
+    if(test.equals("Iron Man 500")) {
  	   int x = r;
  	   int y = c;
  	   System.out.println(x);
@@ -270,7 +349,7 @@ public void actionPerformed(ActionEvent ae) {
  	   else bRoke();
     }
     
-    if(test.equals("Thor")) {
+    if(test.equals("Thor 400")) {
  	   int x = r;
  	   int y = c;
  	   System.out.println(x);
@@ -303,13 +382,34 @@ public void actionPerformed(ActionEvent ae) {
 	}
 	private void levelUp() {
 		JOptionPane levelUp = new JOptionPane();
-		levelUp.showMessageDialog( null, "Level Up! You are now on level" + game.gameLevel + "!");
+		ImageIcon icon = new ImageIcon(icon3);
+		levelUp.showMessageDialog(
+				null,
+				"Level Up! You are now on level " + game.gameLevel + "!",
+				"Level up",
+				JOptionPane.INFORMATION_MESSAGE,
+				icon);
+		/*levelUp.showMessageDialog(
+				null,
+				"Level Up! You are now on level" + game.gameLevel + "!");*/
 
 	}
 
 	private void bRoke() {
 		JOptionPane bankrupt = new JOptionPane();
-		bankrupt.showMessageDialog(null, "Seems like you can't buy any more towers! There's only room for one billionare genius philantropist in here!");
+		ImageIcon icon = new ImageIcon(icon2);
+		UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+		          "Veranda", Font.BOLD, 16)));   
+		bankrupt.showMessageDialog(
+				null,
+				"Seems like you can't buy any more towers! There's only room for one billionare genius philantropist in here!",
+				"Bankrupt",
+				JOptionPane.INFORMATION_MESSAGE,
+				icon);
+		
+		/*bankrupt.showMessageDialog(
+				null,
+				"Seems like you can't buy any more towers! There's only room for one billionare genius philantropist in here!");*/
 	}
 	protected void updateGame() {
 		ticks++;// keeps track of the number of times the timer has gone off
@@ -354,7 +454,21 @@ public void actionPerformed(ActionEvent ae) {
 
 	private void endGame() {
 		JOptionPane endGame = new JOptionPane();
-		endGame.showMessageDialog(null, "You are out of lives", "Game Over", JOptionPane.INFORMATION_MESSAGE);
+		ImageIcon icon = new ImageIcon(icon4);
+		UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
+		          "Veranda", Font.BOLD, 16)));   
+		endGame.showMessageDialog(
+				null,
+				"You are out of lives",
+				"Game Over",
+				JOptionPane.INFORMATION_MESSAGE,
+				icon);
+		
+		/*endGame.showMessageDialog(
+				null,
+				"You are out of lives",
+				"Game Over",
+				JOptionPane.INFORMATION_MESSAGE);*/
 		timer.stop();
 	}
 
