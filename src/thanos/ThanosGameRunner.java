@@ -354,7 +354,7 @@ public void actionPerformed(ActionEvent ae) {
  	   int y = c;
  	   System.out.println(x);
  	   System.out.println(y);
- 	   if(game.bank - 300 >= 0) {
+ 	   if(game.bank - 400 >= 0) {
  	   Thor s = new Thor(x, y);
  	   game.addAvenger(s);
  	   game.bank -= 400;
