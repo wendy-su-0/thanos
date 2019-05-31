@@ -459,7 +459,7 @@ public void actionPerformed(ActionEvent ae) {
 		          "Veranda", Font.BOLD, 16)));   
 		endGame.showMessageDialog(
 				null,
-				"You are out of lives",
+				"You are out of lives. Start over!",
 				"Game Over",
 				JOptionPane.INFORMATION_MESSAGE,
 				icon);
@@ -470,6 +470,7 @@ public void actionPerformed(ActionEvent ae) {
 				"Game Over",
 				JOptionPane.INFORMATION_MESSAGE);*/
 		timer.stop();
+		this.start();
 	}
 
 	/*
@@ -524,11 +525,11 @@ public void actionPerformed(ActionEvent ae) {
 	protected void drawGame(Graphics g) {
 		//g.drawLine(130, 500, r, c);
 		game.draw(g);
-		g.drawLine((int)(st.getX()),(int) (st.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
-		g.drawLine((int)(junc2.getX()),(int) (junc2.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
-		g.drawLine((int)(junc2.getX()),(int) (junc2.getY()), (int) (junc3.getX()),(int) (junc3.getY()));
-		g.drawLine((int)(end.getX()), (int)end.getY(), (int)(junc3.getX()), (int)(junc3.getY()));
-		//l.draw(g);
+//		g.drawLine((int)(st.getX()),(int) (st.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
+//		g.drawLine((int)(junc2.getX()),(int) (junc2.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
+//		g.drawLine((int)(junc2.getX()),(int) (junc2.getY()), (int) (junc3.getX()),(int) (junc3.getY()));
+//		g.drawLine((int)(end.getX()), (int)end.getY(), (int)(junc3.getX()), (int)(junc3.getY()));
+//		//l.draw(g);
 		//s.draw(g);
 		//game.draw(g);
 	}

@@ -112,7 +112,7 @@ public class ThanosGame {
 		g.setColor(Color.WHITE);
 		Font font = new Font( "SansSerif", Font.BOLD, 50 );
 		g.setFont(font);
-		g.drawString(bank+"", (int)ThanosGameRunner.WIDTH - 300, (int)ThanosGameRunner.HEIGHT-150);
+		g.drawString(bank+"", (int)ThanosGameRunner.WIDTH - 324, (int)ThanosGameRunner.HEIGHT-150);
 
 	}
 
@@ -142,7 +142,9 @@ public int getHearts() {
 	return hearts.num;
 }
 
-
+public void setHearts(int i) {
+	hearts.num = i;
+}
 
 	public void checkHearts() {
 		for(int i = 0; i< enemies.size(); i++) {
