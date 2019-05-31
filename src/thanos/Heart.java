@@ -27,7 +27,7 @@ public class Heart {
 	
 	public void draw(Graphics g) {
 		for(int i = 0; i<num; i++) {
-			g.drawImage(img, (int)ThanosGameRunner.WIDTH-300-(50*i), (int)ThanosGameRunner.HEIGHT-75, 50, 50, null);
+			g.drawImage(img, (int)ThanosGameRunner.WIDTH-270-(50*i), (int)ThanosGameRunner.HEIGHT-100, 50, 50, null);
 		}
 	}
 	public int getNum() {
