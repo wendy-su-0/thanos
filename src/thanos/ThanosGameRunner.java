@@ -14,6 +14,9 @@ import java.io.InputStream;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 import javafx.scene.media.Media;
@@ -139,6 +142,7 @@ public class ThanosGameRunner  implements ActionListener {
 		instructions = new JOptionPane();
 		instructions.setFont(f);
 		ImageIcon icon = new ImageIcon(icon1);
+
 		
 		 try{
 		      AudioInputStream audioInputStream =AudioSystem.getAudioInputStream(this.getClass().getResource("avengermusic.wav"));
@@ -149,6 +153,16 @@ public class ThanosGameRunner  implements ActionListener {
 		   catch(Exception ex)
 		   {  }
 		 
+
+		try{
+		      AudioInputStream audioInputStream =AudioSystem.getAudioInputStream(this.getClass().getResource("avengermusic.wav"));
+		     Clip clip = AudioSystem.getClip();
+		     clip.open(audioInputStream);
+		     clip.start( );
+		    }
+		   catch(Exception ex)
+		   {  }
+
 		UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
 		          "Veranda", Font.BOLD, 18)));   
 		JOptionPane.showMessageDialog(
@@ -372,7 +386,7 @@ public void actionPerformed(ActionEvent ae) {
  	   int y = c;
  	   System.out.println(x);
  	   System.out.println(y);
- 	   if(game.bank - 300 >= 0) {
+ 	   if(game.bank - 400 >= 0) {
  	   Thor s = new Thor(x, y);
  	   game.addAvenger(s);
  	   game.bank -= 400;
@@ -415,10 +429,6 @@ public void actionPerformed(ActionEvent ae) {
 				"Level up",
 				JOptionPane.INFORMATION_MESSAGE,
 				icon);
-		/*levelUp.showMessageDialog(
-				null,
-				"Level Up! You are now on level" + game.gameLevel + "!");*/
-
 	}
 
 	private void bRoke() {
@@ -433,9 +443,7 @@ public void actionPerformed(ActionEvent ae) {
 				JOptionPane.INFORMATION_MESSAGE,
 				icon);
 		
-		/*bankrupt.showMessageDialog(
-				null,
-				"Seems like you can't buy any more towers! There's only room for one billionare genius philantropist in here!");*/
+	
 	}
 	protected void updateGame() {
 		ticks++;// keeps track of the number of times the timer has gone off
@@ -485,42 +493,24 @@ public void actionPerformed(ActionEvent ae) {
 		          "Veranda", Font.BOLD, 16)));   
 		endGame.showMessageDialog(
 				null,
-				"You are out of lives",
+				"You are out of lives. Start over!",
 				"Game Over",
 				JOptionPane.INFORMATION_MESSAGE,
 				icon);
-		
-		/*endGame.showMessageDialog(
-				null,
-				"You are out of lives",
-				"Game Over",
-				JOptionPane.INFORMATION_MESSAGE);*/
+	
 		timer.stop();
-		
+
+		this.start();
+
 	}
 
-	/*
-	private void generateEnemies() {
-		// TODO Auto-generated method stub
-		//		if (ticks > 100){
-		//			game.enemies.add(new Enemies(5,2,"thanos.jpg"));
-		//			game.returnEnemies();
-		//		}
-	}
-	 */
 	private void mapKeyStrokesToActions(JPanel panel) {
 
-		// A map is an Data storage interface which defines
-		// an association of a key with a value
-		// to "add" to a map you use the "put" method
-		// to "get" from a map you use "get(key)" and the 
-		// value associated with the key is returned (or null)
+	
 		ActionMap map = panel.getActionMap();
 		InputMap inMap = panel.getInputMap();
 
-		// code below associates pressing the up arrow with the command "up"
-		// essentially creating the command "up" being broadcast any time the 
-		// up key is hit
+		
 		inMap.put(KeyStroke.getKeyStroke("pressed UP"), "up");
 		inMap.put(KeyStroke.getKeyStroke("pressed W"), "up");
 		// code below associates the "up" action with anything in the 
@@ -549,15 +539,7 @@ public void actionPerformed(ActionEvent ae) {
 		gamePanel.repaint();
 	}
 	protected void drawGame(Graphics g) {
-		//g.drawLine(130, 500, r, c);
 		game.draw(g);
-		g.drawLine((int)(st.getX()),(int) (st.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
-		g.drawLine((int)(junc2.getX()),(int) (junc2.getY()), (int) (junc1.getX()),(int) (junc1.getY()));
-		g.drawLine((int)(junc2.getX()),(int) (junc2.getY()), (int) (junc3.getX()),(int) (junc3.getY()));
-		g.drawLine((int)(end.getX()), (int)end.getY(), (int)(junc3.getX()), (int)(junc3.getY()));
-		//l.draw(g);
-		//s.draw(g);
-		//game.draw(g);
 	}
 
 	public void build() {
@@ -574,13 +556,7 @@ public void actionPerformed(ActionEvent ae) {
 			e.move(e.getMoveX(), e.getMoveY());
 			//System.out.println("ee");
 		}
-		//move goes in the go class
-		//		for(Avengers a : game.avengers) {
-		//			//l.firedProjectiles;
-		//			//for(Projectile p : a.getFired()) {
-		//			//	(p).move(0, 0) ;
-		//			//}
-		//		}
+
 	}
 
 
