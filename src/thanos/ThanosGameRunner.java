@@ -8,12 +8,19 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 import kareltherobot.*;
 
@@ -132,6 +139,16 @@ public class ThanosGameRunner  implements ActionListener {
 		instructions = new JOptionPane();
 		instructions.setFont(f);
 		ImageIcon icon = new ImageIcon(icon1);
+		
+		 try{
+		      AudioInputStream audioInputStream =AudioSystem.getAudioInputStream(this.getClass().getResource("avengermusic.wav"));
+		     Clip clip = AudioSystem.getClip();
+		     clip.open(audioInputStream);
+		     clip.start( );
+		    }
+		   catch(Exception ex)
+		   {  }
+		 
 		UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
 		          "Veranda", Font.BOLD, 18)));   
 		JOptionPane.showMessageDialog(
@@ -217,6 +234,7 @@ public class ThanosGameRunner  implements ActionListener {
 		});
 		//new TestDrag();
 	}
+
 
 	private void addButtons() {
 		menu.add(BW); 
@@ -383,6 +401,14 @@ public void actionPerformed(ActionEvent ae) {
 	private void levelUp() {
 		JOptionPane levelUp = new JOptionPane();
 		ImageIcon icon = new ImageIcon(icon3);
+		 try{
+		      AudioInputStream audioInputStream =AudioSystem.getAudioInputStream(this.getClass().getResource("levelup.wav"));
+		     Clip clip = AudioSystem.getClip();
+		     clip.open(audioInputStream);
+		     clip.start( );
+		    }
+		   catch(Exception ex)
+		   {  }
 		levelUp.showMessageDialog(
 				null,
 				"Level Up! You are now on level " + game.gameLevel + "!",
@@ -470,6 +496,7 @@ public void actionPerformed(ActionEvent ae) {
 				"Game Over",
 				JOptionPane.INFORMATION_MESSAGE);*/
 		timer.stop();
+		
 	}
 
 	/*
