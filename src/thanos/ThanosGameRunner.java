@@ -28,7 +28,7 @@ public class ThanosGameRunner  implements ActionListener {
 	private int r;
 	private int c;
 	private Image img = getImage() ;
-	private Image icon1 = getIcon();
+	private Image icon1 = getIcon1();
 	private Image icon2 = getIcon2();
 	private Image icon3 = getIcon3();
 	private Image icon4 = getIcon4();
@@ -96,7 +96,7 @@ public class ThanosGameRunner  implements ActionListener {
 		return icon2;
 	}
 
-	private Image getIcon() {
+	private Image getIcon1() {
 		try {
 
 			icon1 = ImageIO.read(this.getClass().getResource("thanos.jpg"));
