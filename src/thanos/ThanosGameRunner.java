@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 
@@ -132,6 +135,14 @@ public class ThanosGameRunner  implements ActionListener {
 		instructions = new JOptionPane();
 		instructions.setFont(f);
 		ImageIcon icon = new ImageIcon(icon1);
+		try{
+		      AudioInputStream audioInputStream =AudioSystem.getAudioInputStream(this.getClass().getResource("avengermusic.wav"));
+		     Clip clip = AudioSystem.getClip();
+		     clip.open(audioInputStream);
+		     clip.start( );
+		    }
+		   catch(Exception ex)
+		   {  }
 		UIManager.put("OptionPane.messageFont", new FontUIResource(new Font(  
 		          "Veranda", Font.BOLD, 18)));   
 		JOptionPane.showMessageDialog(
