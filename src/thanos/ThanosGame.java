@@ -82,23 +82,7 @@ public class ThanosGame {
 		return enemies;
 	}
 
-	//	private void checkDead() {
-	//		for (int i = 0; i < enemies.size(); i++) {
-	//			if(enemies.get(i)==null){
-	//				enemies.remove(i);
-	//				i--;
-	//			}
-	//		}
-	//	}
-
-	//	public void build() {
-	//		st = new Point((int) (0.16*ThanosGameRunner.WIDTH), (int)ThanosGameRunner.HEIGHT);
-	//		junc1 = new Point((int) (.639*ThanosGameRunner.WIDTH), (int) (.278*ThanosGameRunner.HEIGHT));
-	//		junc2 = new Point((int) (.597*ThanosGameRunner.WIDTH), (int) (.722*ThanosGameRunner.HEIGHT));
-	//		junc3 = new Point((int) (.231*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
-	//		end = new Point((int) (.907*ThanosGameRunner.WIDTH), (int) (.472*ThanosGameRunner.HEIGHT));
-	//	}
-
+	
 	public void draw(Graphics g) {
 		for(GameObject o: avengers) {
 			o.draw(g);
